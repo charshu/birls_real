@@ -1,0 +1,24 @@
+#logo-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    z-index: 1000;
+    .top-logo {
+        position: relative;
+        width: 230px;
+        height: 150px;
+        background-image: url('./../../resources/svg/logo.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        fill: hotpink;
+    }
+}
+
+section {
+    position: relative;
+    background-color: white;
+    z-index: 999;
+}

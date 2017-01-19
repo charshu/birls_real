@@ -1,0 +1,67 @@
+.card {
+        width: 300px;
+        height: auto;
+        margin: 30px 30px 10px 30px;
+        padding: 15px 15px 15px 15px;
+        // border: 1px solid lightgrey;
+        
+        // box-shadow: 5px 5px lighten(grey, 45);
+        // border-radius: 2px;
+        a{
+            text-decoration: none;
+                .card-img{
+                    margin-bottom: 15px;
+                // height: 300px;
+                    width: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    transition: all .1s ease-in-out;
+                    &.hover{
+                        transform: scale(1.05);
+                    }
+                }
+                
+                .card-title {
+                    //font-family: 'Lato', sans-serif;
+                    font-size: 2.00em;
+                    font-weight: 700;
+                    //line-height: 1.40em;
+                    text-decoration: none;
+                    background-size: 200% 100%;
+                    background-image: -webkit-linear-gradient(to left, #e7adff 0%, #bad7ff 8%, #b2ffe6 16%, #edffb2 24%, #ffe6b2 32%, #ffd6e2 40%, #ffffff 50%, #ffffff 100%);
+                    background-image: -o-linear-gradient(to left, #e7adff 0%, #bad7ff 8%, #b2ffe6 16%, #edffb2 24%, #ffe6b2 32%, #ffd6e2 40%, #ffffff 50%, #ffffff 100%);
+                    background-image: linear-gradient(to left, #e7adff 0%, #bad7ff 8%, #b2ffe6 16%, #edffb2 24%, #ffe6b2 32%, #ffd6e2 40%, #ffffff 50%, #ffffff 100%);
+                    transition: background-position 0.3s;
+                    color: lighten(black, 20);
+
+                    
+                    &.hover {
+                        // color: hotpink;
+                        background-position: -100% 0;
+                    }
+               
+                }
+                .card-category{
+                    color:lightgrey;
+                    font-weight: 600;
+                    //margin-top: 3px;
+                }
+                .card-desc{
+                    
+                    color:black;
+                }
+                .more{
+                    color:gray;
+                    font-weight: bold;
+                    &.hover{
+                        color:hotpink;
+                    }
+                }
+        
+            
+            
+        }
+        
+    }
+    

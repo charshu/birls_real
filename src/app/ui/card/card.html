@@ -1,0 +1,23 @@
+<div *ngIf="document">
+  
+<article class="card" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
+    <a [routerLink]="[linkResolver(document)]">
+      <div [ngClass]="{'card-img':true,'hover':isHover}" [ngStyle]="{'background-image':'url(' + imageUrl + ')','height':imageHeight+'px'}"></div>
+      
+      <span [ngClass]="{'card-title':true,'hover':isHover}" >{{titleText}}</span>
+      <div class="card-category">{{capitalizeFirstLetter(category)}}</div>
+      <div class="card-desc">{{desc}} <span [ngClass]="{'more':true,'hover':isHover}" *ngIf="isMore">  — read more</span></div>
+      
+    </a>
+    
+ </article>
+
+  
+  <!--<div class="document-body" [innerHtml]=document.asHtml(linkResolver)></div>-->
+
+
+
+</div>
+<div *ngIf="loaded && !document">
+  <h2>Not found!</h2>
+</div>
