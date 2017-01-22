@@ -11,7 +11,7 @@ $desc_font_size:1em;
     width: 100%;
     background-color: white;
     border-bottom: 1px solid lightgrey;
-    z-index: 999;
+    z-index: 1500;
     .tab {
         display: block;
         background-color: white;
@@ -65,7 +65,7 @@ $desc_font_size:1em;
     padding: 20px;
     text-align: left;
     padding-bottom: 20px;
-    z-index: 998;
+    z-index: 1400;
     &.active {
         display: flex;
         // animation: fadeInFromNone 0.7s ease-out 0.7;

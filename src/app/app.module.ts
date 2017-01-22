@@ -13,6 +13,7 @@ import {PrismicService} from './prismic';
 import {Home} from './home/home';
 import {Document} from './document/document';
 
+
 import {CardBoardComponent} from './card-board/card-board'
 import {NavBar} from './ui/nav-bar';
 import {Card} from './ui/card/card';
@@ -54,6 +55,6 @@ function linkResolver(doc: any) {
   ],
   bootstrap   : [AppComponent]
 })
-export class AppModule {
+export class AppModule  {
 
 }

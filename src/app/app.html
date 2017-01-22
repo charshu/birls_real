@@ -1,7 +1,7 @@
 
-<main>
+<main >
 
-<div class="container-fluid">
+<div scrollSpy class="container-fluid">
     
     <div class="row">
      <section>
@@ -17,7 +17,11 @@
     </div>
     
 </div>
-	<nav-bar></nav-bar>
+    <div>
+        
+    </div>
+    <div data-spy="affix" data-offset-top="150" class="menu-replacer" ></div>
+	<nav-bar data-spy="affix" data-offset-top="150" data-offset-bottom="200"></nav-bar>
 	<router-outlet></router-outlet>
 </main>
 <footer>

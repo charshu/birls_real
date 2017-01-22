@@ -92,6 +92,7 @@ export class NavBar {
     closeAll() {
       //  console.log('mouseleave current' + this.lastIndex);
         this.lastIndex = -1;
+        
         setTimeout( () => {
         if (this.lastIndex === -1) {
            for ( let i:number = 0; i < (this.tabs).length ; i++) {

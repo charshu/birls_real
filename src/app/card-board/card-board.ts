@@ -1,4 +1,4 @@
-import {Component,Inject} from "@angular/core";
+import {Component,Inject,AfterViewInit} from "@angular/core";
 import {OnInit} from "@angular/core";
 import { Router, ActivatedRoute } from '@angular/router';
 import {PrismicService} from '../prismic';
@@ -9,7 +9,7 @@ import { Prismic } from 'prismic.io';
     templateUrl: './card-board.html',
     styleUrls:[ './card-board.scss' ]
 })
-export class CardBoardComponent implements OnInit {
+export class CardBoardComponent implements OnInit,AfterViewInit {
 
 documents: Array<any>;
 list_documents: Array<any>;
@@ -42,6 +42,7 @@ constructor(
     
     this.sub = this.route.params.subscribe(params => {
         this.loaded = false;
+        document.body.scrollTop = 0;
         console.log(this.loaded);
         this.category = params['category'];
           prismicService.api().then((api) => api.getByUID('category',this.category)).then((document) => {
@@ -59,7 +60,9 @@ constructor(
       }); 
     })
   }
-
+    ngAfterViewInit() {
+      
+    }
     ngOnInit() {
         this.loaded = false;
     }

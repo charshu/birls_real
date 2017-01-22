@@ -123,3 +123,23 @@ section {
     background-color: white;
     z-index: 999;
 }
+
+.menu-replacer{
+    position: relative;
+    width: 100%;
+    height: 0px;
+    &.affix{
+        height: 56px;
+        
+    }
+}
+nav-bar{
+    
+    &.affix{
+        width: 100%;
+       top:0px;
+       opacity: 0.8;
+       z-index: 1999;
+
+    }
+}

@@ -1,5 +1,5 @@
 .cover{
-    position: f;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,6 +9,9 @@
     background-size: cover;
     height: 450px;
     z-index: 98;
+    img{
+        z-index: 98;
+    }
     &.noise {
         position: relative;
     }
