@@ -105,6 +105,7 @@ export class Collection implements OnInit, AfterViewInit, OnDestroy {
               description: this.groupImages[i].get('caption') !== null ? this.groupImages[i].get('caption').asText() : ''
             });
           }
+          // console.log(this.groupImages[i].get('caption').asText());
         }
         this.brand = this.document.getLink('collection.brand');
         this.brand = this.brand !== null ? this.brand.slug : '';

@@ -1,0 +1,117 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "angular2-image-popup",
+        "scope": null,
+        "escapedName": "angular2-image-popup",
+        "name": "angular2-image-popup",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/vachirakorn/birls_real"
+    ]
+  ],
+  "_from": "angular2-image-popup@latest",
+  "_id": "angular2-image-popup@1.1.2",
+  "_inCache": true,
+  "_location": "/angular2-image-popup",
+  "_nodeVersion": "4.4.4",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/angular2-image-popup-1.1.2.tgz_1485757933258_0.8026354825124145"
+  },
+  "_npmUser": {
+    "name": "vimala_1409",
+    "email": "vimalamca1991@gmail.com"
+  },
+  "_npmVersion": "4.0.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "angular2-image-popup",
+    "scope": null,
+    "escapedName": "angular2-image-popup",
+    "name": "angular2-image-popup",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular2-image-popup/-/angular2-image-popup-1.1.2.tgz",
+  "_shasum": "6d2fd8aef1487178c6b2cd5d3bee379103880f92",
+  "_shrinkwrap": null,
+  "_spec": "angular2-image-popup",
+  "_where": "/Users/vachirakorn/birls_real",
+  "author": {
+    "name": "Vimala A"
+  },
+  "bugs": {
+    "url": "https://github.com/vimalavinisha/angular2-image-popup/issues"
+  },
+  "dependencies": {
+    "@angular/common": "^2.4.4",
+    "@angular/compiler": "2.4.4 ",
+    "@angular/core": "^2.4.4",
+    "@angular/platform-browser": "^2.4.4",
+    "@angular/platform-browser-dynamic": "^2.4.4",
+    "@angular/upgrade": "^2.4.4",
+    "core-js": "^2.4.0",
+    "font-awesome": "^4.6.3",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.6",
+    "systemjs": "0.19.27",
+    "zone.js": "^0.6.12"
+  },
+  "description": "Image popup directive for angular2",
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.2.0",
+    "typescript": "^2.0.0",
+    "typings": "^0.8.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "6d2fd8aef1487178c6b2cd5d3bee379103880f92",
+    "tarball": "https://registry.npmjs.org/angular2-image-popup/-/angular2-image-popup-1.1.2.tgz"
+  },
+  "gitHead": "a963276110d640226ef876ffecfaaea650f1d5c0",
+  "homepage": "https://github.com/vimalavinisha/angular2-image-popup#readme",
+  "keywords": [
+    "angular2",
+    "angular2-image-popup",
+    "angular2-image",
+    "image-popup",
+    "popup",
+    "modal",
+    "angular2-modal-popup",
+    "modal-popup"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "vimala_1409",
+      "email": "vimalamca1991@gmail.com"
+    }
+  ],
+  "name": "angular2-image-popup",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vimalavinisha/angular2-image-popup.git"
+  },
+  "scripts": {
+    "lite": "lite-server",
+    "postinstall": "typings install",
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings"
+  },
+  "version": "1.1.2"
+}

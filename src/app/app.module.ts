@@ -23,7 +23,7 @@ import { RunwayBoardComponent } from './runway-board/runway-board';
 import { NavBar } from './ui/nav-bar/nav-bar';
 import { Card } from './ui/card/card';
 import { CollectionCard } from './ui/collection-card/collection-card';
-import { ImageModal } from 'angular2-image-popup/directives/angular2-image-popup/image-modal-popup';
+import { ImageModal } from './../resources/lib/angular2-image-popup/directives/angular2-image-popup/image-modal-popup';
 import {Collection} from './collection/collection';
 import { TruncatePipe } from './app.pipe';
 // Use the endpoint of your repository
