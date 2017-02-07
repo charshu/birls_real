@@ -1,0 +1,92 @@
+.image-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 1px solid #CCC;
+    font-family: 'Open Sans', sans-serif;
+    .title-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: #888;
+        width: 100%;
+        .brand {
+            display: inline;
+            font-size: 1em;
+            font-weight: bold;
+            margin: 5px
+        }
+        .season {
+            display: inline;
+            font-size: 1em;
+            font-weight: bold;
+            margin: 5px
+        }
+        .slash-divider {
+            width: 1px;
+            height: 40px;
+            border-right: 1px solid #ccc;
+            transform: rotate(35deg);
+            margin: 20px;
+        }
+    }
+}
+
+.image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    // padding-right: 18.33vw;
+    // padding-left: 18.33vw;
+    min-height: 500px;
+    /*border: 1px dashed #CCC;*/
+}
+
+.img-box {
+    position: relative;
+    width: 15vw;
+    height: 15vw;
+    margin: 3px;
+    background-color: #CCC;
+    &:hover {
+        // transform: scale(1.05);
+        .img {
+            .desc {
+                visibility: visible;
+                border: 5px solid #333;
+                background-color: rgba(0, 0, 0, 0.2)
+            }
+        }
+    }
+    .img {
+        position: relative;
+        z-index: 99;
+        width: 15vw;
+        height: 15vw;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        .desc {
+            font-family: 'Open Sans', sans-serif;
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 15vw;
+            width: 15vw;
+            z-index: 100;
+            font-size: 1em;
+            visibility: hidden;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: all .1s ease-in-out;
+        }
+    }
+}

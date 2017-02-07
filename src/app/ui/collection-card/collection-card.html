@@ -1,0 +1,34 @@
+<div *ngIf="document && loaded">
+
+    <article class="card" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
+
+        <a [routerLink]="[linkResolver(document)]">
+            <div [ngClass]="{'card-img':true,'hover':isHover}" [ngStyle]="{'background-image':'url(' + imageUrl + ')'}">
+                <div class="card-date">
+                    <div class="day">
+                        {{date | amDateFormat:'D'}}
+                    </div>
+                    <div class="month">
+                        {{date | amDateFormat:'MMM'}}
+                    </div>
+                </div>
+                <span [ngClass]="{'card-brand':true,'hover':isHover}">{{capitalizeFirstLetter(brand)}}</span>
+                <div class="card-season">{{capitalizeFirstLetter(season.getText('season.name'))}}</div>
+            </div>
+
+
+            <!--<div class="card-desc">{{desc}} <span [ngClass]="{'more':true,'hover':isHover}" *ngIf="isMore">  — read more</span></div>-->
+
+        </a>
+
+    </article>
+
+
+    <!--<div class="document-body" [innerHtml]=document.asHtml(linkResolver)></div>-->
+
+
+
+</div>
+<div *ngIf="loaded && !document">
+    <h2>Not found!</h2>
+</div>

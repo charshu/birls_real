@@ -1,89 +1,99 @@
+<main>
 
-<main >
+    <div scrollSpy class="container-fluid">
 
-<div scrollSpy class="container-fluid">
-    
-    <div class="row">
-     <section>
-    <nav> 
-         <a [routerLink]="[linkResolver(document)]" *ngFor="let document of documents">/{{document.slug}} </a>
-    </nav>
-</section>
-        <div id="logo-container" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-               
-            <div class="top-logo"></div>
+        <div class="row">
+            <section>
+                <nav>
+                    <a [routerLink]="[linkResolver(document)]" *ngFor="let document of documents">/{{document.slug}} </a>
+                </nav>
+            </section>
+            <div id="logo-container" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <div class="top-logo"></div>
+            </div>
+
         </div>
-        
+
     </div>
-    
-</div>
     <div>
-        
+
     </div>
-    <div data-spy="affix" data-offset-top="150" class="menu-replacer" ></div>
-	<nav-bar data-spy="affix" data-offset-top="150" data-offset-bottom="200"></nav-bar>
-	<router-outlet></router-outlet>
+    <!--<div data-spy="affix" data-offset-top="150" class="menu-replacer"></div>
+    <nav-bar data-spy="affix" data-offset-top="150" data-offset-bottom="200"></nav-bar>-->
+    <div data-offset-top="150" class="menu-replacer"></div>
+    <nav-bar data-offset-top="150" data-offset-bottom="200"></nav-bar>
+    <router-outlet></router-outlet>
 </main>
 <footer>
-    
-    <div class="column">
-        <div class="title">
-            ABOUT US
-        </div>
-        <div class="divider" style="width: 40px;"></div>
-        <div class="content">
-             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-    
-        </div>
-        <div class="social-bar">
-        <div class="circle facebook">
-            <i class="fa fa-facebook" ceiboShare  [facebook]="{u: fbUrl}" aria-hidden="true"></i>
-        </div> 
-        <div class="circle twitter">
-            <i class="fa fa-twitter" ceiboShare  [facebook]="{url: twUrl}" aria-hidden="true"></i>
-        </div>
-        <div class="circle youtube">
-            <i class="fa fa-youtube" aria-hidden="true"></i>
-        </div>
-    </div>
-       </div>
-    <div class="column">
-        <div class="title">
-            TAGS
-        </div>
-        <div class="divider" style="width: 50px;"></div>
-        <div class="tag-container">
-            <div class="tag-box">
-                bag
+    <div class="row">
+
+        <div class="column center">
+            <div class="title">
+                ABOUT US
             </div>
-            <div class="tag-box">
-                shoe
+            <div class="divider" style="width: 60px;"></div>
+            <a href="">{{ "Krist Krittawat" | uppercase}}</a>
+            <a href="">{{ "Weird and Quirky" | uppercase}}</a>
+            <a href="">{{ "Weird People" | uppercase}}</a>
+
+
+        </div>
+        <div class="column">
+            <div class="title">
+                MORE TAGS
             </div>
-            <div class="tag-box">
-                sun glasses
+            <div class="divider" style="width: 50px;"></div>
+            <div class="tag-container">
+                <div class="tag-box">
+                    bag
+                </div>
+                <div class="tag-box">
+                    shoe
+                </div>
+                <div class="tag-box">
+                    sun glasses
+                </div>
             </div>
         </div>
-    </div>
-    <div class="column">
-        <div class="title">
-            SIGNUP FOR NEWSLETTER
-        </div>
-        <div class="divider" style="width: 40px;"></div>
-        <div class="content">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.
-        </div>
-        <div class="form-group">
+        <div class="column">
+            <div class="title">
+                SIGNUP FOR NEWSLETTER
+            </div>
+            <div class="divider" style="width: 40px;"></div>
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.
+            </div>
             <div class="form-group">
-                <!--<label class="label">NEWSLETTER SUBSCRIBE</label>-->
-                <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="" placeholder="Your email">  
+                <div class="form-group">
+                    <!--<label class="label">NEWSLETTER SUBSCRIBE</label>-->
+                    <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="" placeholder="Your email">
+                </div>
+                <button type="button" class="btn btn-default">SIGNUP</button>
             </div>
-            <button type="button" class="btn btn-default">SIGNUP</button>
+
         </div>
-        
+
+
+
+
     </div>
-    
-    
-    
+    <div class="row">
+        <div class="column">
+            <p class="share"> SHARE THE EXPERIENCE </p>
+            <div class="social-bar">
+
+                <div class="circle facebook">
+                    <i class="fa fa-facebook" ceiboShare [facebook]="{u: fbUrl}" aria-hidden="true"></i>
+                </div>
+                <div class="circle twitter">
+                    <i class="fa fa-twitter" ceiboShare [facebook]="{url: twUrl}" aria-hidden="true"></i>
+                </div>
+                <div class="circle youtube">
+                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </footer>
-

@@ -25,8 +25,8 @@ var Document = (function () {
     Document.prototype.ngOnInit = function () {
         var _this = this;
         this.sub = this.route.params.subscribe(function (params) {
-            var id = params['id'];
-            _this.prismic.api().then(function (api) { return api.getByID(id); }).then(function (document) {
+            var uid = params['uid'];
+            _this.prismic.api().then(function (api) { return api.getByUID('article', uid); }).then(function (document) {
                 _this.document = document;
                 _this.loaded = true;
             });
@@ -37,7 +37,7 @@ var Document = (function () {
 __decorate([
     core_1.Input(),
     __metadata("design:type", String)
-], Document.prototype, "id", void 0);
+], Document.prototype, "uid", void 0);
 Document = __decorate([
     core_1.Component({
         selector: 'document',

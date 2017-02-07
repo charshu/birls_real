@@ -18,6 +18,8 @@ var AppComponent = (function () {
     function AppComponent(http, endpoint) {
         this.http = http;
         this.endpoint = endpoint;
+        this.fbUrl = 'https://www.facebook.com/birlsmagazine';
+        this.twUrl = 'https://www.facebook.com/birlsmagazine';
     }
     AppComponent.prototype.ngOnInit = function () {
         var repoEndpoint = this.endpoint.replace("/api", "");
@@ -29,6 +31,7 @@ AppComponent = __decorate([
     core_1.Component({
         selector: 'app',
         templateUrl: './app.html',
+        styleUrls: ['./app.scss']
     }),
     __param(1, core_2.Inject('PrismicEndpoint')),
     __metadata("design:paramtypes", [http_1.Http, String])

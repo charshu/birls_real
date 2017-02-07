@@ -38,8 +38,7 @@ export class NavBar {
         }, {
             img:'./../../resources/img/grass.jpg',
             desc:'The titles of Washed Out\'s breakthrough song and the first single from Paracosm '
-            + 'share the two most important words in Ernest Greene\'s '
-            + 'musical language: feel it. It\'s a simple request, as well...'
+            + 'share the two most'
         }],
         active:false
     }, {
@@ -52,6 +51,7 @@ export class NavBar {
         active:false
     }, {
         label:'Runway',
+        link : 'runway',
         links:[],
         active:false
     }, {
@@ -77,7 +77,7 @@ export class NavBar {
         this.lastIndex = i;
         this.tabs[i].active = true;
         //turn on backdrop only dropdown menu has links
-        if (this.tabs[i].links.length > 0) {
+        if (this.tabs[i].links.length > 1) {
              this.backdrop = true;
         } else {
             this.backdrop = false;

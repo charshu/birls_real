@@ -1,0 +1,96 @@
+<!--<div *ngIf="document">
+  <div class="document-body" [innerHtml]=document.asHtml(linkResolver)></div>
+</div>-->
+<div class="article-container">
+    <div class="container-fluid">
+
+        <div class="row content">
+
+            <div id="left-container" class="col-md-8 col-lg-8">
+
+                <h1 class="article-title">
+                    {{titleText}}
+                </h1>
+                <p class="article-date">
+                    {{capitalizeFirstLetter(category)}}
+                </p>
+
+
+                <div [ngClass]="{'article-img':true}" [ngStyle]="{'background-image':'url(' + imageUrl + ')','height':imageAspect?.height+'px','width':imageAspect?.width+'px'}">
+
+
+                </div>
+                <div class="slice" *ngFor="let slice of slices">
+                    <div *ngIf="slice.sliceType==='text'" [innerHtml]="slice.value.asHtml()" class="paragraph">
+
+                    </div>
+                    <div *ngIf="slice.sliceType==='image-with-caption'" class="image-with-caption">
+                        <img [src]="slice.value.toArray()[0].getImage('illustration').url">
+                        <p><span>{{slice.value.toArray()[0].get('caption').asText()}}</span></p>
+                    </div>
+                    <div *ngIf="slice.sliceType==='quote'" class="quote">
+                        <blockquote>
+                            <p>{{slice.value.asText()}}</p>
+                        </blockquote>
+                    </div>
+
+                </div>
+
+                <section class="tag-container">
+                    <span class="tags">
+                        <i class="fa fa-tags" aria-hidden="true"></i> Tagged in: 
+                    </span>
+                    <a *ngFor="let tag of tags; let i = index;let last = last" [routerLink]="['/tags/' + tag]">{{tag}}<span *ngIf="!last">,</span></a>
+
+
+                </section>
+
+            </div>
+            <div class="col-md-4 col-lg-4">
+
+                <div class="side-container">
+
+                    <!--<div class="share-text">
+                        <span class="number">2,002</span> SHARES
+                    </div>-->
+                    <share-buttons [shareTitle]="'SHARES '" [count]="true" [totalCount]="true" [url]="page_url" [defaultStyle]="false" [facebook]="fbInner" [twitter]="twitterInner" [pinterest]="pintInner" [linkedIn]="inInner" [google]="googleInner" [tumblr]="tumblrInner"
+                        [reddit]="false" [stumbleUpOn]="false">
+
+                    </share-buttons>
+
+                    <div class="author">
+
+                        <div class="divider" style="width: 80px;"></div>
+                        <i class="fi flaticon-quill-drawing-a-line"></i>
+                        <span class="author-name">AUTHOR KRITTAWAT KRIS</span>
+                        <p class="article-date">
+                            {{date | amDateFormat:'MMMM DD, YYYY'}}
+                        </p>
+                        <div class="divider" style="width: 80px;"></div>
+                    </div>
+
+                    <!-- InstaWidget -->
+                    <div class="ig">
+                        <iframe id="0a68c5867bf5d6285ff84114a688f0bcb4d3afcc3b954cdf21957fa5ce9ba730" style="border:0;width:300px;height:530px;margin:0;padding:0;" scrolling="no" frameborder="no" src="https://instawidget.net/embed?u=0a68c5867bf5d6285ff84114a688f0bcb4d3afcc3b954cdf21957fa5ce9ba730"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row comment">
+
+            <div class="col-xs-5">
+                <i class="fi flaticon-blank-squared-bubble"></i><br>
+                <p class="title"> Comment on Article </p>
+                <disqus [shortname]="disqusShortname" [identifier]="page_url"></disqus>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div *ngIf="loaded && !document">
+    <h2>Not found!</h2>
+</div>

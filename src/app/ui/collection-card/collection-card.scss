@@ -1,0 +1,95 @@
+.card {
+    width: calc(3px*75);
+    height: calc(4.5px*75);
+    margin: 30px 30px 10px 30px;
+    padding: 15px 15px 15px 15px;
+    // border: 1px solid lightgrey;
+    // box-shadow: 5px 5px lighten(grey, 45);
+    // border-radius: 2px;
+    a {
+        text-decoration: none;
+        .card-img {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 20px;
+            margin-bottom: 15px;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all .1s ease-in-out;
+            z-index: 99;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.9) 100%);
+                background-image: -moz-linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.9) 100%);
+                background-image: -o-linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.9) 100%);
+                background-image: -ms-linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.9) 100%);
+                background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.9) 100%);
+                z-index: 100;
+            }
+            &.hover {
+                transform: scale(1.05);
+            }
+            .card-brand {
+                //font-family: 'Lato', sans-serif;
+                font-size: 2.00em;
+                font-weight: 700;
+                text-decoration: none;
+                transition: all .1s ease-in-out;
+                color: white;
+                z-index: 101;
+                &.hover {
+                    // color: hotpink;
+                    // transform: scale(1.05);
+                }
+            }
+            .card-season {
+                font-size: .9em;
+                color: lightgrey;
+                z-index: 101;
+                //margin-top: 3px;
+            }
+        }
+        .card-date {
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            height: 50px;
+            width: 50px;
+            border: 1px solid #CCC;
+            background-color: white;
+            // box-shadow: 1px 1px black;
+            color: black;
+            text-align: center;
+            vertical-align: center;
+            padding: 5px;
+            // font-family: 'Open Sans', sans-serif;
+            .day {
+                display: block;
+                font-size: 1.2em;
+                // font-weight: 700;
+            }
+            .month {
+                display: block;
+                font-size: 0.7em;
+            }
+        }
+        .more {
+            color: gray;
+            font-weight: bold;
+            &.hover {
+                color: hotpink;
+            }
+        }
+    }
+}

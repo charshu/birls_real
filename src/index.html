@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset=UTF-8>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Angular2 Seed</title>
     <base href="/">
-  </head>
-  <body>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">-->
+</head>
+
+<body>
 
     <app>
-      Loading...
+        Loading...
     </app>
 
     <!--preloader-->
-<!--<div id="pre-bootstrap-container">
+    <!--<div id="pre-bootstrap-container">
 
         <div id="pre-bootstrap">
             <div class="logo"></div>
@@ -21,54 +24,15 @@
         </div>
         
 </div>-->
-<!--end preloader-->
+    <!--end preloader-->
 
     <script src="/polyfills.bundle.js"></script>
     <script src="/vendor.bundle.js"></script>
     <script src="/main.bundle.js"></script>
     <script src="/global.bundle.js"></script>
+    <!--<script async src="https://static.addtoany.com/menu/page.js"></script>-->
+    <!--<script src="//angular2disqustest.disqus.com/embed.js"></script>-->
 
-    <!--CDN link for  TweenMax-->
-    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
-    
-    <script>
-        var showPreloading = true;
-        if(showPreloading){
-        var debug = false;
-        var timeFadeOut = 3000;
-        var timeRemove = timeFadeOut+2500;
-        TweenLite.to(".logo",2,{opacity:1,ease:Power1.easeOut,top:0});
-        TweenLite.to(".loader",2,{opacity:1,ease:Power1.easeOut,delay:2}); 
-         // CAUTION: "bootstrapping" promise exposed by our System.js logic.
-            window.bootstrapping.then(
-                function handleResolve() {
-                    var preBootstrapContainer = document.getElementById( "pre-bootstrap-container" );
-                    var preBootstrap = document.getElementById( "pre-bootstrap" );
-                    // Add the class-name to initiate the transitions.
-                     
-                     if(debug){
-                         timeFadeOut = 400000;
-                         timeRemove = 500000;
-                     }
-                    setTimeout(function(){
-                    TweenLite.to(preBootstrapContainer,2,{opacity:0,ease:Power1.easeOut})}
-                         ,timeFadeOut);
-                    // Remove the bootstrap container after the transition has
-                    // completed (based on the known transition time).
-                    setTimeout(function removeLoadingScreen() {
-                           
-                            preBootstrapContainer
-                                .parentNode
-                                    .removeChild(preBootstrapContainer);
-                        },timeRemove);
-                }
-            );
-        }else {
-            var preBootstrapContainer = document.getElementById( "pre-bootstrap-container" );
-             preBootstrapContainer.parentNode.removeChild( preBootstrapContainer );
-        }
-    </script>-->
-  </body>
+</body>
+
 </html>

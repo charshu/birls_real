@@ -1,0 +1,48 @@
+<!--<div *ngIf="document">
+    <div class="document-body" [innerHtml]=document.asHtml(linkResolver)></div>
+</div>-->
+<div *ngIf="document && loaded">
+
+    <div class="image-header">
+        <div class="title-container">
+            <div class="brand">{{brand | uppercase}}</div><span class="slash-divider"></span>
+            <span class="season">{{season.getText('season.name') | uppercase}}</span>
+
+        </div>
+
+    </div>
+    <div class="image-container">
+
+        <div class="img-box" *ngFor="let img of images; let i= index">
+            <div class="img" [ngStyle]="{'background-image': 'url('+img.thumb+')'}" (click)="OpenImageModel(img.img,images)" alt='Image'>
+                <div class="desc" (click)="OpenImageModel(img.img,images)">
+                    <i class="fi flaticon-interface"></i>&nbsp;<span class="view_img">VIEW IMAGE</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div *ngIf="openModalWindow">
+        <ImageModal [modalImages]="images" [imagePointer]="imagePointer" (cancelEvent)="cancelImageModel()"></ImageModal>
+    </div>
+    <!--<div class="row">
+
+        <ImageModal [modalImages]="images"></ImageModal>
+        <div *ngFor="let img of images; let i= index">
+            <div class="float-left" *ngIf="i <= 20">
+                <a class="more1" *ngIf="i==2" (click)="OpenImageModel(img.img,images)"> +{{images.length - 3}} more </a>
+                <img class="list-img" src="{{img.thumb}}" (click)="OpenImageModel(img.img,images)" alt='Image' />
+            </div>
+
+        </div>
+        <div *ngIf="openModalWindow">
+            <ImageModal [modalImages]="images" [imagePointer]="imagePointer" (cancelEvent)="cancelImageModel()"></ImageModal>
+        </div>
+    </div>-->
+
+</div>
+
+<div *ngIf="loaded && !document">
+    <h2>Not found!</h2>
+</div>

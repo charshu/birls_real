@@ -1,10 +1,84 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,900|Source+Sans+Pro:400,700');
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800,900');
-
-body{
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700');
+body {
     margin: 0px;
-    font-family: 'Work Sans', sans-serif;
-    
- 
+    font-family: 'PT Serif', sans-serif;
+    background-color: #F6F6F6;
+    color: #3f3f3f;
+}
+
+.sb-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0 10px 0px 10px;
+    width: 300px;
+    z-index: 99;
+    .sb-title {
+        // color: hotpink;
+        font-weight: bold;
+    }
+    .sb-buttons {
+        margin: 5px;
+        button {
+            width: auto;
+            margin: 0px;
+            padding: 0px;
+            min-width: 0px;
+        }
+    }
+    .circle {
+        margin: 3px;
+        font-size: 18px;
+        color: white;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        text-align: center;
+        line-height: 30px;
+        overflow: hidden;
+        cursor: pointer;
+        -webkit-transition: all .3s ease-in-out;
+        transition: all .3 ease-in-out;
+        &.facebook {
+            border: 2px solid #3b5998;
+            background-color: #3b5998;
+        }
+        &.twitter {
+            border: 2px solid #00aced;
+            background-color: #00aced;
+        }
+        &.youtube {
+            border: 2px solid #c4302b;
+            background-color: #c4302b;
+        }
+        &.googlePlus {
+            border: 2px solid #e93f2e;
+            background-color: #e93f2e;
+        }
+        &.email {
+            border: 2px solid grey;
+            background-color: grey;
+        }
+        &.pinterest {
+            border: 2px solid #c92228;
+            background-color: #c92228;
+        }
+        &.linkin {
+            border: 2px solid #0e76a8;
+            background-color: #0e76a8;
+        }
+        &.tumblr {
+            border: 2px solid #36465d;
+            background-color: #36465d;
+        }
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 }

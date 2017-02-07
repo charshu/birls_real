@@ -30,7 +30,7 @@ var Home = (function () {
 Home = __decorate([
     core_1.Component({
         selector: 'home',
-        styleUrls: ['./home.css'],
+        styleUrls: ['./home.scss'],
         templateUrl: './home.html'
     }),
     __param(1, core_1.Inject('LinkResolver')),

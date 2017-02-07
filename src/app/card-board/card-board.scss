@@ -1,4 +1,4 @@
-.cover{
+.cover {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -7,22 +7,25 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: lightpink;
     height: 450px;
     z-index: 98;
-    img{
+    img {
         z-index: 98;
     }
     &.noise {
         position: relative;
     }
     &.noise:after {
-        top: 0; left: 0;
-        width: 100%; height: 450px;
-        content: "";  
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 450px;
+        content: "";
         position: absolute;
         background-image: url('./../../resources/img/noise.png');
     }
-    h1{
+    h1 {
         position: relative;
         top: -100px;
         text-align: center;
@@ -32,16 +35,15 @@
         font-weight: 900;
         text-shadow: 2px 2px grey;
         z-index: 99;
-        
     }
-    h6{
+    h6 {
         position: relative;
         top: -100px;
         color: white;
         font-weight: 700;
         z-index: 99;
     }
-    .social-bar{
+    .social-bar {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -49,40 +51,34 @@
         width: 300px;
         top: -100px;
         z-index: 99;
-        .circle{
-                margin: 3px;
-                font-size: 16px;
-                color: white;
-                border: 2px solid rgba(white,0.8);
-                border-radius: 50%;
-                width: 32px;
-                height: 32px;
-                text-align: center;
-                line-height: 30px;
-                overflow: hidden;
-                cursor:pointer;
-                -webkit-transition: all .3s ease-in-out;
-                transition: all .3 ease-in-out;
-                &.facebook:hover{
-                    
-                    border: 2px solid #3b5998;
-                    background-color: #3b5998;
-                }
-                &.twitter:hover{
-                    
-                    border: 2px solid #00aced;
-                    background-color: #00aced;
-                }
-                &.youtube:hover{
-                    
-                    border: 2px solid #c4302b;
-                    background-color: #c4302b;
-                }
-
+        .circle {
+            margin: 3px;
+            font-size: 16px;
+            color: white;
+            border: 2px solid rgba(white, 0.8);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            text-align: center;
+            line-height: 30px;
+            overflow: hidden;
+            cursor: pointer;
+            -webkit-transition: all .3s ease-in-out;
+            transition: all .3 ease-in-out;
+            &.facebook:hover {
+                border: 2px solid #3b5998;
+                background-color: #3b5998;
+            }
+            &.twitter:hover {
+                border: 2px solid #00aced;
+                background-color: #00aced;
+            }
+            &.youtube:hover {
+                border: 2px solid #c4302b;
+                background-color: #c4302b;
+            }
         }
     }
-    
-    
 }
 
 .card-container {
@@ -94,86 +90,88 @@
     margin: 0 10% 0 10%;
     background-color: white;
     position: relative;
-    top: -150px;
     min-height: 200px;
-    border-radius: 5px;
     z-index: 100;
-   // border-top: 1px solid deeppink;
-   
-    
+    // border-top: 1px solid deeppink;
+    &.overlap {
+        top: -150px;
+        border-radius: 5px;
+    }
+    .torn {
+        width: 100%;
+        height: 40px;
+        background-image: url('./../../resources/img/torn.png');
+        background-color: #F6F6F6;
+        background-repeat: repeat-x;
+    }
 }
-.more{
-        position: relative;
-       text-align: center;
 
-        font-size: 3.00em;
-        font-weight: 900;
-        cursor:pointer;
-        top: -100px;
-        -webkit-transition: all .3s ease-in-out;
-        transition: all .3 ease-in-out;
-        &:hover{
-            color: #00aced;
-        }
-   }
+.more {
+    position: relative;
+    text-align: center;
+    font-size: 3.00em;
+    font-weight: 900;
+    cursor: pointer;
+    top: -100px;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3 ease-in-out;
+    &:hover {
+        color: #00aced;
+    }
+}
 
-
-
-.loading{
+.loading {
     height: 1000px;
-       
-
-
-#pre-bootstrap-container{
-    position: fixed;
-    top:0;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    z-index: 1100;
-    //background-color: deeppink;
-        #pre-bootstrap{
-        position: relative;
+    #pre-bootstrap-container {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
         z-index: 1100;
-
-         .logo{
+        //background-color: deeppink;
+        #pre-bootstrap {
             position: relative;
-            width: 300px;
-            height: 200px;
-            background-image: url('./../../resources/svg/logo-black.svg');
-            background-repeat: no-repeat;
-            background-size: contain;
-            // opacity: 0;
-            z-index: 1101;
-        
-    }
-        .loader {
-            position: relative;
-            border: 0px solid deeppink; /* Light grey */
-            border-top: 5px solid pink; /* Blue */
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 2s linear infinite;
-            // opacity: 0;
-            z-index: 1101;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1100;
+            .logo {
+                position: relative;
+                width: 300px;
+                height: 200px;
+                background-image: url('./../../resources/svg/logo-black.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                // opacity: 0;
+                z-index: 1101;
+            }
+            .loader {
+                position: relative;
+                border: 0px solid deeppink;
+                /* Light grey */
+                border-top: 5px solid pink;
+                /* Blue */
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                animation: spin 2s linear infinite;
+                // opacity: 0;
+                z-index: 1101;
+            }
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
         }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
     }
 }
-}
-
-

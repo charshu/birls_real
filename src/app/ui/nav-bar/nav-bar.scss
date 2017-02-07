@@ -1,5 +1,5 @@
 $mycolor: #000000;
-$nav_font_size: 1.25em;
+$nav_font_size: 1.00em;
 $nav_sub_font_size: 1.5em;
 $desc_font_size:1em;
 .tab-group {
@@ -17,16 +17,19 @@ $desc_font_size:1em;
         background-color: white;
         margin-right: 10px;
         text-align: center;
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
         .tab-label {
             position: relative;
             padding: 15px;
-            // font-family: 'Lato', sans-serif;
-            font-weight: 700;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
             font-size: $nav_font_size;
-            color: lighten( black, 20);
             text-decoration: none;
             cursor: pointer;
-            opacity: 0.5;
+            //opacity: 0.5;
             &.hover {
                 opacity: 1;
                 color: deeppink;
@@ -126,10 +129,10 @@ $desc_font_size:1em;
     .tab-item {
         padding: 10px;
         @media screen and (min-width: 768px) {
-            max-width: 300px;
+            max-width: 150px;
         }
         @media screen and (min-width: 992px) {
-            max-width: 360px;
+            max-width: 220px;
         }
         img {
             width: 100%;
