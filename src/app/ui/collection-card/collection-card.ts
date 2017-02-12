@@ -9,77 +9,69 @@ import { Prismic } from 'prismic.io';
 })
 export class CollectionCard implements OnInit {
   @Input() document: any;
-
-  groupImages:any;
-  image:any;
-  imageUrl:string;
-  imageHeight:number;
-
-  date:any;
-  brand:any;
-  season:any;
-  category:string;
-  title:any = '';
-  titleText:string='';
-  paragraph:any = '';
-  desc:string = '';
-  isHover:boolean = false;
+  @Input() showDate: boolean;
+  groupImages: any;
+  image1:any;
+  image2:any;
+  image3:any;
+  imageUrl: string[];
+  imageHeight: number;
+  imagePointer:number=0;
+  
+  date: any;
+  brand: any;
+  season: any;
+  category: string;
+  title: any = '';
+  titleText: string = '';
+  paragraph: any = '';
+  desc: string = '';
+  isHover: boolean = false;
   limit = 100;
   isMore = false;
-  
-  toggle(){
+
+  toggle() {
     this.isHover = !this.isHover;
     //console.log(this.isHover);
   }
   getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    if (string !== undefined && string !== null) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    return 'error';
   }
 
-  private loaded: boolean = false;
-
+  loaded: boolean = false;
+  loadingImage: boolean = true;
   constructor(
     private prismicService: PrismicService,
-    @Inject('LinkResolver') private linkResolver: {(doc: any): string}
-  ) 
-  {
-    prismicService.api().then((api) => api.getByUID('season', this.document.getLink('collection.season').uid)).then((res) => {
-          this.season = res;
-          // console.log(res);
-          this.loaded = true;
-        });
-
-
+    @Inject('LinkResolver') private linkResolver: { (doc: any): string }
+  ) {
+   
   }
 
   ngOnInit() {
     this.groupImages = this.document.getGroup('collection.gallery').toArray();
-    this.image = this.groupImages[this.getRandomInt(0,this.groupImages.length-1)].getFirstImage();
-    this.imageUrl = this.image !== null?this.image.url:'';
-
-    
+    // console.log(this.groupImages);
+    this.image1 = this.groupImages[0].getImageView('image','thumb');
+    this.image2 = this.groupImages[1].getImageView('image','thumb');
+    this.image3 = this.groupImages[2].getImageView('image','thumb');
+    //  console.log(this.image1);
+    this.imageUrl = [
+    this.image1 !== undefined ? this.image1.url : '',
+    this.image2 !== undefined ? this.image2.url : '',
+    this.image3 !== undefined ? this.image3.url : ''
+    ];
+    // console.log(this.imageUrl);
+   
     this.date = this.document.getDate('collection.date');
-
-    // this.season = this.document.getLink('collection.season');
+    this.season = this.document.getLink('collection.season');
     this.brand = this.document.getLink('collection.brand');
-    // console.log(this.season);
-    // this.season = this.season !==null?this.season.slug:'';
-    this.brand = this.brand !==null?this.brand.slug:'';
-    
-    //desc
-    // this.paragraph = this.document.getFirstParagraph();
-    // this.desc = this.paragraph !==null?this.paragraph.text:'';
-    //trim
-    // if(this.desc.length >= this.limit){
-    //   this.desc = this.desc.substring(0,this.limit);
-    //   this.desc = this.desc.substring(0,Math.min(this.desc.length,this.desc.lastIndexOf(' ')))+'...';
-    //   this.isMore = true;
-    // }
- 
-   // console.log(this.document);
-   // console.log(this.title.getTitle());
+    this.loaded = true;
+
   }
 
 }

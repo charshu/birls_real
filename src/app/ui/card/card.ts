@@ -12,13 +12,13 @@ import { PrismicService } from '../../prismic';
 })
 export class Card implements OnInit {
   @Input() document: any;
+  @Input() randomHeight:boolean;
+  @Input() width:number;
+  @Input() imageHeight:number;
+  @Input() styleNumber:number;
   image:any;
-  imageUrl:string;
-  imageHeight:number;
-
   date:any;
-  link:any;
-  category:string;
+  category:any;
   title:any = '';
   titleText:string='';
   paragraph:any = '';
@@ -34,7 +34,10 @@ export class Card implements OnInit {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
   capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    if (string !== undefined) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    return '';
   }
   private loaded: boolean = false;
 
@@ -45,29 +48,22 @@ export class Card implements OnInit {
 
   ngOnInit() {
     this.image = this.document.getImage('article.post-image');
-    this.imageUrl = this.image !== null?this.image.url:'';
-    this.imageHeight = this.getRandomInt(300,500);
-    
+    console.log(this.image)
+    if(this.randomHeight){
+      this.imageHeight = this.getRandomInt(300,450);
+    }
+     
     this.date = this.document.getDate('article.date');
-    this.link = this.document.getLink('article.link');
-    // console.log(this.link);
-    this.category = this.link !==null?this.link.slug:'';
-    
+    this.category = this.document.getLink('article.link');
+    console.log(this.category.getText('category.name'));
     this.title = this.document.getStructuredText('article.title');
-    this.titleText = this.title !== null?this.title.getTitle().text:''
-
-    //desc
     this.paragraph = this.document.getFirstParagraph();
     this.desc = this.paragraph !==null?this.paragraph.text:'';
-    //trim
     if(this.desc.length >= this.limit){
       this.desc = this.desc.substring(0,this.limit);
       this.desc = this.desc.substring(0,Math.min(this.desc.length,this.desc.lastIndexOf(' ')))+'...';
       this.isMore = true;
     }
- 
-   // console.log(this.document);
-   // console.log(this.title.getTitle());
   }
 
 }

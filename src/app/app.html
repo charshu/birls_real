@@ -1,18 +1,10 @@
 <main>
 
     <div scrollSpy class="container-fluid">
-
         <div class="row">
-            <section>
-                <nav>
-                    <a [routerLink]="[linkResolver(document)]" *ngFor="let document of documents">/{{document.slug}} </a>
-                </nav>
-            </section>
-            <div id="logo-container" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-                <div class="top-logo"></div>
+            <div id="top-section" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <img id="top-logo" src="./../../resources/svg/birls.svg" alt="" [routerLink]="['']">
             </div>
-
         </div>
 
     </div>

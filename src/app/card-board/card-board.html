@@ -1,66 +1,29 @@
 <!--fashion menu-->
-<div *ngIf="loaded && selectedMenu ==='fashion'">
-
-
-    <!--<a [routerLink]="[linkResolver(document)]" *ngFor="let document of documents">/{{document.slug}}</a>-->
-    <div *ngIf="imageUrl!==''" class="cover noise" ng2-parallax>
-        <!--<div ng2-parallax style="height: 300px">-->
-        <img [src]="imageUrl" alt="">
-        <!--</div>-->
+<div *ngIf="loaded">
+    <div *ngIf="image?true:false" class="cover noise" ng2-parallax>
+        <img [src]="image?image.url : ''" alt="">
         <h1>{{capitalizeFirstLetter(queryTitle)}}</h1>
         <h6>Whoever said money can't buy happiness simply didn't know where to go shopping.</h6>
-        <!--<div class="social-bar">
-            <div class="circle facebook">
-                <i class="fa fa-facebook" ceiboShare [facebook]="{u: fbUrl}" aria-hidden="true"></i>
-            </div>
-            <div class="circle twitter">
-                <i class="fa fa-twitter" ceiboShare [facebook]="{url: twUrl}" aria-hidden="true"></i>
-            </div>
-            <div class="circle youtube">
-                <i class="fa fa-youtube" aria-hidden="true"></i>
-            </div>
-        </div>-->
-
-
     </div>
 
-    <div class="card-container" [ngClass]="{'overlap':imageUrl!==''}">
-        <div *ngFor="let document of documents;let i =index">
-            <card *ngIf="i < card_per_page" [document]="document"></card>
+    <div id="cardboard-section" class="container-fluid">
+        <div class="row card-board">
+            <div class="col-lg-4 flex-row-center card-wrapper" *ngFor="let document of documents;let i = index">
+                <card *ngIf="i < card_per_page" [document]="document" [styleNumber]="1" [randomHeight]="true"></card>
+            </div>
+
         </div>
-        <div class="torn"></div>
-    </div>
-    <div class="more" (click)="more()">More..</div>
+        <div class="row">
+            <div class="col-lg-12 torn">
+                <div class="more" (click)="more()">More..</div>
+            </div>
+        </div>
 
+    </div>
 
 </div>
 
-<!-- runway menu -->
-<div *ngIf="loaded && selectedMenu ==='runway'">
 
-
-    <!--<a [routerLink]="[linkResolver(document)]" *ngFor="let document of documents">/{{document.slug}}</a>-->
-    <div *ngIf="imageUrl!==''" class="cover noise" ng2-parallax>
-        <!--<div ng2-parallax style="height: 300px">-->
-        <img [src]="imageUrl" alt="">
-        <!--</div>-->
-        <h1>{{capitalizeFirstLetter(queryTitle)}}</h1>
-        <h6>Whoever said money can't buy happiness simply didn't know where to go shopping.</h6>
-
-
-
-    </div>
-
-    <div class="card-container">
-        <div *ngFor="let document of documents;let i =index">
-            <!--<card *ngIf="i < card_per_page" [document]="document"></card>-->
-        </div>
-        <div class="torn"></div>
-    </div>
-    <div class="more" (click)="more()">More..</div>
-
-
-</div>
 <!--loading-->
 <div class="loading" *ngIf="!loaded">
     <!--preloader-->

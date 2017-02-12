@@ -10,21 +10,127 @@ import { Prismic } from 'prismic.io';
   styleUrls: ['./runway-board.scss']
 })
 export class RunwayBoardComponent implements OnInit, AfterViewInit {
-
-  seasons:any;
-  brands:any;
-  order = {
+  showDate:boolean = false;
+  seasons: any;
+  allSeasons: any;
+  brands: any;
+  allBrands: any;
+  loadedSelect: any = false;
+  selected = {
     season: 'all',
     brand: 'all'
   };
 
-  callSeason(value) {
-    console.log(value);
-    this.order.season = value;
+  callSeason(seasonID) {
+    console.log(seasonID);
+    this.loadedSelect = false;
+
+
+    if (seasonID === 'all') {
+      this.prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'brand')],
+        { orderings: '[my.brand.name desc]' })).then((response) => {
+          this.brands = response.results;
+          this.loadedSelect = true;
+          // console.log(this.brands);
+        });
+      this.selected.season = 'all';
+
+    } else {
+      for (let i = this.brands.length - 1; i >= 0; i--) {
+        if (this.brands[i].id !== this.selected.brand) {
+          console.log('splice: ' + this.brands[i].getText('brand.name'));
+          this.brands.splice(i, 1);
+        }
+      }
+      this.prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'collection'),
+      Prismic.Predicates.at('my.collection.season', seasonID)],
+        { orderings: '[my.collection.brand desc]', 'fetchLinks': 'brand.name' })).then((response) => {
+
+          let temp = [];
+          for (let doc of response.results) {
+            let brand = doc.getLink('collection.brand');
+            let brandName = brand.getText('brand.name');
+            console.log(brandName);
+            //dont push duplicating value
+            if (temp.indexOf(brandName) < 0 && brand.id !== this.selected.brand) {
+              temp.push(brandName);
+              this.brands.push(brand);
+            }
+          }
+
+          this.selected.season = seasonID;
+          this.loadedSelect = true;
+        });
+    }
   }
-  callBrand(value) {
-    console.log(value);
-    this.order.brand = value;
+  callBrand(brandID) {
+    console.log(brandID);
+    this.loadedSelect = false;
+
+
+    if (brandID === 'all') {
+      //save query time
+      this.prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'season')],
+        { orderings: '[my.season.name desc]' })).then((response) => {
+          this.seasons = response.results;
+          this.loadedSelect = true;
+        });
+      this.selected.brand = 'all';
+
+    } else {
+      for (let i = this.seasons.length - 1; i >= 0; i--) {
+        if (this.seasons[i].id !== this.selected.season) {
+          console.log('splice: ' + this.seasons[i].getText('season.name'));
+          this.seasons.splice(i, 1);
+        }
+      }
+      this.prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'collection'),
+      Prismic.Predicates.at('my.collection.brand', brandID)],
+        { orderings: '[my.collection.season desc]', 'fetchLinks': 'season.name' })).then((response) => {
+
+          let temp = [];
+          for (let doc of response.results) {
+            let season = doc.getLink('collection.season');
+            let seasonName = season.getText('season.name');
+
+            if (temp.indexOf(seasonName) < 0 && season.id !== this.selected.season) {
+              temp.push(seasonName);
+              this.seasons.push(season);
+              console.log('push: ' + seasonName);
+            }
+          }
+          this.selected.brand = brandID;
+          this.loadedSelect = true;
+        });
+    }
+  }
+  updateFilter() {
+    
+    
+
+  }
+  filter(doc){
+    
+    // console.log(doc);
+    let season = doc.getLink('collection.season');
+    let seasonName = season.getText('season.name');
+    let brand = doc.getLink('collection.brand');
+    let brandName = brand.getText('brand.name');
+    // console.log('test: '+seasonName+' '+brandName);
+    if (this.selected.brand === 'all' && this.selected.season === 'all') {
+      
+      return true;
+    } else if (this.selected.brand === 'all') {
+      if(season.id === this.selected.season)return true;
+      else return false;
+    } else if (this.selected.season === 'all') {
+      if(brand.id === this.selected.brand)return true;
+      else return false;
+    } else {
+      if(brand.id === this.selected.brand && season.id === this.selected.season)return true;
+      else return false;
+    }
+   
   }
   documents: Array<any>;
   list_documents: Array<any>;
@@ -32,10 +138,10 @@ export class RunwayBoardComponent implements OnInit, AfterViewInit {
   queryTitle: string = '';
   category: string = '';
   image: any;
-  imageUrl: string = './../../resources/img/bg.jpg';
+  imageUrl: string = './../../resources/img/runway.jpg';
   imageHeight: number = 0;
   current_size = 0;
-  card_per_page = 3;
+  card_per_page = 12;
   loaded: boolean = false;
   tag: any;
   //social share
@@ -50,6 +156,7 @@ export class RunwayBoardComponent implements OnInit, AfterViewInit {
     this.card_per_page += 3;
   }
 
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -60,28 +167,34 @@ export class RunwayBoardComponent implements OnInit, AfterViewInit {
     this.sub = this.route.params.subscribe(params => {
       // console.log(params);
       this.loaded = false;
+
       document.body.scrollTop = 0;
 
       //query season,brand name
       prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'season')],
         { orderings: '[my.season.name desc]' })).then((response) => {
           this.seasons = response.results;
+         
           // console.log(this.seasons);
+
+          prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'brand')],
+            { orderings: '[my.brand.name desc]' })).then((response) => {
+              this.brands = response.results;
+            
+              this.loadedSelect = true;
+              // console.log(this.brands);
+              prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'collection')], { orderings: '[my.collection.date desc]','fetchLinks': ['brand.name','season.name'] })).then((response) => {
+                this.documents = response.results;
+                console.log(this.documents);
+                this.loaded = true;
+               
+              });
+            });
         });
 
-      prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'brand')],
-        { orderings: '[my.brand.name desc]' })).then((response) => {
-          this.brands = response.results;
-          // console.log(this.brands);
-        });
 
-      prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'collection')], { orderings: '[my.collection.date desc]' })).then((response) => {
-        this.card_per_page = 3;
-        this.documents = response.results;
-        this.loaded = true;
-        // console.log(this.documents);
 
-      });
+
 
     })
   }
@@ -90,6 +203,7 @@ export class RunwayBoardComponent implements OnInit, AfterViewInit {
   }
   ngOnInit() {
     this.loaded = false;
+
 
   }
 }

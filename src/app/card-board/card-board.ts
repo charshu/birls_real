@@ -1,16 +1,16 @@
-import { Component, Inject, AfterViewInit } from "@angular/core";
+import { Component, Inject, AfterViewInit,OnDestroy } from "@angular/core";
 import { OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from '@angular/router';
 import { PrismicService } from '../prismic';
 import { Prismic } from 'prismic.io';
 
 
+
 @Component({
   templateUrl: './card-board.html',
   styleUrls: ['./card-board.scss']
 })
-export class CardBoardComponent implements OnInit, AfterViewInit {
-  selectedMenu: string = null;
+export class CardBoardComponent implements OnInit, AfterViewInit,OnDestroy {
   documents: Array<any>;
   list_documents: Array<any>;
   private sub: any;
@@ -20,12 +20,9 @@ export class CardBoardComponent implements OnInit, AfterViewInit {
   imageUrl: string = '';
   imageHeight: number = 0;
   current_size = 0;
-  card_per_page = 3;
+  card_per_page = 5;
   loaded: boolean = false;
   tag: any;
-  //social share
-  public fbUrl = 'https://www.facebook.com/birlsmagazine';
-  public twUrl = 'https://www.facebook.com/birlsmagazine';
 
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -43,45 +40,39 @@ export class CardBoardComponent implements OnInit, AfterViewInit {
   ) {
 
     this.sub = this.route.params.subscribe(params => {
-      console.log(params);
-      this.loaded = false;
-      document.body.scrollTop = 0;
-      // console.log(params['category']);
       if (params['category'] !== undefined) {
-        this.selectedMenu = 'fashion';
         this.category = params['category'];
         prismicService.api().then((api) => api.getByUID('category', this.category)).then((document) => {
           const categoryID = document.id;
-          this.image = document.getImage('category.cover');
-          this.imageUrl = this.image !== null ? this.image.url : '';
+          this.image = document.getImageView('category.cover', 'cover');
           prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article'),
-          Prismic.Predicates.at('my.article.link', categoryID)], { orderings: '[my.article.date desc]' })).then((response) => {
-            this.card_per_page = 3;
+          Prismic.Predicates.at('my.article.link', categoryID)], { orderings: '[my.article.date desc]','fetchLinks': 'category.name' })).then((response) => {
             this.documents = response.results;
             this.queryTitle = this.category;
             this.loaded = true;
-            // console.log(this.documents.length);
-            //console.log(this.loaded);
           });
         });
       } else if (params['tagname'] !== undefined) {
-        this.selectedMenu = 'fashion';
         this.tag = params['tagname'];
-        prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article'), Prismic.Predicates.at('document.tags', [this.tag])], { orderings: '[my.article.date desc]' })).then((response) => {
-          this.card_per_page = 3;
+        prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article'),
+         Prismic.Predicates.at('document.tags', [this.tag])], { orderings: '[my.article.date desc]','fetchLinks': 'category.name' })).then((response) => {
           this.documents = response.results;
           this.queryTitle = this.tag;
           this.loaded = true;
         });
 
-      } 
+      }
     })
   }
   ngAfterViewInit() {
 
   }
   ngOnInit() {
+    document.body.scrollTop = 0;
     this.loaded = false;
-    
+
+  }
+  ngOnDestroy(){
+    this.sub.unsubscribe();
   }
 }

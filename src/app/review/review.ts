@@ -1,20 +1,20 @@
 import { Component, Input, Inject, OnInit, AfterViewInit, OnDestroy, OpaqueToken } from '@angular/core';
 import { Router, ActivatedRoute, RouterStateSnapshot } from '@angular/router';
 import { PrismicService } from '../prismic';
-import { Prismic } from 'prismic.io';
+
 @Component({
-  selector: 'myarticle',
-  styleUrls: ['./article.scss'],
-  templateUrl: './article.html'
+  selector: 'review',
+  styleUrls: ['./review.scss'],
+  templateUrl: './review.html'
 })
 
 
-export class Article implements OnInit, AfterViewInit, OnDestroy {
-  _uid: string;
+export class Review implements OnInit, AfterViewInit, OnDestroy {
+  uid: string;
   private sub: any;
   private document: any;
-  _documents: any;
   private loaded: boolean = false;
+  
   title: any;
   category: string;
   date: any;
@@ -22,8 +22,8 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
   imageAspect: any;
   slices: any;
   tags: any;
-  maxRelatedDocs:number = 3;
-  page_url = "http://www.google.com";
+  author:string;
+  public page_url = "http://www.google.com";
   disqusShortname = 'birlmag';
   fbInner = `<div class=\"circle facebook\">
                 <i class=\"fa fa-facebook\" aria-hidden=\"true\"></i>
@@ -51,44 +51,44 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
     if (string !== undefined) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
-    return '';
+    return 'error';
   }
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private prismicService: PrismicService,
+    private prismic: PrismicService,
     @Inject('LinkResolver') private linkResolver: { (doc: any): string }
-  ) {}
-
-  ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+  ) {
+    this.sub = this.route.parent.params.subscribe(params => {
       const uid = params['uid'];
-      this.category = params['category'];
-      this.prismicService.api().then((api) => api.getByUID('article', uid)).then((res) => {
+      this.prismic.api().then((api) => api.getByUID('collection', uid)).then((res) => {
         this.document = res;
-        this.title = res.getStructuredText('article.title');
-        this.date = res.getDate('article.date');
-        this.image = res.getImage('article.post-image');
-        this.slices = res.getSliceZone('article.body').slices
+        
+        this.title = res.getStructuredText('collection.title');
+        this.author = res.getText('collection.author');
+        this.date = res.getDate('collection.date');
+        this.slices = res.getSliceZone('collection.body').slices
         this.tags = res.tags;
-         this.prismicService.api().then((api) => api.query([Prismic.Predicates.similar(this.document.id, 3)
-         ,Prismic.Predicates.at('document.type', 'article')], 
-         { orderings: '[my.article.date desc]','fetchLinks': 'category.name'  })).then((response) => {
-         this._documents = response.results;
-          console.log(this._documents);
-          this.loaded = true;
-        });
-
+        this.loaded = true;
+        
+        
       });
 
     })
+  }
+
+  ngOnInit() {
+
+
+
+
   }
   ngAfterViewInit() {
 
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+
   }
 
 }

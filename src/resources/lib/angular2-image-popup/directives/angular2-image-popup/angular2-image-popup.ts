@@ -8,15 +8,16 @@ import {Component, Input,Output,ElementRef,EventEmitter,OnInit} from '@angular/c
        <img src="{{ i.thumb }}" class="ng-thumb" (click)="openGallery(index)" alt="Image {{ index + 1 }}" />
       </div>
    </div>
-   <div class="ng-overlay" *ngIf="opened" (click)="closeGallery()">
-    <div class="ng-gallery-content" >
+   
+    <div class="ng-gallery-content" (click)="tryClose()">
     <div class="uil-ring-css" *ngIf="loading"><div></div></div>         
     <a class="close-popup" (click)="closeGallery()"><i class="fa fa-close"></i></a>
-     <a class="nav-left" *ngIf="modalImages.length >1" (click)="prevImage()"><i class="fa fa-angle-left"></i></a>
+     <a class="nav-left" *ngIf="modalImages.length >1" (mouseenter)="isNav = true" (mouseleave)="isNav = false" (click)="prevImage()"><i class="fa fa-angle-left"></i></a>
      <img *ngIf="!loading" src="{{imgSrc}}" (click)="nextImage()" class="effect" />
-     <a class="nav-right" *ngIf="modalImages.length >1" (click)="nextImage()"><i class="fa fa-angle-right"></i></a>
+     <a class="nav-right" *ngIf="modalImages.length >1" (mouseenter)="isNav = true" (mouseleave)="isNav = false" (click)="nextImage()"><i class="fa fa-angle-right"></i></a>
      <span class="info-text">{{ currentImageIndex + 1 }}/{{ modalImages.length }}{{modalImages[currentImageIndex].description!==''?" - ":""}}{{modalImages[currentImageIndex].description}}</span>
    </div>
+   <div class="ng-overlay" *ngIf="opened" >
    </div>
        ` 
 })
@@ -27,6 +28,7 @@ export class ImageModal implements OnInit {
    public currentImageIndex:number;
    public loading:boolean= false;
    public showRepeat:boolean= false;
+   public isNav:boolean = false;
   @Input('modalImages') public modalImages:any;
   @Input('imagePointer') public imagePointer:number;
   @Output('cancelEvent') cancelEvent = new EventEmitter<any>();
@@ -45,6 +47,11 @@ export class ImageModal implements OnInit {
   closeGallery() {
     this.opened = false;
     this.cancelEvent.emit(null);
+  }
+  tryClose(){
+    if(!this.isNav){
+      this.closeGallery();
+    }
   }
   prevImage() {
     this.loading = true;

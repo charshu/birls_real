@@ -9,22 +9,28 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { MomentModule } from 'angular2-moment';
 import { CeiboShare } from 'ng2-social-share';
 import { Ng2ParallaxScrollModule } from 'ng2-parallax-scroll';
+
+
 import { PrismicService } from './prismic';
 import { Home } from './home/home';
 import { Article } from './article/article';
+import { Review } from './review/review';
 // import {ShareButtonsModule} from 'ng2-sharebuttons';
 import { CommentModule } from 'ng2-comment';
 import { DisqusModule } from "ng2-awesome-disqus";
 import { ShareButtonsModule } from "ng2-sharebuttons";
-
+import { MaterialModule } from '@angular/material';
 
 import { CardBoardComponent } from './card-board/card-board'
 import { RunwayBoardComponent } from './runway-board/runway-board';
+import { OtherSeasonComponent } from './otherseason-board/otherseason-board';
+
 import { NavBar } from './ui/nav-bar/nav-bar';
 import { Card } from './ui/card/card';
 import { CollectionCard } from './ui/collection-card/collection-card';
 import { ImageModal } from './../resources/lib/angular2-image-popup/directives/angular2-image-popup/image-modal-popup';
 import {Collection} from './collection/collection';
+import {Gallery} from './gallery/gallery';
 import { TruncatePipe } from './app.pipe';
 // Use the endpoint of your repository
 const ENDPOINT = 'https://charshu.prismic.io/api';
@@ -55,7 +61,7 @@ function linkResolver(doc: any) {
   }
   else if (doc.type === 'collection') {
 
-    return `/runway/` + doc.getLink('collection.season').uid + '/' + doc.getLink('collection.brand').uid + '/' + encodeURIComponent(doc.uid);
+    return `/runway/` + encodeURIComponent(doc.uid);
 
   }
 
@@ -75,7 +81,10 @@ function linkResolver(doc: any) {
     RunwayBoardComponent,
     CollectionCard,
     ImageModal,
-    Collection
+    Collection,
+    Gallery,
+    Review,
+    OtherSeasonComponent
     ],
   imports: [
     BrowserModule,
@@ -86,7 +95,8 @@ function linkResolver(doc: any) {
     Ng2ParallaxScrollModule,
     CommentModule,
     DisqusModule,
-    ShareButtonsModule
+    ShareButtonsModule,
+    MaterialModule.forRoot()
   ],
   providers: [
     PrismicService,

@@ -1,0 +1,12 @@
+<div class="image-container">
+    <div class="img-box" *ngFor="let img of images; let i= index">
+        <div class="img" [ngStyle]="{'background-image': 'url('+img.thumb+')'}" (click)="OpenImageModel(img.img,images)" alt='Image'>
+            <div class="desc" (click)="OpenImageModel(img.img,images)">
+                <i class="fi flaticon-interface"></i>&nbsp;<span class="view_img">VIEW IMAGE</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="openModalWindow">
+    <ImageModal [modalImages]="images" [imagePointer]="imagePointer" (cancelEvent)="cancelImageModel()"></ImageModal>
+</div>

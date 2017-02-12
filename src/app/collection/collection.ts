@@ -16,6 +16,12 @@ export class Collection implements OnInit, AfterViewInit, OnDestroy {
   private sub: any;
   private document: any;
   private loaded: boolean = false;
+  enable: boolean;
+  date: any;
+  brand: any;
+  season: any;
+
+
   calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
     var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
     return { width: srcWidth * ratio, height: srcHeight * ratio };
@@ -23,66 +29,6 @@ export class Collection implements OnInit, AfterViewInit, OnDestroy {
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-
-  //angular2-image-popup
-  openModalWindow: boolean = false;
-  imagePointer: number;
-  images: {
-    thumb: string,
-    img: string,
-    description: string
-  }[] = [];
-
-  OpenImageModel(imageSrc, images) {
-    //alert('OpenImages');
-    var imageModalPointer;
-    for (var i = 0; i < images.length; i++) {
-      if (imageSrc === images[i].img) {
-        imageModalPointer = i;
-        console.log('jhhl', i);
-        break;
-      }
-    }
-    this.openModalWindow = true;
-    this.images = images;
-    this.imagePointer = imageModalPointer;
-  }
-  cancelImageModel() {
-    this.openModalWindow = false;
-  }
-
-
-
-  groupImages: any;
-  image: any;
-  imageUrl: string;
-  imageHeight: number;
-
-  date: any;
-  brand: any;
-  season: any;
-
-  public page_url;
-  disqusShortname = 'birlmag';
-  fbInner = `<div class=\"circle facebook\">
-                <i class=\"fa fa-facebook\" aria-hidden=\"true\"></i>
-              </div>`;
-  twitterInner = `<div class="circle twitter">
-                      <i class="fa fa-twitter" aria-hidden="true"></i>
-                   </div>`;
-  googleInner = `<div class="circle googlePlus">
-                    <i class="fa fa-google-plus" aria-hidden="true"></i>
-                </div>`;
-  pintInner = `<div class="circle pinterest">
-                    <i class="fa fa-pinterest" aria-hidden="true"></i>
-                </div>`;
-  inInner = `<div class="circle linkin">
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </div>`;
-  tumblrInner = `<div class="circle tumblr">
-                    <i class="fa fa-tumblr" aria-hidden="true"></i>
-                </div>`;
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -91,40 +37,20 @@ export class Collection implements OnInit, AfterViewInit, OnDestroy {
   ) {
     this.sub = this.route.params.subscribe(params => {
       const uid = params['uid'];
-
-      prismicService.api().then((api) => api.getByUID('collection', uid)).then((res) => {
+      prismicService.api().then((api) => api.getByUID('collection', uid, { 'fetchLinks': ['brand.name', 'season.name'] })).then((res) => {
         this.document = res;
-        console.log(res);
-        this.groupImages = this.document.getGroup('collection.gallery').toArray();
-        for (let i = 0; i < this.groupImages.length; i++) {
-          let temp = this.groupImages[i].getFirstImage();
-          if (temp !== null && temp !== undefined) {
-            this.images.push({
-              thumb: temp.getView('thumb') !== undefined ? temp.getView('thumb').url : 'http://www.yochuwa.com/wp-content/plugins/penci-portfolio//images/no-thumbnail.jpg',
-              img: temp.url,
-              description: this.groupImages[i].get('caption') !== null ? this.groupImages[i].get('caption').asText() : ''
-            });
-          }
-          // console.log(this.groupImages[i].get('caption').asText());
-        }
-        this.brand = this.document.getLink('collection.brand');
-        this.brand = this.brand !== null ? this.brand.slug : '';
+        this.enable = res.getText('collection.enable-review') === 'yes' ? true : false;
         this.date = this.document.getDate('collection.date');
-
-        prismicService.api().then((api) => api.getByUID('season', this.document.getLink('collection.season').uid)).then((res) => {
-          this.season = res;
-          console.log(this.season.getText('season.name'));
-          this.loaded = true;
-        });
+        this.season = this.document.getLink('collection.season');
+        this.brand = this.document.getLink('collection.brand');
+        this.loaded = true;
       });
     })
-    this.page_url = "http://www.google.com";
+
   }
 
   ngOnInit() {
-
-
-
+    //get last word in route path
 
   }
   ngAfterViewInit() {
@@ -132,7 +58,7 @@ export class Collection implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-
+    this.sub.unsubscribe();
   }
 
 }

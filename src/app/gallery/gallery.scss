@@ -1,0 +1,95 @@
+@import "./../../resources/css/color";
+$image_size:16.46vw;
+$image_margin: 0.1vw;
+.image-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    // border-bottom: 1px solid #CCC;
+    font-family: 'Open Sans', sans-serif;
+    .title-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        // background-image: linear-gradient(rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 0.03) 100%);
+        width: 100%;
+        span {
+            font-size: 1em;
+            font-weight: bold;
+            margin: 5px;
+            color: $birls_darkpink;
+        }
+        span.slash-divider {
+            width: 1px;
+            height: 40px;
+            border-right: 1px solid #CCC;
+            transform: rotate(35deg);
+            margin-top: 3px;
+            margin-bottom: 3px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    }
+}
+
+.image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    // padding-right: 18.33vw;
+    // padding-left: 18.33vw;
+    min-height: 500px;
+    padding-top: 10px;
+    /*border: 1px dashed #CCC;*/
+}
+
+.img-box {
+    position: relative;
+    width: $image_size;
+    height: $image_size;
+    margin: $image_margin;
+    background-color: #CCC;
+    &:hover {
+        // transform: scale(1.05);
+        .img {
+            .desc {
+                visibility: visible;
+                // border: 5px solid #333;
+                background-color: rgba(0, 0, 0, 0.2)
+            }
+        }
+    }
+    .img {
+        position: relative;
+        z-index: 99;
+        width: $image_size;
+        height: $image_size;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        .desc {
+            font-family: 'Open Sans', sans-serif;
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: $image_size;
+            width: $image_size;
+            z-index: 100;
+            font-size: 1em;
+            visibility: hidden;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: all .1s ease-in-out;
+        }
+    }
+}
