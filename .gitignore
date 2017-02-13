@@ -20,6 +20,7 @@ tmp/
 # Typescript
 #---------------------------------
 src/**/*.js
+!src/global.js
 src/**/*.map
 typings/*
 !typings/prismic.io.d.ts

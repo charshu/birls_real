@@ -1,15 +1,4 @@
-<!--loading-->
-<div class="loading" *ngIf="!loaded">
-    <!--preloader-->
-    <div id="pre-bootstrap-container">
 
-        <div id="pre-bootstrap">
-            <div class="logo"></div>
-            <div class="loader"></div>
-        </div>
-
-    </div>
-</div>
 <div class="article-container" *ngIf="document && loaded">
     <div class="container-fluid">
         <div class="row" id="content-section">
@@ -86,6 +75,18 @@
 
 </div>
 
+<!--loading-->
+<div class="loading" *ngIf="!loaded">
+    <!--preloader-->
+    <div id="pre-bootstrap-container">
+
+        <div id="pre-bootstrap">
+            <div class="logo"></div>
+            <div class="loader"></div>
+        </div>
+
+    </div>
+</div>
 <div *ngIf="loaded && !document">
     <h2>Not found!</h2>
 </div>

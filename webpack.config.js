@@ -39,7 +39,7 @@ var webpackConfig = {
             { test: /\.json$/, loader: 'json' },
             // .ts files for TypeScript
             { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
-            { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
+            { test: /\.css$/, loaders: ['to-string-loader', 'css-loader','postcss-loader'] },
             { test: /\.html$/, loader: 'raw-loader' },
             { test: /\.scss$/, exclude: /node_modules/, loaders: ["raw-loader", "sass-loader", "postcss-loader"] },
             // { test: /\.scss$/, exclude:/node_modules/, loaders: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")},

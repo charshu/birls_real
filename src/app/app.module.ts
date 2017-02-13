@@ -13,24 +13,24 @@ import { Ng2ParallaxScrollModule } from 'ng2-parallax-scroll';
 
 import { PrismicService } from './prismic';
 import { Home } from './home/home';
-import { Article } from './article/article';
-import { Review } from './review/review';
+import { Article } from './ui/article/article';
+import { Review } from './ui/review/review';
 // import {ShareButtonsModule} from 'ng2-sharebuttons';
 import { CommentModule } from 'ng2-comment';
 import { DisqusModule } from "ng2-awesome-disqus";
 import { ShareButtonsModule } from "ng2-sharebuttons";
 import { MaterialModule } from '@angular/material';
 
-import { CardBoardComponent } from './card-board/card-board'
-import { RunwayBoardComponent } from './runway-board/runway-board';
-import { OtherSeasonComponent } from './otherseason-board/otherseason-board';
+import { CardBoardComponent } from './board/article/card-board'
+import { RunwayBoardComponent } from './board/collection/runway-board';
+import { OtherSeasonComponent } from './board/otherseason/otherseason-board';
 
 import { NavBar } from './ui/nav-bar/nav-bar';
-import { Card } from './ui/card/card';
+import { Card } from './ui/article-card/card';
 import { CollectionCard } from './ui/collection-card/collection-card';
 import { ImageModal } from './../resources/lib/angular2-image-popup/directives/angular2-image-popup/image-modal-popup';
-import {Collection} from './collection/collection';
-import {Gallery} from './gallery/gallery';
+import {Collection} from './ui/collection/collection';
+import {Gallery} from './ui/gallery/gallery';
 import { TruncatePipe } from './app.pipe';
 // Use the endpoint of your repository
 const ENDPOINT = 'https://charshu.prismic.io/api';

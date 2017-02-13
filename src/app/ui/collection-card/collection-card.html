@@ -1,31 +1,25 @@
 <div *ngIf="document && loaded">
-
-    <article class="card" (mouseenter)="isHover=true" (mouseleave)="isHover=false" [ngClass]="{'hover':isHover}">
-
-        <a [routerLink]="[linkResolver(document)]">
-            <div class="center" *ngIf="loadingImage">
-                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
-
-            </div>
-            <img [src]="imageUrl[0]" [ngStyle]="{'display':loadingImage && imageUrl[0]!==''?'none':'block'}" (load)="loadingImage=false">
-            <div *ngIf="!loadingImage" [ngClass]="{'card-img':!loadingImage,'hover':isHover}">
-
-                <div *ngIf="showDate" class="card-date">
-                    <div class="day">
-                        {{date | amDateFormat:'D'}}
-                    </div>
-                    <div class="month">
-                        {{date | amDateFormat:'MMM'}}
-                    </div>
+    <article class="card" [routerLink]="[linkResolver(document)]" (mouseenter)="isHover=true" (mouseleave)="isHover=false" [ngClass]="{'hover':isHover}"
+        [ngStyle]="{'width':card_w+'px','height':card_h+'px'}">
+        <!--pre-loading icon-->
+        <div class="center" *ngIf="loadingImage">
+            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+        </div>
+        <!---->
+        <img [src]="imageUrl[0]" [ngStyle]="{'display':loadingImage && imageUrl[0]!==''?'none':'block','width':card_w+'px','height':card_h+'px'}"
+            (load)="loadingImage=false">
+        <div *ngIf="!loadingImage" [ngClass]="{'card-img':!loadingImage,'hover':isHover}">
+            <div *ngIf="showDate" class="card-date">
+                <div class="day">
+                    {{date | amDateFormat:'D'}}
                 </div>
-                <span [ngClass]="{'card-brand':true,'hover':isHover}">{{capitalizeFirstLetter(brand.getText('brand.name'))}}</span>
-                <div class="card-season">{{capitalizeFirstLetter(season.getText('season.name'))}}</div>
+                <div class="month">
+                    {{date | amDateFormat:'MMM'}}
+                </div>
             </div>
-
-
-            <!--<div class="card-desc">{{desc}} <span [ngClass]="{'more':true,'hover':isHover}" *ngIf="isMore">  — read more</span></div>-->
-
-        </a>
+            <div *ngIf="brand" class="card-brand" [ngClass]="{'hover':isHover}">{{capitalizeFirstLetter(brand.getText('brand.name'))}}</div>
+            <div *ngIf="season" class="card-season">{{capitalizeFirstLetter(season.getText('season.name'))}}</div>
+        </div>
     </article>
     <!--<div class="document-body" [innerHtml]=document.asHtml(linkResolver)></div>-->
 </div>

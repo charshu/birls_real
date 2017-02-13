@@ -1,11 +1,11 @@
 import { Component, Input, Inject, OnInit, AfterViewInit, OnDestroy, OpaqueToken } from '@angular/core';
 import { Router, ActivatedRoute, RouterStateSnapshot } from '@angular/router';
-import { PrismicService } from '../prismic';
+import { PrismicService } from '../../prismic';
 
 @Component({
   selector: 'review',
-  styleUrls: ['./review.scss'],
-  templateUrl: './review.html'
+  styleUrls: ['./../article/article.scss'],
+  templateUrl: './../article/article.html'
 })
 
 

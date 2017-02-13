@@ -1,6 +1,6 @@
 import { Component, Input, Inject, OnInit, AfterViewInit, OnDestroy, OpaqueToken } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PrismicService } from '../prismic';
+import { PrismicService } from '../../prismic';
 
 
 @Component({

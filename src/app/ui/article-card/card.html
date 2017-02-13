@@ -2,7 +2,7 @@
     <article id="board-card" class="card" [ngStyle]="{'width':width+'px'}" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
         <a [routerLink]="[linkResolver(document)]">
             <img [src]="image?image.url:''" [ngClass]="{'card-img':true,'hover':isHover}" [ngStyle]="{'height':imageHeight+'px'}">
-            <span [ngClass]="{'card-title':true,'hover':isHover}"><h1>{{title?title.getTitle().text:''}}</h1></span>
+            <h1 [ngClass]="{'card-title':true,'hover':isHover}">{{title?title.getTitle().text:''}}</h1>
             <div class="card-category">{{capitalizeFirstLetter(category.getText('category.name'))}}</div>
             <div class="card-desc">{{desc}} <span [ngClass]="{'more':true,'hover':isHover}" *ngIf="isMore">  — read more</span></div>
         </a>
@@ -12,7 +12,7 @@
     <article id="related-card" class="card" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
         <a [routerLink]="[linkResolver(document)]">
             <img [src]="image?image.url:''" [ngClass]="{'card-img':true,'hover':isHover}" [ngStyle]="{'height':imageHeight+'px'}">
-            <span [ngClass]="{'card-title':true,'hover':isHover}"><h1>{{title?title.getTitle().text:''}}</h1></span>
+            <h1 [ngClass]="{'card-title':true,'hover':isHover}">{{title?title.getTitle().text:''}}</h1>
             <div class="card-category">{{capitalizeFirstLetter(category.getText('category.name'))}}</div>
             <div class="card-desc">{{desc}} <span [ngClass]="{'more':true,'hover':isHover}" *ngIf="isMore">  — read more</span></div>
         </a>

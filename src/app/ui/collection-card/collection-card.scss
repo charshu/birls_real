@@ -1,34 +1,7 @@
-$card_width:calc(3px*60);
-$card_height:calc(4.5px*60);
-$brand_size:1.6vw;
+
+$brand_size:1.6em;
 $season_size:0.8em;
 $spin_size:15px;
-a {
-    text-decoration: none;
-}
-
-#cf {
-    position: relative;
-    height: 281px;
-    width: 450px;
-    margin: 0 auto;
-}
-
-#cf img {
-    position: absolute;
-    left: 0;
-    width: $card_width;
-    height: $card_height;
-    -webkit-transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -o-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
-}
-
-#cf img.top:hover,
-img.mid:hover {
-    opacity: 0;
-}
 
 .center {
     position: absolute;
@@ -38,26 +11,18 @@ img.mid:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Need a specific value to work */
 }
 
 .card {
     position: relative;
-    width: $card_width;
-    height: $card_height;
     margin: 20px 20px 10px 20px;
     transition: all .1s ease-in-out;
     &.hover {
         transform: scale(1.05);
     }
-    // border: 1px solid lightgrey;
-    // box-shadow: 5px 5px lighten(grey, 45);
-    // border-radius: 2px;
     img {
         position: absolute;
         z-index: 10;
-        width: $card_width;
-        height: $card_height;
         object-fit: cover;
     }
     .card-img {

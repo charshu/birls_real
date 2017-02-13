@@ -1,17 +1,15 @@
-<!--<div *ngIf="document">
-  <div class="document-body" [innerHtml]=document.asHtml(linkResolver)></div>
-</div>-->
-<div class="article-container">
+
+<div class="article-container" *ngIf="loaded && document">
     <div class="container-fluid">
         <div class="row" id="content-section">
             <div class="col-md-8 col-lg-8">
                 <div class="article-title">
                     <h1>{{title?title.getTitle().text : ''}}</h1>
                 </div>
-                <div class="article-category">
+                <div *ngIf="category" class="article-category">
                     {{capitalizeFirstLetter(category)}}
                 </div>
-                <img [src]="image?image.url:''" class="article-img">
+                <img *ngIf="image" [src]="image?image.url:''" class="article-img">
 
                 <div class="slice" *ngFor="let slice of slices">
                     <div *ngIf="slice.sliceType==='text'" [innerHtml]="slice.value.asHtml()" class="paragraph"></div>
@@ -43,7 +41,7 @@
             </div>
             <div class="col-md-4 col-lg-4">
 
-                <div class="side-container flex-col-center">
+                <div id="right-section" class="flex-col-center">
 
                     <!--<div class="share-text">
                         <span class="number">2,002</span> SHARES
@@ -61,8 +59,13 @@
                         <p class="article-date">
                             {{date | amDateFormat:'MMMM DD, YYYY'}}
                         </p>
-                        <div class="divider" style="width: 80px;"></div>
+                        <!-- InstaWidget -->
+                    <div id="ig-section" class="fixed right">
+                        <iframe id="23a8e2a3688d9e38d51003acca0dddd0cdcce923508b03fa95c9d479bdea70e6" scrolling="no" frameborder="no" src="https://instawidget.net/embed?u=23a8e2a3688d9e38d51003acca0dddd0cdcce923508b03fa95c9d479bdea70e6"></iframe>
                     </div>
+                        <!--<div class="divider" style="width: 80px;"></div>-->
+                    </div>
+                       
 
                     <div id="tag-section" class="row">
                         <div class="col-lg-12">
@@ -77,10 +80,7 @@
 
                         </div>
                     </div>
-                    <!-- InstaWidget -->
-                    <div class="ig">
-                        <iframe id="0a68c5867bf5d6285ff84114a688f0bcb4d3afcc3b954cdf21957fa5ce9ba730" style="border:0;width:300px;height:530px;margin:0;padding:0;" scrolling="no" frameborder="no" src="https://instawidget.net/embed?u=0a68c5867bf5d6285ff84114a688f0bcb4d3afcc3b954cdf21957fa5ce9ba730"></iframe>
-                    </div>
+                 
                 </div>
             </div>
         </div>
@@ -96,4 +96,17 @@
 
 <div *ngIf="loaded && !document">
     <h2>Not found!</h2>
+</div>
+
+<!--loading-->
+<div class="loading" *ngIf="!loaded">
+    <!--preloader-->
+    <div id="pre-bootstrap-container">
+
+        <div id="pre-bootstrap">
+            <div class="logo"></div>
+            <div class="loader"></div>
+        </div>
+
+    </div>
 </div>

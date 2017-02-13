@@ -26,6 +26,7 @@
    h6 {
        font-family: 'Roboto', sans-serif;
        margin: 0px;
+       line-height: 1.2;
    }
    
    #board-card {
@@ -51,10 +52,9 @@
        }
    }
    
-   .card-title {
+   h1.card-title {
+       display: inline!important;
        background-size: 200% 100%;
-       background-image: -webkit-linear-gradient(to left, #e7adff 0%, #bad7ff 8%, #b2ffe6 16%, #edffb2 24%, #ffe6b2 32%, #ffd6e2 40%, #ffffff 50%, #ffffff 100%);
-       background-image: -o-linear-gradient(to left, #e7adff 0%, #bad7ff 8%, #b2ffe6 16%, #edffb2 24%, #ffe6b2 32%, #ffd6e2 40%, #ffffff 50%, #ffffff 100%);
        background-image: linear-gradient(to left, #e7adff 0%, #bad7ff 8%, #b2ffe6 16%, #edffb2 24%, #ffe6b2 32%, #ffd6e2 40%, #ffffff 50%, #ffffff 100%);
        transition: background-position 0.3s;
        color: lighten(black, 20);
