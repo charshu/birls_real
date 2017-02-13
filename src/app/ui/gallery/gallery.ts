@@ -14,7 +14,6 @@ export class Gallery implements OnInit, AfterViewInit, OnDestroy {
   document: any;
   groupImages: any;
   loaded: boolean;
-  //angular2-image-popup
   openModalWindow: boolean = false;
   imagePointer: number;
   @Input() images: {
@@ -24,7 +23,6 @@ export class Gallery implements OnInit, AfterViewInit, OnDestroy {
   }[] = [];
 
   OpenImageModel(imageSrc, images) {
-    //alert('OpenImages');
     var imageModalPointer;
     for (var i = 0; i < images.length; i++) {
       if (imageSrc === images[i].img) {

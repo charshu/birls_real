@@ -1,5 +1,5 @@
 <div *ngIf="document && loaded">
-    <article class="card" [routerLink]="[linkResolver(document)]" (mouseenter)="isHover=true" (mouseleave)="isHover=false" [ngClass]="{'hover':isHover}"
+    <article class="mycard" [routerLink]="[linkResolver(document)]" (mouseenter)="isHover=true" (mouseleave)="isHover=false" [ngClass]="{'hover':isHover}"
         [ngStyle]="{'width':card_w+'px','height':card_h+'px'}">
         <!--pre-loading icon-->
         <div class="center" *ngIf="loadingImage">
@@ -17,8 +17,8 @@
                     {{date | amDateFormat:'MMM'}}
                 </div>
             </div>
-            <div *ngIf="brand" class="card-brand" [ngClass]="{'hover':isHover}">{{capitalizeFirstLetter(brand.getText('brand.name'))}}</div>
-            <div *ngIf="season" class="card-season">{{capitalizeFirstLetter(season.getText('season.name'))}}</div>
+            <div *ngIf="brand" class="card-brand" [ngClass]="{'hover':isHover}" [ngStyle]="{'font-size':text.brand+'em'}">{{capitalizeFirstLetter(brand.getText('brand.name'))}}</div>
+            <div *ngIf="season" class="card-season" [ngStyle]="{'font-size':text.season+'em'}">{{capitalizeFirstLetter(season.getText('season.name'))}}</div>
         </div>
     </article>
     <!--<div class="document-body" [innerHtml]=document.asHtml(linkResolver)></div>-->

@@ -8,7 +8,7 @@
 
     <div id="cardboard-section" class="container-fluid">
         <div class="row card-board">
-            <div class="col-lg-4 flex-row-center card-wrapper" *ngFor="let document of documents;let i = index">
+            <div class="col-lg-{{12/card_per_row}} flex-row-center card-wrapper" *ngFor="let document of documents;let i = index">
                 <card *ngIf="i < card_per_page" [document]="document" [styleNumber]="1" [randomHeight]="true"></card>
             </div>
 

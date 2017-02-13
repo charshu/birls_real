@@ -1,8 +1,5 @@
 
-$brand_size:1.6em;
-$season_size:0.8em;
 $spin_size:15px;
-
 .center {
     position: absolute;
     width: 100%;
@@ -13,7 +10,7 @@ $spin_size:15px;
     align-items: center;
 }
 
-.card {
+.mycard {
     position: relative;
     margin: 20px 20px 10px 20px;
     transition: all .1s ease-in-out;
@@ -51,7 +48,6 @@ $spin_size:15px;
         }
         .card-brand {
             //font-family: 'Lato', sans-serif;
-            font-size: $brand_size;
             text-align: center;
             font-weight: 700;
             text-decoration: none;
@@ -64,7 +60,6 @@ $spin_size:15px;
             }
         }
         .card-season {
-            font-size: $season_size;
             color: lightgrey;
             z-index: 101;
             //margin-top: 3px;

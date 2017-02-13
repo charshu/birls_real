@@ -22,3 +22,25 @@ section {
     background-color: white;
     z-index: 999;
 }
+
+#slider{
+    h3 {
+         text-align: center;
+         color: white;
+         font-family: 'Lato', sans-serif;
+         font-size: 2.50em;
+         font-weight: 900;
+         text-shadow: 2px 2px #555;
+
+     }
+    img{
+        height: 400px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+#custom-homepage{
+    height: 500px;
+}

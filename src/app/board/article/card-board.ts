@@ -4,8 +4,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PrismicService } from '../../prismic';
 import { Prismic } from 'prismic.io';
 
-
-
 @Component({
   templateUrl: './card-board.html',
   styleUrls: ['./card-board.scss']
@@ -20,6 +18,7 @@ export class CardBoardComponent implements OnInit, AfterViewInit,OnDestroy {
   imageUrl: string = '';
   imageHeight: number = 0;
   current_size = 0;
+  card_per_row = 4; //1,2,3,4,6,12
   card_per_page = 5;
   loaded: boolean = false;
   tag: any;

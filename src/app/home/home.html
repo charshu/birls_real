@@ -1,0 +1,15 @@
+<div id="slider">
+    <ngb-carousel>
+  <template ngbSlide *ngFor="let image of images">
+    <img [src]="image.getFirstImage()?image.getFirstImage().url:''" alt="{{image.getText('slider.title')}}">
+    <div class="carousel-caption">
+      <h3>{{image.getText('title')}}</h3>
+      <p>{{image.getText('description')}}</p>
+    </div>
+  </template>
+
+</ngb-carousel>
+</div>
+<div id="custom-homepage">
+    asd
+</div>

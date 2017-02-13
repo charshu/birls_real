@@ -2,9 +2,6 @@ import { Component, Input, Inject, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PrismicService } from '../../prismic';
 
-
-
-
 @Component({
   selector: 'card',
   styleUrls: ['./card.scss'],
@@ -48,14 +45,11 @@ export class Card implements OnInit {
 
   ngOnInit() {
     this.image = this.document.getImage('article.post-image');
-    console.log(this.image)
     if(this.randomHeight){
       this.imageHeight = this.getRandomInt(300,450);
-    }
-     
+    } 
     this.date = this.document.getDate('article.date');
     this.category = this.document.getLink('article.link');
-    console.log(this.category.getText('category.name'));
     this.title = this.document.getStructuredText('article.title');
     this.paragraph = this.document.getFirstParagraph();
     this.desc = this.paragraph !==null?this.paragraph.text:'';

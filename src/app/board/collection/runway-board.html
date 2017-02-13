@@ -33,18 +33,6 @@
             </div>
             <!--<button type="submit" class="btn btn-default" (click)="updateFilter()">Search</button>-->
         </div>
-        <!--
-        <div class="social-bar">
-            <div class="circle facebook">
-                <i class="fa fa-facebook" ceiboShare [facebook]="{u: fbUrl}" aria-hidden="true"></i>
-            </div>
-            <div class="circle twitter">
-                <i class="fa fa-twitter" ceiboShare [facebook]="{url: twUrl}" aria-hidden="true"></i>
-            </div>
-            <div class="circle youtube">
-                <i class="fa fa-youtube" aria-hidden="true"></i>
-            </div>
-        </div>-->
 
 
     </div>
@@ -54,7 +42,7 @@
     <div class="card-container">
 
         <div *ngFor="let document of documents;let i =index">
-            <collection-card *ngIf="i < card_per_page && filter(document)" [showDate]="showDate" [document]="document"></collection-card>
+            <collection-card *ngIf="i < card_per_page && filter(document)" [showDate]="showDate" [document]="document" [cardSize]="1.2" [textSize]="1.2"></collection-card>
         </div>
         <!--<div class="torn"></div>-->
     </div>

@@ -20,6 +20,7 @@ import { CommentModule } from 'ng2-comment';
 import { DisqusModule } from "ng2-awesome-disqus";
 import { ShareButtonsModule } from "ng2-sharebuttons";
 import { MaterialModule } from '@angular/material';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CardBoardComponent } from './board/article/card-board'
 import { RunwayBoardComponent } from './board/collection/runway-board';
@@ -96,7 +97,8 @@ function linkResolver(doc: any) {
     CommentModule,
     DisqusModule,
     ShareButtonsModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    NgbModule.forRoot()
   ],
   providers: [
     PrismicService,

@@ -57,6 +57,8 @@
     "@angular/upgrade": "2.0.0",
     "@angular2-material/core": "^2.0.0-alpha.8-2",
     "@angular2-material/tabs": "^2.0.0-alpha.8-2",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.20",
+    "angular-ui-bootstrap": "^2.5.0",
     "angular2-disqus": "^5.0.0",
     "angular2-moment": "^1.1.0",
     "bootstrap": "^3.3.7",

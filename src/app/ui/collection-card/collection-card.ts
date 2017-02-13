@@ -10,10 +10,10 @@ export class CollectionCard implements OnInit {
   @Input()textSize : number;
   card_h : number;
   card_w : number;
-  _text : {
+  text : {
     brand: number,
     season: number
-  }
+  } = { brand:1,season:1};
   groupImages : any;
   image1 : any;
   image2 : any;
@@ -33,6 +33,8 @@ export class CollectionCard implements OnInit {
   isHover : boolean = false;
   limit = 100;
   isMore = false;
+  loaded : boolean = false;
+  loadingImage : boolean = true;
 
   toggle() {
     this.isHover = !this.isHover;
@@ -50,8 +52,6 @@ export class CollectionCard implements OnInit {
     return '';
   }
 
-  loaded : boolean = false;
-  loadingImage : boolean = true;
   constructor(private prismicService : PrismicService, @Inject('LinkResolver')private linkResolver : {
     (doc : any): string
   }) {}
@@ -59,8 +59,8 @@ export class CollectionCard implements OnInit {
   ngOnInit() {
     this.card_h = 4.5 * 60 * this.cardSize;
     this.card_w = 3.0 * 60 * this.cardSize;
-    this._text.brand = 1.6 * this.textSize;
-    this._text.season = 0.8 * this.textSize;
+    this.text.brand = 1.6 * this.textSize;
+    this.text.season = 0.8 * this.textSize;
     this.groupImages = this
       .document
       .getGroup('collection.gallery')
@@ -77,15 +77,10 @@ export class CollectionCard implements OnInit {
         // this.image2 !== undefined ? this.image2.url : '', this.image3 !== undefined ?
         // this.image3.url : ''
     ];
-    this.date = this
-      .document
-      .getDate('collection.date');
-    this.season = this
-      .document
-      .getLink('collection.season');
-    this.brand = this
-      .document
-      .getLink('collection.brand');
+    this.date = this.document.getDate('collection.date');
+    this.season = this.document.getLink('collection.season');
+    this.brand = this.document.getLink('collection.brand');
+    console.log(this.brand);
     this.loaded = true;
 
   }

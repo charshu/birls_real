@@ -1,3 +1,8 @@
+@import "./../resources/css/color";
+main {
+    min-height: 100%;
+}
+
 div#top-section {
     position: relative;
     display: flex;
@@ -16,133 +21,120 @@ div#top-section {
 }
 
 footer {
+    width: 100%;
+    overflow: hidden;
+    background-color: rgb(224, 224, 224);
+    color: #555;
+}
+
+footer.container-fluid {
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+    .row {
+        padding-left: 10%;
+        padding-right: 10%;
+        margin-left: 0px!important;
+        margin-right: 0px!important;
+    }
+}
+
+footer #links-section.row {
+    border-top: 1px solid #CCC;
+}
+
+.footer-column {
     display: flex;
     flex-direction: column;
-    .row {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: baseline;
-        // height: 300px;
-        font-family: 'Open Sans', sans-serif;
-        // background-image: url(http://api.thumbr.it/whitenoise-361x370.png?background=777777ff&noise=626262&density=29&opacity=30);
-        background-color: #999;
-        margin-bottom: 0px;
-        //flex-wrap: wrap;
-        &:first-child {
-            padding-top: 20px;
-        }
-        @media screen and (max-width: 768px) {
-            flex-wrap: wrap;
-        }
-        .column {
-            display: flex;
-            flex-direction: column;
-            color: white;
-            padding: 15px;
-            min-width: 25%;
-            max-width: 33.3%;
-            &.center {
-                justify-content: center;
-                align-items: center;
-            }
-            @media screen and (max-width: 768px) {
-                max-width: 100%;
-            }
-            //background-color: pink;
-            .title {
-                font-size: 1.25em;
-                font-weight: 700;
-            }
-            .divider {
-                margin-top: 5px;
-                margin-bottom: 5px;
-                border-top: 2px solid white;
-                width: 60%;
-            }
-            .content {
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-            a {
-                display: block;
-                font-weight: bold;
-                text-decoration: none;
-                color: white;
-                margin-top: 10px;
-                &:hover {
-                    color: #CCC;
-                }
-            }
-            p.share {
-                display: block;
-                text-align: center;
-            }
-            .social-bar {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                position: relative;
-                width: 100%;
-                align-items: baseline;
-                //top: -100px;
-                .circle {
-                    margin: 3px;
-                    font-size: 16px;
-                    color: white;
-                    border: 2px solid rgba(white, 0.8);
-                    border-radius: 50%;
-                    width: 32px;
-                    height: 32px;
-                    text-align: center;
-                    line-height: 30px;
-                    overflow: hidden;
-                    cursor: pointer;
-                    -webkit-transition: all .3s ease-in-out;
-                    transition: all .3 ease-in-out;
-                    &.facebook:hover {
-                        border: 2px solid #3b5998;
-                        background-color: #3b5998;
-                    }
-                    &.twitter:hover {
-                        border: 2px solid #00aced;
-                        background-color: #00aced;
-                    }
-                    &.youtube:hover {
-                        border: 2px solid #c4302b;
-                        background-color: #c4302b;
-                    }
-                }
-            }
-            .tag-container {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                position: relative;
-                .tag-box {
-                    margin: 3px 3px 3px 0px;
-                    font-size: 14px;
-                    color: white;
-                    border: 1px solid rgba(white, 0.8);
-                    border-radius: 3px;
-                    padding: 5px;
-                    width: auto;
-                    height: 32px;
-                    text-align: center;
-                    //  line-height: 30px;
-                    overflow: hidden;
-                    cursor: pointer;
-                    -webkit-transition: all .3s ease-in-out;
-                    transition: all .3 ease-in-out;
-                    &:hover {
-                        border: 1px solid #3b5998;
-                        background-color: #3b5998;
-                    }
-                }
-            }
+    padding: 10px;
+    &.center {
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
+
+.title {
+    font-size: 1.25em;
+}
+
+.divider {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-top: 2px solid #555;
+    width: 60%;
+}
+
+.content {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+    color: #555;
+    &:hover {
+        color: #CCC;
+    }
+}
+
+.tag-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.tag-box {
+    margin: 3px 3px 3px 0px;
+    font-size: 14px;
+    color: $birls_darkpink;
+    border: 1px solid rgba($birls_darkpink, 0.8);
+    border-radius: 3px;
+    padding: 5px;
+    width: auto;
+    height: 32px;
+    text-align: center;
+    //  line-height: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3 ease-in-out;
+    &:hover {
+        color: white;
+        border: 1px solid $birls_darkpink;
+        background-color: $birls_darkpink;
+    }
+}
+
+footer #follow-section.row {
+    height: 80px;
+}
+
+p.share {
+    display: block;
+    text-align: center;
+    margin-bottom: 3px!important;
+}
+
+.social-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    align-items: baseline;
+    i{
+        font-size: 1.5em;
+        color:#555;
+        padding:10px 20px;
+        &:hover{
+            color:#999;
         }
     }
 }
+
+
 
 section {
     position: relative;

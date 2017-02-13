@@ -6,7 +6,7 @@
     <div class="card-container">
 
         <div *ngFor="let document of documents;let i =index">
-            <collection-card *ngIf="uid !== document.uid" [showDate]="showDate" [document]="document" [cardSize]="1.5"></collection-card>
+            <collection-card *ngIf="uid !== document.uid" [showDate]="showDate" [document]="document" [cardSize]="1.5" [textSize]="1.4"></collection-card>
         </div>
         <!--<div class="torn"></div>-->
     </div>

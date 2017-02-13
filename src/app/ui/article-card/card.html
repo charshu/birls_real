@@ -1,5 +1,5 @@
 <div *ngIf="document && styleNumber === 1">
-    <article id="board-card" class="card" [ngStyle]="{'width':width+'px'}" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
+    <article id="board-card" class="mycard" [ngStyle]="{'width':width+'px'}" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
         <a [routerLink]="[linkResolver(document)]">
             <img [src]="image?image.url:''" [ngClass]="{'card-img':true,'hover':isHover}" [ngStyle]="{'height':imageHeight+'px'}">
             <h1 [ngClass]="{'card-title':true,'hover':isHover}">{{title?title.getTitle().text:''}}</h1>
@@ -9,7 +9,7 @@
     </article>
 </div>
 <div *ngIf="document && styleNumber === 2">
-    <article id="related-card" class="card" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
+    <article id="related-card" class="mycard" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
         <a [routerLink]="[linkResolver(document)]">
             <img [src]="image?image.url:''" [ngClass]="{'card-img':true,'hover':isHover}" [ngStyle]="{'height':imageHeight+'px'}">
             <h1 [ngClass]="{'card-title':true,'hover':isHover}">{{title?title.getTitle().text:''}}</h1>
