@@ -12,6 +12,8 @@ import { Prismic } from 'prismic.io';
 
 export class NavBar {
     private sub:any;
+    focus:boolean;
+    active:boolean;
     tabs = [{
         label:'Fashion',
         links:[{
@@ -35,11 +37,30 @@ export class NavBar {
             url:'fashion/mood-board'
         }],
         items:[{
-            img:'./../../../resources/img/hands-people-woman-working.jpg',
-            desc:'Editorial'
+            img:'./../../../resources/img/menu/shopping.jpg',
+            desc:'Shopping',
+            url:'fashion/shopping',
+            active:false
+        },{
+            img:'./../../../resources/img/menu/trends.jpg',
+            desc:'Trends',
+            url:'fashion/trends',
+            active:false
+        },{
+            img:'./../../../resources/img/menu/style.jpg',
+            desc:'Style du Jours',
+            url:'fashion/style-du-jours',
+            active:false
+        },{
+            img:'./../../../resources/img/menu/editorial.jpg',
+            desc:'Editorial',
+            url:'fashion/editorial',
+            active:false
         }, {
-            img:'./../../../resources/img/pexels-photo-198747.jpeg',
-            desc:'Trends'
+            img:'./../../../resources/img/menu/moodboard.jpg',
+            desc:'Fashion mood board',
+            url:'fashion/mood-board',
+            active:false
         }],
         active:false
     }, {

@@ -1,46 +1,47 @@
 <div class="container-fluid" (mouseleave)="closeAll()">
-
     <div class="row">
         <div class="tab-group">
             <div class="tab" *ngFor="let tab of tabs;let i=index" (mouseenter)="setActive(i)">
                 <a *ngIf="tab.links.length <= 1" [routerLink]="tab.link">
                     <div class="tab-label" [ngClass]="{'hover':tab.active}" [innerHTML]="tab.label">
-
                     </div>
                 </a>
                 <div *ngIf="tab.links.length > 1" class="tab-label" [ngClass]="{'hover':tab.active}" [innerHTML]="tab.label">
-
                 </div>
             </div>
         </div>
     </div>
-
-
-
     <div class="row">
-        <div *ngFor="let tab of tabs;let i=index" class="tab-content" [ngClass]="{'active':tab.active && tab.links.length > 1,'pullDown':tab.active}" (mouseenter)="setActive(i)">
-
-            <div class="tab-link">
+        <div *ngFor="let tab of tabs;let i=index" class="tab-content" [ngClass]="{'active':tab.active && tab.links.length > 1,'pullDown':tab.active}"
+            (mouseenter)="setActive(i)">
+            <!--<div class="tab-link">
                 <li *ngFor="let link of tab.links;">
                     <a [routerLink]="link.url" (click)="closeAll()" [innerHTML]="link.label">
                     </a>
                 </li>
-            </div>
-
-            <div class="tab-item" *ngFor="let item of tab.items;">
-                <img src="{{item.img}}" alt="">
-                <div class="item-desc">
-                    {{item.desc}}
+            </div>-->
+            <div id="fashion-menu" class="col-sm-12" *ngIf="tab.items">
+                <div class="row">
+                     <div class="col-md-6 col-lg-4">
+                         <div class="item-title">
+                             Fashion > Category
+                         </div>
+                        
+                    </div>
+                </div>
+                <div  class="row">
+                    <div class="col-md-3 col-lg-2" *ngFor="let item of tab.items;let i = index">
+                        <div class="item-box" [routerLink]="item.url" (click)="closeAll()" (mouseenter)="focus=true;item.active=true" (mouseleave)="focus=false;item.active=false" [ngClass]="{'fade':focus && !item.active}">
+                            <img src="{{item.img}}" alt="">
+                            <div class="item-desc" [ngClass]="{'active': item.active}">
+                                {{item.desc}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
-
 </div>
 <div class="backdrop fadeIn" *ngIf="backdrop">
-
 </div>

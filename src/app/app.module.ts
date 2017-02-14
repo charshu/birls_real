@@ -15,8 +15,8 @@ import { PrismicService } from './prismic';
 import { Home } from './home/home';
 import { Article } from './ui/article/article';
 import { Review } from './ui/review/review';
-// import {ShareButtonsModule} from 'ng2-sharebuttons';
-import { CommentModule } from 'ng2-comment';
+
+
 import { DisqusModule } from "ng2-awesome-disqus";
 import { ShareButtonsModule } from "ng2-sharebuttons";
 import { MaterialModule } from '@angular/material';
@@ -40,7 +40,7 @@ const ACCESS_TOKEN = null;
 // Customize this to match your routing pattern
 
 const APP_CONFIG_DATA = {
-  server_ip_addr: 'http://localhost:9090'
+  server_ip_addr: 'http://localhost:8080'
 }
 const APP_CONFIG_TOKEN = new OpaqueToken('config');
 
@@ -94,7 +94,6 @@ function linkResolver(doc: any) {
     RouterModule.forRoot(rootRouterConfig),
     MomentModule,
     Ng2ParallaxScrollModule,
-    CommentModule,
     DisqusModule,
     ShareButtonsModule,
     MaterialModule.forRoot(),
