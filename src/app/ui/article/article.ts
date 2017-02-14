@@ -24,7 +24,7 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
   tags: any;
   author:any;
   maxRelatedDocs:number = 3;
-  page_url = window.location.href;
+  page_url:string;
   disqusShortname = 'birlmag';
   fbInner = `<div class=\"circle facebook\">
                 <i class=\"fa fa-facebook\" aria-hidden=\"true\"></i>
@@ -66,6 +66,7 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
     document.body.scrollTop = 0;
     this.sub = this.route.params.subscribe(params => {
       const uid = params['uid'];
+      this.page_url = window.location.href;
       this.category = params['category'];
       this.prismicService.api().then((api) => api.getByUID('article', uid)).then((res) => {
         this.document = res;
