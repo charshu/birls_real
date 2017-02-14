@@ -3,7 +3,7 @@
     <div *ngIf="image?true:false" class="cover noise" ng2-parallax>
         <img [src]="image?image.url : ''" alt="">
         <h1>{{capitalizeFirstLetter(queryTitle)}}</h1>
-        <h6>Whoever said money can't buy happiness simply didn't know where to go shopping.</h6>
+        <h6>{{description}}</h6>
     </div>
 
     <div id="cardboard-section" class="container-fluid">
@@ -18,9 +18,7 @@
                 <div class="more" (click)="more()">More..</div>
             </div>
         </div>
-
     </div>
-
 </div>
 
 

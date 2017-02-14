@@ -61,6 +61,7 @@ export class OtherSeasonComponent implements OnInit, AfterViewInit {
 
   }
   ngOnInit() {
+    document.body.scrollTop = 0;
     this.loaded = false;
 
 

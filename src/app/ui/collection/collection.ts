@@ -51,7 +51,7 @@ export class Collection implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     //get last word in route path
-
+    document.body.scrollTop = 0;
   }
   ngAfterViewInit() {
 

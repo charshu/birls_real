@@ -14,6 +14,7 @@ export class CardBoardComponent implements OnInit, AfterViewInit,OnDestroy {
   private sub: any;
   queryTitle: string = '';
   category: string = '';
+  description:string;
   image: any;
   imageUrl: string = '';
   imageHeight: number = 0;
@@ -39,15 +40,19 @@ export class CardBoardComponent implements OnInit, AfterViewInit,OnDestroy {
   ) {
 
     this.sub = this.route.params.subscribe(params => {
+       this.loaded = false;
       if (params['category'] !== undefined) {
         this.category = params['category'];
+        
         prismicService.api().then((api) => api.getByUID('category', this.category)).then((document) => {
           const categoryID = document.id;
           this.image = document.getImageView('category.cover', 'cover');
+          this.description = document.getText('category.description');
           prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article'),
           Prismic.Predicates.at('my.article.link', categoryID)], { orderings: '[my.article.date desc]','fetchLinks': 'category.name' })).then((response) => {
             this.documents = response.results;
             this.queryTitle = this.category;
+           
             this.loaded = true;
           });
         });
@@ -68,7 +73,7 @@ export class CardBoardComponent implements OnInit, AfterViewInit,OnDestroy {
   }
   ngOnInit() {
     document.body.scrollTop = 0;
-    this.loaded = false;
+   
 
   }
   ngOnDestroy(){

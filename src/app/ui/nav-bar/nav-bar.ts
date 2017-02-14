@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
-
+import {Component,Inject} from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PrismicService } from '../../prismic';
+import { Prismic } from 'prismic.io';
 
 @Component({
     selector: 'nav-bar',
@@ -9,7 +11,7 @@ import {Component} from '@angular/core';
 
 
 export class NavBar {
-
+    private sub:any;
     tabs = [{
         label:'Fashion',
         links:[{
@@ -33,12 +35,11 @@ export class NavBar {
             url:'fashion/mood-board'
         }],
         items:[{
-            img:'./../../resources/img/lights.jpg',
-            desc:'The titles of Washed Out\'s breakthrough song and the first single from Paracosm share the two most '
+            img:'./../../../resources/img/hands-people-woman-working.jpg',
+            desc:'Editorial'
         }, {
-            img:'./../../resources/img/grass.jpg',
-            desc:'The titles of Washed Out\'s breakthrough song and the first single from Paracosm '
-            + 'share the two most'
+            img:'./../../../resources/img/pexels-photo-198747.jpeg',
+            desc:'Trends'
         }],
         active:false
     }, {
@@ -104,6 +105,26 @@ export class NavBar {
         }, 200);
 
     }
+
+    constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private prismicService: PrismicService,
+    @Inject('LinkResolver') private linkResolver: { (doc: any): string }
+  ) {
+
+    this.sub = this.route.params.subscribe(params => {
+    //    this.loaded = false;
+    //     prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.category', 'article'),
+    //       Prismic.Predicates.at('my.article.link', categoryID)], { orderings: '[my.article.date desc]','fetchLinks': 'category.name' })).then((response) => {
+    //         this.documents = response.results;
+    //         this.queryTitle = this.category;
+           
+    //         this.loaded = true;
+    //       });
+
+    })
+  }
 
 
 }

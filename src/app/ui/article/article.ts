@@ -62,7 +62,8 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    console.log(this.page_url);
+
+    document.body.scrollTop = 0;
     this.sub = this.route.params.subscribe(params => {
       const uid = params['uid'];
       this.category = params['category'];

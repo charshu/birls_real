@@ -243,6 +243,7 @@ AfterViewInit {
   }
   ngAfterViewInit() {}
   ngOnInit() {
+    document.body.scrollTop = 0;
     this.loaded = false;
 
   }

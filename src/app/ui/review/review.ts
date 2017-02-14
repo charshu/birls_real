@@ -78,10 +78,7 @@ export class Review implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-
-
-
-
+    document.body.scrollTop = 0;
   }
   ngAfterViewInit() {
 
