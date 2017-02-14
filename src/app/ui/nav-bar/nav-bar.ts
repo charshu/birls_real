@@ -77,6 +77,14 @@ export class NavBar {
         links:[],
         active:false
     }, {
+        label:'TV',
+        links:[],
+        active:false
+    }, {
+        label:'Birls',
+        links:[],
+        active:false
+    }, {
         label:'<i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop',
         links:[],
         active:false
