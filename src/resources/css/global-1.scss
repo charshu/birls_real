@@ -6,12 +6,12 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
 @import "color";
-
-html{
+html {
     margin: 0px;
     padding: 0px;
     min-height: 100%;
 }
+
 body {
     margin: 0px;
     font-family: 'PT Serif', sans-serif;
@@ -31,7 +31,11 @@ body {
     z-index: 99;
     .sb-title {
         // color: hotpink;
+        font-size: 0.8em;
         font-weight: bold;
+    }
+    .sb-count {
+        font-size: 0.8em;
     }
     .sb-buttons {
         margin: 5px!important;

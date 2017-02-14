@@ -22,6 +22,7 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
   imageAspect: any;
   slices: any;
   tags: any;
+  author:any;
   maxRelatedDocs:number = 3;
   page_url = "http://www.google.com";
   disqusShortname = 'birlmag';
@@ -67,6 +68,7 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
       this.prismicService.api().then((api) => api.getByUID('article', uid)).then((res) => {
         this.document = res;
         this.title = res.getStructuredText('article.title');
+        this.author = res.getText('article.author');
         this.date = res.getDate('article.date');
         this.image = res.getImage('article.post-image');
         this.slices = res.getSliceZone('article.body').slices

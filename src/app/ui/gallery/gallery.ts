@@ -48,6 +48,7 @@ export class Gallery implements OnInit, AfterViewInit, OnDestroy {
     this.sub = this.route.parent.params.subscribe(params => {
       const uid = params['uid'];
       // console.log(params);
+      
       prismicService.api().then((api) => api.getByUID('collection', uid, { 'fetchLinks': ['brand.name', 'season.name'] })).then((res) => {
         this.document = res;
         // console.log(res);
@@ -71,7 +72,7 @@ export class Gallery implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-
+      document.body.scrollTop = 0;
   }
   ngAfterViewInit() {
 

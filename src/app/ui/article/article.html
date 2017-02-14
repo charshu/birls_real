@@ -18,9 +18,9 @@
                         <p><span>{{slice.value.toArray()[0].get('caption').asText()}}</span></p>
                     </div>
                     <div *ngIf="slice.sliceType==='quote'" class="quote">
-                        <blockquote>
+                        <div class="blockquote">
                             <p>{{slice.value.asText()}}</p>
-                        </blockquote>
+                        </div>
                     </div>
 
                 </div>
@@ -43,9 +43,6 @@
 
                 <div id="right-section" class="flex-col-center">
 
-                    <!--<div class="share-text">
-                        <span class="number">2,002</span> SHARES
-                    </div>-->
                     <share-buttons [shareTitle]="'SHARES '" [count]="true" [totalCount]="true" [url]="page_url" [defaultStyle]="false" [facebook]="fbInner" [twitter]="twitterInner" [pinterest]="pintInner" [linkedIn]="inInner" [google]="googleInner" [tumblr]="tumblrInner"
                         [reddit]="false" [stumbleUpOn]="false">
 
@@ -55,7 +52,7 @@
 
                         <div class="divider" style="width: 80px;"></div>
                         <i class="fi flaticon-quill-drawing-a-line"></i>
-                        <span class="author-name">AUTHOR KRITTAWAT KRIS</span>
+                        <span class="author-name">AUTHOR {{author}}</span>
                         <p class="article-date">
                             {{date | amDateFormat:'MMMM DD, YYYY'}}
                         </p>

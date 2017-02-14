@@ -9,9 +9,13 @@
     }
     
     h1 {
+        font-size: 1.5em;
         font-weight: 700;
     }
-    
+    h3{
+        font-size: 1.0em!important;
+        font-weight: 700!important;
+    }
     .flex-row-center {
         position: relative;
         display: flex;
@@ -35,7 +39,7 @@
     
     #content-section {
         margin-left: 10%;
-        margin-right: 10%;
+        margin-right: 5%;
         padding-bottom: 20px;
     }
     
@@ -83,7 +87,7 @@
     #related-article {
         border-top: 1px solid #CCC!important;
         .title {
-            font-size: 20px;
+            font-size: 1.2em;
             font-weight: bold;
             padding: 10px;
         }
@@ -96,7 +100,7 @@
     
     .share-text {
         text-align: center;
-        font-size: 1.25em;
+        font-size: 0.90em;
         .number {
             font-weight: bold;
         }

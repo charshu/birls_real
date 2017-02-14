@@ -42,16 +42,16 @@ export class NavBar {
         }],
         active:false
     }, {
-        label:'Weird and Quirky',
-        links:[],
-        active:false
-    }, {
         label:'Beauty',
         links:[],
         active:false
     }, {
         label:'Runway',
         link : 'runway',
+        links:[],
+        active:false
+    }, {
+        label:'Magazine',
         links:[],
         active:false
     }, {

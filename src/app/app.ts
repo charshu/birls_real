@@ -12,6 +12,11 @@ export class AppComponent{
 
   public fbUrl = 'https://www.facebook.com/birlsmagazine';
   public twUrl = 'https://www.facebook.com/birlsmagazine';
+  tags = ['#menswear','#mensfashion','#menstyle','#mensstyle','#menfashion','#trend','#trendy' 
+,'#trends','#trending','#style','#pink','#outfit','#fashionweek','#hautecouture']; 
+
+
+
 
   constructor(public http: Http, 
     @Inject('PrismicEndpoint') private endpoint: string) {}

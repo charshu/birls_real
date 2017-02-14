@@ -21,33 +21,29 @@
             <div class="title">
                 POPULAR TAGS
             </div>
-            <div class="divider" style="width: 50px;"></div>
+            <!--<div class="divider"></div>-->
             <div class="tag-container">
-                <div class="tag-box">
-                    bag
+                <div class="tag-box" *ngFor="let tag of tags">
+                    {{tag}}
                 </div>
-                <div class="tag-box">
-                    shoe
-                </div>
-                <div class="tag-box">
-                    sun glasses
-                </div>
+
             </div>
         </div>
         <div class="col-lg-4 footer-column center">
             <div class="title">
                 ABOUT US
             </div>
-            <div class="divider" style="width: 60px;"></div>
+            <!--<div class="divider"></div>-->
             <a href="">{{ "Krist Krittawat" | uppercase}}</a>
             <a href="">{{ "Weird and Quirky" | uppercase}}</a>
             <a href="">{{ "Weird People" | uppercase}}</a>
         </div>
         <div class="col-lg-4 footer-column center">
             <div class="title">
-                SIGNUP FOR NEWSLETTER
+                {{"Subscribe to our newsletter" |uppercase}}
             </div>
-            <button type="button" class="btn btn-primary">SIGNUP</button>
+            <!--<div class="divider"></div>-->
+            <button type="button" class="btn btn-primary">Subscribe</button>
         </div>
     </div>
     <div id="follow-section" class="row">

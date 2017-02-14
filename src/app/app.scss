@@ -21,10 +21,14 @@ div#top-section {
 }
 
 footer {
+    font-family: 'Open Sans', sans-serif;
     width: 100%;
     overflow: hidden;
     background-color: rgb(224, 224, 224);
     color: #555;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #CCC;
 }
 
 footer.container-fluid {
@@ -38,9 +42,7 @@ footer.container-fluid {
     }
 }
 
-footer #links-section.row {
-    border-top: 1px solid #CCC;
-}
+footer #links-section.row {}
 
 .footer-column {
     display: flex;
@@ -53,7 +55,10 @@ footer #links-section.row {
 }
 
 .title {
-    font-size: 1.25em;
+    font-size: 1.00em;
+    color:#333;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .divider {
@@ -68,7 +73,7 @@ footer #links-section.row {
     padding-bottom: 10px;
 }
 
-a {
+footer a {
     display: block;
     text-decoration: none;
     margin-top: 10px;
@@ -83,11 +88,12 @@ a {
     flex-direction: row;
     justify-content: flex-start;
     position: relative;
+    flex-wrap: wrap;
 }
 
 .tag-box {
     margin: 3px 3px 3px 0px;
-    font-size: 14px;
+    font-size: 0.8em;
     color: $birls_darkpink;
     border: 1px solid rgba($birls_darkpink, 0.8);
     border-radius: 3px;
@@ -124,17 +130,15 @@ p.share {
     position: relative;
     width: 100%;
     align-items: baseline;
-    i{
+    i {
         font-size: 1.5em;
-        color:#555;
-        padding:10px 20px;
-        &:hover{
-            color:#999;
+        color: #555;
+        padding: 10px 20px;
+        &:hover {
+            color: #999;
         }
     }
 }
-
-
 
 section {
     position: relative;
