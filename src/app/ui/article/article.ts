@@ -24,7 +24,7 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
   tags: any;
   author:any;
   maxRelatedDocs:number = 3;
-  page_url = "http://www.google.com";
+  page_url = window.location.href;
   disqusShortname = 'birlmag';
   fbInner = `<div class=\"circle facebook\">
                 <i class=\"fa fa-facebook\" aria-hidden=\"true\"></i>
@@ -62,6 +62,7 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    console.log(this.page_url);
     this.sub = this.route.params.subscribe(params => {
       const uid = params['uid'];
       this.category = params['category'];
