@@ -5,18 +5,11 @@ $nav_sub_font_size: 1.00em;
 $desc_font_size:0.9em;
 .tab-group {
     position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
     background-color: white;
     border-bottom: 1px solid lightgrey;
     z-index: 1500;
     .tab {
-        display: block;
         background-color: white;
-        margin-right: 10px;
         text-align: center;
         a {
             text-decoration: none;
@@ -24,7 +17,8 @@ $desc_font_size:0.9em;
         }
         .tab-label {
             position: relative;
-            padding: 15px;
+            padding-top: 15px;
+            padding-bottom: 15px;
             font-family: 'Open Sans', sans-serif;
             font-weight: 600;
             font-size: $nav_font_size;

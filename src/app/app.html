@@ -16,39 +16,27 @@
 </main>
 <footer class="container-fluid">
     <div id="links-section" class="row">
-        
-        <div class="col-lg-4 footer-column center">
-            <div class="title">
-                POPULAR TAGS
-            </div>
-            <!--<div class="divider"></div>-->
+        <!--<div class="col-lg-4 footer-column center">
+            <a href="">{{ "POPULAR TAGS" | uppercase}}</a>
+          
             <div class="tag-container">
                 <div class="tag-box" *ngFor="let tag of tags">
                     {{tag}}
                 </div>
-
             </div>
+        </div>-->
+        <div class="col-lg-12 footer-row center">
+            <ul>
+                <li><a href="">{{ "Krist Krittawat" | uppercase}}</a></li>
+                <li><a href="">{{ "Contact us" | uppercase}}</a></li>
+                <li><a href="">{{ "Legal mentions" | uppercase}}</a></li>
+            </ul>
         </div>
-        <div class="col-lg-4 footer-column center">
-            <div class="title">
-                ABOUT US
-            </div>
-            <!--<div class="divider"></div>-->
-            <a href="">{{ "Krist Krittawat" | uppercase}}</a>
-            <a href="">{{ "Weird and Quirky" | uppercase}}</a>
-            <a href="">{{ "Weird People" | uppercase}}</a>
-        </div>
-        <div class="col-lg-4 footer-column center">
-            <div class="title">
-                {{"Subscribe to our newsletter" |uppercase}}
-            </div>
-            <!--<div class="divider"></div>-->
-            <button type="button" class="btn btn-primary">Subscribe</button>
-        </div>
+ 
     </div>
     <div id="follow-section" class="row">
         <div class="col-lg-12 footer-column">
-            <!--<p class="share">FOLLOW US</p>-->
+            <p class="share">FOLLOW US</p>
             <div class="social-bar">
                 <i class="fa fa-facebook" ceiboShare [facebook]="{u: fbUrl}" aria-hidden="true"></i>
                 <i class="fa fa-twitter" ceiboShare [facebook]="{url: twUrl}" aria-hidden="true"></i>

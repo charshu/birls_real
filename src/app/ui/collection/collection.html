@@ -3,9 +3,9 @@
 </div>-->
 <div class="main-body">
     <div class="nav2">
-        <div role="presentation" [routerLinkActive]="['arrow_box']" [routerLink]="['collection']"><span>Collection</span></div>
-        <div role="presentation" [routerLinkActive]="['arrow_box']" *ngIf="enable" [routerLink]="['review']"><span>Review</span></div>
-        <div role="presentation" [routerLinkActive]="['arrow_box']" [routerLink]="['otherseason']"><span>Other Season</span></div>
+        <div class="item" [routerLinkActive]="['arrow_box']" [routerLink]="['collection']"><span>Collection</span></div>
+        <div class="item" [routerLinkActive]="['arrow_box']" *ngIf="enable" [routerLink]="['review']"><span>Review</span></div>
+        <div class="item" [routerLinkActive]="['arrow_box']" [routerLink]="['otherseason']"><span>Other Season</span></div>
     </div>
     <div *ngIf="document && loaded">
         <div class="image-header">

@@ -32,6 +32,7 @@
     margin-left: -16px;
 }
 
+
 .nav2 {
     display: flex;
     flex-direction: row;
@@ -47,6 +48,12 @@
     a {
         text-decoration: none;
         color: inherit;
+    }
+    .item{
+
+        &:hover{
+            color: $birls_darkpink;
+        }
     }
 }
 

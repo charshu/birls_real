@@ -1,4 +1,3 @@
-
 <div class="article-container" *ngIf="loaded && document">
     <div class="container-fluid">
         <div class="row" id="content-section">
@@ -10,7 +9,6 @@
                     {{capitalizeFirstLetter(category)}}
                 </div>
                 <img *ngIf="image" [src]="image?image.url:''" class="article-img">
-
                 <div class="slice" *ngFor="let slice of slices">
                     <div *ngIf="slice.sliceType==='text'" [innerHtml]="slice.value.asHtml()" class="paragraph"></div>
                     <div *ngIf="slice.sliceType==='image-with-caption'" class="image-with-caption">
@@ -22,11 +20,7 @@
                             <p>{{slice.value.asText()}}</p>
                         </div>
                     </div>
-
                 </div>
-
-
-
                 <div id="related-article" *ngIf="_documents" class="row">
                     <div class="col-lg-12">
                         <div class="title">
@@ -36,20 +30,17 @@
                     <div class="col-sm-4 col-lg-4 flex-row-center" *ngFor="let document of _documents;let i = index">
                         <card *ngIf="i < maxRelatedDocs" [document]="document" [styleNumber]="2" [imageHeight]="200"></card>
                     </div>
-
                 </div>
             </div>
-            <div class="col-md-12 col-lg-4">
-
-                <div id="right-section" class="flex-col-center">
-
-                    <share-buttons [shareTitle]="'SHARES '" [count]="true" [totalCount]="true" [url]="page_url" [defaultStyle]="false" [facebook]="fbInner" [twitter]="twitterInner" [pinterest]="pintInner" [linkedIn]="inInner" [google]="googleInner" [tumblr]="tumblrInner"
-                        [reddit]="false" [stumbleUpOn]="false">
-
-                    </share-buttons>
-
-                    <div class="author flex-col-center">
-
+            <div class="col-md-12 col-lg-4" id="right-section">
+                <div class="row">
+                    <div class="col-lg-12 flex-col-center">
+                        <share-buttons [shareTitle]="'SHARES '" [count]="true" [totalCount]="true" [url]="page_url" [defaultStyle]="false" [facebook]="fbInner"
+                            [twitter]="twitterInner" [pinterest]="pintInner" [linkedIn]="inInner" [google]="googleInner" [tumblr]="tumblrInner"
+                            [reddit]="false" [stumbleUpOn]="false">
+                        </share-buttons>
+                    </div>
+                    <div class="col-lg-12 author flex-col-center">
                         <div class="divider" style="width: 80px;"></div>
                         <i class="fi flaticon-quill-drawing-a-line"></i>
                         <span class="author-name">AUTHOR {{author}}</span>
@@ -57,31 +48,24 @@
                             {{date | amDateFormat:'MMMM DD, YYYY'}}
                         </p>
                         <!-- InstaWidget -->
-                    <div id="ig-section" class="fixed right">
-                        <iframe id="23a8e2a3688d9e38d51003acca0dddd0cdcce923508b03fa95c9d479bdea70e6" scrolling="no" frameborder="no" src="https://instawidget.net/embed?u=23a8e2a3688d9e38d51003acca0dddd0cdcce923508b03fa95c9d479bdea70e6"></iframe>
-                    </div>
+                        <div id="ig-section" class="fixed right">
+                            <iframe id="23a8e2a3688d9e38d51003acca0dddd0cdcce923508b03fa95c9d479bdea70e6" scrolling="no" frameborder="no" src="https://instawidget.net/embed?u=23a8e2a3688d9e38d51003acca0dddd0cdcce923508b03fa95c9d479bdea70e6"></iframe>
+                        </div>
                         <!--<div class="divider" style="width: 80px;"></div>-->
                     </div>
-                       
-
-                    <div *ngIf="tags.length > 0" id="tag-section" class="row">
-                        <div class="col-lg-12">
-                            <div class="title">
-                                <i class="fa fa-tags" aria-hidden="true"></i> TAGS
+                    <div *ngIf="tags.length > 0" id="tag-section" class="col-lg-12">
+                        <div class="title">
+                            <i class="fa fa-tags" aria-hidden="true"></i> TAGS
+                        </div>
+                        <div class="tag-container flex-row-center">
+                            <div class="tag-box" *ngFor="let tag of tags; let i = index" [routerLink]="['/tags/' + tag]">
+                                {{tag}}
                             </div>
-                            <div class="tag-container">
-                                <div class="tag-box" *ngFor="let tag of tags; let i = index" [routerLink]="['/tags/' + tag]">
-                                    {{tag}}
-                                </div>
-                            </div>
-
                         </div>
                     </div>
-                 
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col-lg-12 comment flex-col-center">
                 <div class="title"> <i class="fi flaticon-blank-squared-bubble"></i><br>Comment on Article </div>
@@ -90,20 +74,16 @@
         </div>
     </div>
 </div>
-
 <div *ngIf="loaded && !document">
     <h2>Not found!</h2>
 </div>
-
 <!--loading-->
 <div class="loading" *ngIf="!loaded">
     <!--preloader-->
     <div id="pre-bootstrap-container">
-
         <div id="pre-bootstrap">
             <div class="logo"></div>
             <div class="loader"></div>
         </div>
-
     </div>
 </div>

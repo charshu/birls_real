@@ -1,7 +1,7 @@
 <div class="container-fluid" (mouseleave)="closeAll()">
-    <div class="row">
-        <div class="tab-group">
-            <div class="tab" *ngFor="let tab of tabs;let i=index" (mouseenter)="setActive(i)">
+    <div class="row tab-group">
+        
+            <div class="tab col-sm-3 col-md-1" [ngClass]="{'offset-md-2':i==0}" *ngFor="let tab of tabs;let i=index" (mouseenter)="setActive(i)">
                 <a *ngIf="tab.links.length <= 1" [routerLink]="tab.link">
                     <div class="tab-label" [ngClass]="{'hover':tab.active}" [innerHTML]="tab.label">
                     </div>
@@ -9,7 +9,7 @@
                 <div *ngIf="tab.links.length > 1" class="tab-label" [ngClass]="{'hover':tab.active}" [innerHTML]="tab.label">
                 </div>
             </div>
-        </div>
+       
     </div>
     <div class="row">
         <div *ngFor="let tab of tabs;let i=index" class="tab-content" [ngClass]="{'active':tab.active && tab.links.length > 1,'pullDown':tab.active}"

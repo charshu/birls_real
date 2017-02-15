@@ -1,7 +1,9 @@
 <div id="slider">
     <ngb-carousel>
   <template ngbSlide *ngFor="let image of images">
-    <img [src]="image.getFirstImage()?image.getFirstImage().url:''" alt="{{image.getText('slider.title')}}">
+    <a [attr.href]="image.getText('url')">
+        <img  [src]="image.getFirstImage()?image.getFirstImage().url:''" alt="{{image.getText('slider.title')}}" >
+    </a>
     <div class="carousel-caption">
       <h3>{{image.getText('title')}}</h3>
       <p>{{image.getText('description')}}</p>

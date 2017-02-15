@@ -93,8 +93,9 @@
     }
     
     #right-section {
-        position: relative;
-        width: 100%;
+        @media only screen and (max-device-width:992px){
+            margin-top: 20px;
+        }
     }
     
     .share-text {
@@ -159,10 +160,7 @@
             margin-right: 5px;
         }
         .tag-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            position: relative;
+ 
         }
         .tag-box {
             margin: 3px 3px 3px 0px;
