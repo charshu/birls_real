@@ -20,6 +20,21 @@ body {
     min-height: 100%;
 }
 
+.require {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    span {
+        font-size: 1em;
+        color: #555;
+        font-weight: 700;
+        border: 1px solid #CCC;
+        border-radius: 5px;
+        padding: 10px;
+    }
+}
+
 .sb-container {
     display: flex;
     flex-direction: column;

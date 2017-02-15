@@ -23,8 +23,8 @@ export class Review implements OnInit, AfterViewInit, OnDestroy {
   slices: any;
   tags: any;
   author:string;
-  public page_url = "http://www.google.com";
-  disqusShortname = 'birlmag';
+  page_url:string;
+  private disqusShortname = 'birlmag';
   fbInner = `<div class=\"circle facebook\">
                 <i class=\"fa fa-facebook\" aria-hidden=\"true\"></i>
               </div>`;
@@ -61,6 +61,7 @@ export class Review implements OnInit, AfterViewInit, OnDestroy {
   ) {
     this.sub = this.route.parent.params.subscribe(params => {
       const uid = params['uid'];
+      this.page_url = window.location.href;
       this.prismic.api().then((api) => api.getByUID('collection', uid)).then((res) => {
         this.document = res;
         
