@@ -19,11 +19,12 @@ export class CardBoardComponent implements OnInit, AfterViewInit,OnDestroy {
   imageUrl: string = '';
   imageHeight: number = 0;
   current_size = 0;
-  card_per_row = 4; //1,2,3,4,6,12
-  card_per_page = 5;
+  card_per_row = 3; //1,2,3,4,6,12
+  card_per_page = 9;
+  tags = ['menswear','mensfashion','menstyle','mensstyle','menfashion','trend','trendy','trends','trending','style','pink','outfit','fashionweek']; 
   loaded: boolean = false;
   tag: any;
-
+  loadingImg:boolean;
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -43,8 +44,15 @@ export class CardBoardComponent implements OnInit, AfterViewInit,OnDestroy {
        this.loaded = false;
       if (params['category'] !== undefined) {
         this.category = params['category'];
-        
-        prismicService.api().then((api) => api.getByUID('category', this.category)).then((document) => {
+        if(this.category === 'all'){
+          prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article')], { orderings: '[my.article.date desc]','fetchLinks': 'category.name' })).then((response) => {
+            this.documents = response.results;
+            this.queryTitle = this.category;
+            this.loaded = true;
+          });
+        }else{
+          prismicService.api().then((api) => api.getByUID('category', this.category)).then((document) => {
+          this.loadingImg = false;
           const categoryID = document.id;
           this.image = document.getImageView('category.cover', 'cover');
           this.description = document.getText('category.description');
@@ -56,6 +64,8 @@ export class CardBoardComponent implements OnInit, AfterViewInit,OnDestroy {
             this.loaded = true;
           });
         });
+        }
+        
       } else if (params['tagname'] !== undefined) {
         this.tag = params['tagname'];
         prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article'),

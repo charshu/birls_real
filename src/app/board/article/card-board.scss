@@ -1,3 +1,4 @@
+ @import "./../../../resources/css/color";
  .flex-row-center {
      display: flex;
      flex-direction: row;
@@ -88,19 +89,115 @@
      }
  }
  
+ #recommend-tag {
+     margin-top: 20px;
+     margin-bottom: 20px;
+     padding: 20px;
+     background-color: white;
+     border-bottom: 1px solid #CCC;
+     .title {
+         text-align: center;
+         h1 {
+             font-size: 1.5em;
+             font-weight: 700;
+         }
+     }
+     .img-box {
+         position: relative;
+         padding: 10px;
+         transition: all .2s ease-in-out;
+         &:hover {
+             transform: scale(1.05);
+         }
+     }
+     .img-box .caption {
+         position: absolute;
+         width: 100%;
+         bottom: 45%;
+         left: 0px;
+         color: white;
+         text-align: center;
+         text-shadow: rgb(122, 122, 122) 2px 2px 0px;
+         h3 {
+             font-size: 1.5em;
+             font-weight: 700;
+         }
+     }
+     .img-box img {
+         object-fit: cover;
+         object-position: center;
+         width: 100%;
+         //  border: 1px solid #CCC;
+     }
+     .img-box img.small {
+         height: 300px;
+     }
+     .img-box img.big {
+         height: 600px;
+     }
+ }
+ 
  #cardboard-section {
-     margin-left: 10%;
-     margin-right: 10%;
+     //  margin-left: 10%;
+     //  margin-right: 10%;
+ }
+ 
+ #popular-tags {
+     margin-bottom: 20px;
+     .title{
+         font-family: 'Roboto', sans-serif;
+         text-align: center;
+         font-size: 1em;
+         font-weight: 700;
+         color:#333;
+     }
+     .tag-container {
+         display: flex;
+         flex-direction: row;
+         justify-content: flex-start;
+         position: relative;
+         flex-wrap: wrap;
+     }
+     .tag-box {
+         margin: 3px 3px 3px 0px;
+         font-size: 0.8em;
+         color: $birls_darkpink;
+         border: 1px solid rgba($birls_darkpink, 0.8);
+         border-radius: 3px;
+         padding: 5px;
+         width: auto;
+         height: 32px;
+         text-align: center;
+         //  line-height: 30px;
+         overflow: hidden;
+         cursor: pointer;
+         -webkit-transition: all .3s ease-in-out;
+         transition: all .3 ease-in-out;
+         &:hover {
+             color: white;
+             border: 1px solid $birls_darkpink;
+             background-color: $birls_darkpink;
+         }
+     }
  }
  
  .card-board {
      background-color: white;
      min-height: 200px;
-     padding: 20px;
+     @media only screen and (min-width: 992px) {
+         padding: 20px 80px 20px 80px;
+     }
+     @media only screen and (max-width:992px) {
+         padding: 20px;
+     }
  }
  
  .card-wrapper {
      margin-top: 20px;
+     @media only screen and (min-width: 992px) {
+         padding-left: 30px;
+         padding-right: 30px;
+     }
  }
  
  .more {

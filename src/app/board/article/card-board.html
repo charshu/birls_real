@@ -1,17 +1,76 @@
 <!--fashion menu-->
-<div *ngIf="loaded">
+<div *ngIf="loaded ">
+    <!--cover image for category-->
     <div *ngIf="image?true:false" class="cover noise" ng2-parallax>
-        <img [src]="image?image.url : ''" alt="">
+        <img [src]="image?image.url : ''" (load)="loadingImg=false" alt="">
         <h1>{{capitalizeFirstLetter(queryTitle)}}</h1>
         <h6>{{description}}</h6>
     </div>
-
+    <!--recommend tag board-->
+    <div id="recommend-tag" class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 title">
+                <h1>All fashion</h1>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-sm-12 offset-lg-2 col-lg-9 img-box">
+                        <img class="small" src="./../../../resources/img/recommend-tags/ok-fashion.jpg" alt="">
+                        <div class="caption">
+                            <h3>shoestastic!</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 offset-lg-2 col-lg-9 img-box">
+                        <img class="small" src="./../../../resources/img/recommend-tags/fashion2.jpg" alt="">
+                        <div class="caption">
+                            <h3>the jewels season</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 img-box">
+                <img class="big" src="./../../../resources/img/recommend-tags/fashion3-1.jpg" alt="">
+                <div class="caption">
+                    <h3>denim days</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-sm-12 offset-lg-2 col-lg-9  img-box">
+                        <img class="small" src="./../../../resources/img/recommend-tags/fashion4-1.jpg" alt="">
+                        <div class="caption">
+                            <h3>for bagaholics only</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 offset-lg-2 col-lg-9 img-box">
+                        <img class="small" src="./../../../resources/img/recommend-tags/fashion5-1.jpg" alt="">
+                        <div class="caption">
+                            <h3>make it casual chic</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--popular tags -->
+    <div id="popular-tags" class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="title">{{ "What's hot now" | uppercase}}</div>
+                <div class="tag-container">
+                    <div class="tag-box" *ngFor="let tag of tags" [routerLink]="['/tags/' + tag]">
+                        {{'#'+tag}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--article card container-->
     <div id="cardboard-section" class="container-fluid">
         <div class="row card-board">
-            <div class="col-lg-{{12/card_per_row}} flex-row-center card-wrapper" *ngFor="let document of documents;let i = index">
+            <div class="col-sm-12 col-md-6 col-lg-4 flex-row-center card-wrapper" *ngFor="let document of documents;let i = index">
                 <card *ngIf="i < card_per_page" [document]="document" [styleNumber]="1" [randomHeight]="true"></card>
             </div>
-
         </div>
         <div class="row">
             <div class="col-lg-12 torn">
@@ -20,17 +79,13 @@
         </div>
     </div>
 </div>
-
-
 <!--loading-->
-<div class="loading" *ngIf="!loaded">
+<div class="loading && loadingImg" *ngIf="!loaded">
     <!--preloader-->
     <div id="pre-bootstrap-container">
-
         <div id="pre-bootstrap">
             <div class="logo"></div>
             <div class="loader"></div>
         </div>
-
     </div>
 </div>

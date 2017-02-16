@@ -1,64 +1,59 @@
 <!-- runway menu -->
 <div *ngIf="loaded ">
-
-    <div *ngIf="imageUrl!==''" class="cover" ng2-parallax>
+    <div *ngIf="imageUrl!==''" class="cover container-fluid" ng2-parallax>
         <img [src]="imageUrl" alt="">
         <!--<div class="logo"></div>-->
-        <div class="center">
-            <h1 class="shadow2">Fashion Runway</h1>
+        <div class="row">
+            <div class="col-sm-12 center">
+                <h1 class="shadow2">Fashion Runway</h1>
+            </div>
         </div>
-
-
-        <div class="select-container">
-            <span class="shadow1" id="search-label" style="margin-right: 10px;">I'm looking for.. </span>
-            <div class="form-group">
-
-                <select class="form-control" (change)="callSeason(selectedSeason.value)" name="" #selectedSeason [disabled]="!loadedSelect">
+        <div class="row select-container">
+            <span class="col-md-12 col-lg-3 shadow1 center-block" id="search-label">I'm looking for.. </span>
+           
+            <div class="col-md-12 col-lg-4 center-block">
+                <div class="form-group">
+                    <select class="form-control" (change)="callSeason(selectedSeason.value)" name="" #selectedSeason [disabled]="!loadedSelect">
                 <option value="all" [selected]="selected.season === 'all'">All season</option>
                  <option *ngFor="let season of seasons" [value]="season.id ? season.id : ''" [selected]="selected.season === season.id">
                      {{season.getText('season.name') ? season.getText('season.name') : ''}}
                      </option>
             </select>
-
+                </div>
             </div>
-            <div class="form-group">
 
-                <select class="form-control" (change)="callBrand(selectedBrand.value)" name="" #selectedBrand [disabled]="!loadedSelect">
+            <div class="col-md-12 offset-lg-1 col-lg-4 center-block">
+                <div class="form-group">
+                    <select class="form-control" (change)="callBrand(selectedBrand.value)" name="" #selectedBrand [disabled]="!loadedSelect">
                     <option value="all" [selected]="selected.brand === 'all'">All brand</option>
                  <option *ngFor="let brand of brands" [value]="brand.id ? brand.id : ''" [selected]="selected.brand === brand.id">
                      {{brand.getText('brand.name') ? capitalizeFirstLetter(brand.getText('brand.name')) : ''}}
                  </option>
             </select>
-
+                </div>
             </div>
             <!--<button type="submit" class="btn btn-default" (click)="updateFilter()">Search</button>-->
         </div>
-
-
     </div>
     <div class="group-title">
         <h2>Lastest Show</h2>
     </div>
     <div class="card-container">
-
         <div *ngFor="let document of documents;let i =index">
-            <collection-card *ngIf="i < card_per_page && filter(document)" [showDate]="showDate" [document]="document" [cardSize]="1.1" [textSize]="1.1"></collection-card>
+            <collection-card *ngIf="i < card_per_page && filter(document)" [showDate]="showDate" [document]="document" [cardSize]="1.1"
+                [textSize]="1.1"></collection-card>
         </div>
         <!--<div class="torn"></div>-->
     </div>
     <div class="more" (click)="more()">More..</div>
-
-
 </div>
 <!--loading-->
 <div class="loading" *ngIf="!loaded">
     <!--preloader-->
     <div id="pre-bootstrap-container">
-
         <div id="pre-bootstrap">
             <div class="logo"></div>
             <div class="loader"></div>
         </div>
-
     </div>
 </div>

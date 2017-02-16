@@ -41,7 +41,7 @@ h6 {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: lightpink;
+    background-color: white;
     padding-bottom: 100px;
     height: 350px;
     z-index: 98;
@@ -88,22 +88,25 @@ h6 {
         position: absolute;
         background-image: url('./../../resources/img/noise.png');
     }
-    .select-container {
-        position: relative;
-        z-index: 100;
+    .center-block {
         display: flex;
         flex-direction: row;
-        align-items: baseline;
+        justify-content: center;
+        align-items: center;
+    }
+    .select-container {
+        z-index: 100;
         height: auto;
         span#search-label {
             font-size: 15px;
             font-weight: bold;
         }
         .form-group {
-            margin-right: 20px;
+            // margin-right: 20px;
             select {
-                width: 268px;
-                padding: 5px;
+               
+                width: 248px;
+                // padding: 5px;
                 font-size: 14px;
                 line-height: 1;
                 border: 0;
@@ -112,7 +115,7 @@ h6 {
                 background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-08-128.png) no-repeat right white;
                 background-size: 25px;
                 -webkit-appearance: none;
-                background-position-x: 234px;
+                background-position-x: 215px;
                 &:disabled {
                     background-color: #CCC;
                 }
@@ -206,61 +209,5 @@ h6 {
     transition: all .3 ease-in-out;
     &:hover {
         color: #00aced;
-    }
-}
-
-.loading {
-    height: 1000px;
-    #pre-bootstrap-container {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        margin: 0px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        z-index: 1100;
-        //background-color: deeppink;
-        #pre-bootstrap {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1100;
-            .logo {
-                position: relative;
-                width: 300px;
-                height: 200px;
-                background-image: url('./../../resources/svg/logo-black.svg');
-                background-repeat: no-repeat;
-                background-size: contain;
-                // opacity: 0;
-                z-index: 1101;
-            }
-            .loader {
-                position: relative;
-                border: 0px solid deeppink;
-                /* Light grey */
-                border-top: 5px solid pink;
-                /* Blue */
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                animation: spin 2s linear infinite;
-                // opacity: 0;
-                z-index: 1101;
-            }
-            @keyframes spin {
-                0% {
-                    transform: rotate(0deg);
-                }
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
-        }
     }
 }
