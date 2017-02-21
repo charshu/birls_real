@@ -1,3 +1,4 @@
+@import "./../../resources/css/color";
 #logo-container {
     position: relative;
     display: flex;
@@ -23,17 +24,17 @@ section {
     z-index: 999;
 }
 
-#slider{
+#slider {
+    margin-bottom: 20px;
     h3 {
-         text-align: center;
-         color: white;
-         font-family: 'Lato', sans-serif;
-         font-size: 2.50em;
-         font-weight: 900;
-         text-shadow: 2px 2px #555;
-
-     }
-    img{
+        text-align: center;
+        color: white;
+        font-family: 'Lato', sans-serif;
+        font-size: 2.50em;
+        font-weight: 900;
+        text-shadow: 2px 2px #555;
+    }
+    img {
         height: 400px;
         width: 100%;
         object-fit: cover;
@@ -41,6 +42,140 @@ section {
     }
 }
 
-#custom-homepage{
+#custom-homepage {
     height: 500px;
+}
+
+#cardboard-section {
+    position: relative;
+    //  margin-left: 10%;
+    //  margin-right: 10%;
+    .icon {
+        top: 15px;
+        text-align: center;
+        width: 100%;
+        z-index: 100;
+        img {
+            height: 50px;
+        }
+    }
+}
+
+.title {
+    //  font-family: 'Dancing Script', cursive;
+    // font-family: 'Pacifico', cursive;
+    font-family: 'Courgette',cursive;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 10px;
+    // background-color: white;
+    // border-top: 3px solid #333;
+    // background-image: linear-gradient(to left, #e7adff 0%, #bad7ff 15%, #b2ffe6 30%, #edffb2 45%, #ffe6b2 60%, #ffd6e2 75%, #ffffff 95%);
+}
+
+.card-board {
+    // background-color: white;
+    min-height: 200px;
+    // border:1px solid #CCC;
+    padding: 10px;
+    // border-bottom: 3px solid #333;
+    
+}
+#video{
+    padding: 20px;
+   .video-container{
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
+       padding: 20px;
+       background-color: white;
+   }
+
+}
+#fashion-section{
+    // border-right: 3px solid #444;
+    padding-top: 10px;
+    background-color: white;
+    border-bottom: 1px solid #CCC;
+
+}
+#beauty-section{
+    background-color: white;
+    border-bottom: 1px solid #CCC;
+    
+}
+#follow-section{
+    .title{
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        font-size: 1.5em;
+        border-bottom: 1px solid #CCC;
+        padding:0 10px 10px 10px;
+    }
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #CCC;
+    margin-top: 40px;
+    
+}
+.flex-row-center{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+ .ig-left-section,
+ .ig-right-section {
+        display: block;
+        width: 320px;
+        // border: 1px solid #CCCCCC;
+        text-align: center;
+        background-color: white;
+        padding: 10px;
+        iframe {
+            border: 0;
+            width: 300px;
+            height: 300px;
+            margin: 0;
+            padding: 0;
+        }
+    }
+#collection-review-section{
+    margin-top: 40px;
+     background-color: white;
+    border-bottom: 1px solid #CCC;
+    padding: 20px 5%;
+}
+.view-more{
+    cursor: pointer;
+    font-weight: 700;
+    &:hover{
+        color:$birls_darkpink;
+    }
+}
+.review-padding{
+    @media only screen and (min-width: 992px) {
+        padding:40px;
+    }
+    @media only screen and (max-width:992px) {
+        padding: 20px;
+    }
+}
+.card-padding{
+    @media only screen and (min-width: 992px) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+    @media only screen and (max-width:992px) {
+        padding: 20px;
+    }
+}
+.card-wrapper {
+    margin-top: 20px;
+    @media only screen and (min-width: 992px) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }

@@ -3,14 +3,15 @@
     <div class="group-title">
         <h2>Other Collection from {{brand.getText('brand.name')}}</h2>
     </div>
-    <div class="card-container">
 
-        <div *ngFor="let document of documents;let i =index">
-            <collection-card *ngIf="uid !== document.uid" [showDate]="showDate" [document]="document" [cardSize]="1.5" [textSize]="1.4"></collection-card>
-        </div>
+    <div id="collection-section" class="row justify-content-center">
+        <template ngFor let-document [ngForOf]="documents" let-i="index"> 
+            <div class="col-md-2" *ngIf="uid !== document.uid">
+                <collection-card  [showDate]="false" [document]="document" [cardSize]="1.1" [textSize]="1.1" [styleNumber]="1"></collection-card>
+            </div>
+        </template>
         <!--<div class="torn"></div>-->
     </div>
-
 </div>
 
 <!--loading-->

@@ -1,4 +1,4 @@
-
+@import "./../../../resources/css/color";
 $spin_size:15px;
 .center {
     position: absolute;
@@ -12,58 +12,57 @@ $spin_size:15px;
 
 .mycard {
     position: relative;
-    margin: 20px 20px 10px 20px;
+    width: 100%;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    &.hover {
+            transform: scale(1.05);
+        }
+}
+img {
+        width: 100%;
+        position: absolute;
+        z-index: 10;
+        object-fit: cover;
+        transition: all .1s ease-in-out;
+        &.hover {
+            transform: scale(1.05);
+        }
+    }
+.card-overlay {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.9) 100%);
+    z-index: 99;
+    width: 100%;
+    margin-bottom: 20px;
     transition: all .1s ease-in-out;
     &.hover {
         transform: scale(1.05);
     }
-    img {
-        position: absolute;
-        z-index: 10;
-        object-fit: cover;
+    .card-brand {
+        //font-family: 'Lato', sans-serif;
+        display: block;
+        text-align: center;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all .1s ease-in-out;
+        color: white;
+        z-index: 101;
+        margin-bottom: 5px;
+        &.hover {
+            // color: hotpink;
+            // transform: scale(1.05);
+        }
     }
-    .card-img {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        padding-bottom: 20px;
-        margin-bottom: 15px;
-        height: 100%;
-        width: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: 99;
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.9) 100%);
-            z-index: 100;
-        }
-        .card-brand {
-            //font-family: 'Lato', sans-serif;
-            text-align: center;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all .1s ease-in-out;
-            color: white;
-            z-index: 101;
-            &.hover {
-                // color: hotpink;
-                // transform: scale(1.05);
-            }
-        }
-        .card-season {
-            color: lightgrey;
-            z-index: 101;
-            //margin-top: 3px;
-        }
+    .card-season {
+        display: block;
+        text-align: center;
+        color: lightgrey;
+        z-index: 101;
+        margin-bottom: 10px;
     }
     .card-date {
         position: absolute;
@@ -96,5 +95,51 @@ $spin_size:15px;
     font-weight: bold;
     &.hover {
         color: hotpink;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    line-height: 1.2;
+}
+
+h1.card-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    display: inline!important;
+    background-size: 200% 100%;
+    background-image: linear-gradient(to left, #e7adff 0%, #bad7ff 8%, #b2ffe6 16%, #edffb2 24%, #ffe6b2 32%, #ffd6e2 40%, #ffffff 49%, rgba(1, 1, 1, 0) 50%, rgba(1, 1, 1, 0) 100%);
+    transition: background-position 0.3s;
+    color: lighten(black, 20);
+    &.hover {
+        // color: hotpink;
+        background-position: -100% 0;
+    }
+}
+
+.card-category {
+    color: lightgrey;
+    font-weight: 600;
+    //margin-top: 3px;
+}
+
+.squarebox {
+    margin-top: 5px;
+    background-color: $birls_pink;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    text-shadow: rgb(122, 122, 122) 2px 2px 0px;
+    transition: all .1s ease-in-out;
+    &:hover {
+        background-color: $birls_darkpink;
     }
 }

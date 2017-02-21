@@ -49,18 +49,18 @@ function linkResolver(doc: any) {
   if (doc.type === 'article') {
     const category = doc.getLink('article.link').uid;
     //menu fashion
-    if (category === 'shopping' || category === 'trends') {
+    if (category === 'shopping' || category === 'trends' || category === 'editorial' || category === 'style-du-jours') {
       return `/fashion/` + category + `/` + encodeURIComponent(doc.uid);
+    } else if (category === 'make-up' || category === 'skin-care') {
+      return `/beauty/` + category + `/` + encodeURIComponent(doc.uid);
     }
 
-  }
-  else if (doc.type === 'category') {
+  } else if (doc.type === 'category') {
     const category = doc.uid;
     if (category === 'shopping' || category === 'trends') {
       return `/fashion/` + category;
     }
-  }
-  else if (doc.type === 'collection') {
+  } else if (doc.type === 'collection') {
 
     return `/runway/` + encodeURIComponent(doc.uid);
 

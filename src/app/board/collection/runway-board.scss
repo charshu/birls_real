@@ -172,12 +172,7 @@ h6 {
     padding: 20px 0px;
 }
 
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+#collection-section {
     margin: 0 0;
     padding: 20px 0;
     background-color: white;
@@ -185,10 +180,7 @@ h6 {
     min-height: 200px;
     z-index: 100;
     // border-top: 1px solid deeppink;
-    &.overlap {
-        top: -150px;
-        border-radius: 5px;
-    }
+}
     .torn {
         width: 100%;
         height: 40px;
@@ -196,7 +188,7 @@ h6 {
         background-color: #F6F6F6;
         background-repeat: repeat-x;
     }
-}
+
 
 .more {
     position: relative;
@@ -204,7 +196,6 @@ h6 {
     font-size: 3.00em;
     font-weight: 900;
     cursor: pointer;
-    top: -100px;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3 ease-in-out;
     &:hover {

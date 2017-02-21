@@ -24,6 +24,7 @@ $desc_font_size:0.9em;
             font-size: $nav_font_size;
             text-decoration: none;
             cursor: pointer;
+             z-index: 1500;
             //opacity: 0.5;
             &.hover {
                 opacity: 1;
@@ -54,8 +55,10 @@ $desc_font_size:0.9em;
 
 .tab-content {
     position: absolute;
+    top:52px;
     visibility: hidden;
     background-color: white;
+    width: 100%;
     z-index: 1400;
     &.active {
         visibility: visible;
@@ -63,33 +66,25 @@ $desc_font_size:0.9em;
     }
     &.pullDown {
         animation-name: pullDown;
-        -webkit-animation-name: pullDown;
-        animation-duration: 0.4s;
-        -webkit-animation-duration: 0.4s;
+        animation-duration: 0.5s;
         animation-timing-function: ease-in-out;
-        -webkit-animation-timing-function: ease-in-out;
         transform-origin: 50% 0%;
-        -ms-transform-origin: 50% 0%;
-        -webkit-transform-origin: 50% 0%;
+
     }
     @keyframes pullDown {
         0% {
-            transform: scaleY(0.1);
-            padding-top: 0px;
+            // transform: scaleY(0.1);
+            top: -203px;
+            opacity: 0;
+        }
+        1%{
+            opacity: 0.1;
+            top: -200px;
         }
         100% {
-            transform: scaleY(1);
-            padding-top: 15px;
-        }
-    }
-    @-webkit-keyframes pullDown {
-        0% {
-            transform: scaleY(0.1);
-            padding-top: 0px;
-        }
-        100% {
-            transform: scaleY(1);
-            padding-top: 15px;
+            // transform: scaleY(1);
+            opacity: 1;
+            top: 52px;
         }
     }
 
@@ -115,14 +110,27 @@ $desc_font_size:0.9em;
             }
         }
     }
-    #fashion-menu {
-     
+    #fashion-menu {}
+    #birls {
+        .item-box{
+            padding-right: 35px;
+            padding-left: 35px;
+        }
+        @media only screen and (min-width: 992px) {
+          
+            padding-left: 15%;
+            padding-right: 15%;
+        }
+        @media only screen and (max-width:992px) {
+            padding: 20px;
+        }
     }
-    .group-title{
+    .group-title {
         padding-top: 10px;
-         padding-bottom: 10px;
+        padding-bottom: 10px;
     }
     .item-box {
+        cursor: pointer;
         transition: opacity 0.2s ease-in-out;
     }
     .fade {

@@ -5,11 +5,16 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Courgette|Dancing+Script:400,700|Pacifico');
 @import "color";
+// font-family: 'Dancing Script', cursive;
+// font-family: 'Pacifico', cursive;
+// font-family: 'Courgette', cursive;
 html {
     margin: 0px;
     padding: 0px;
     min-height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -145,10 +150,8 @@ body {
             }
             .loader {
                 position: relative;
-                border: 0px solid deeppink;
-                /* Light grey */
-                border-top: 5px solid pink;
-                /* Blue */
+                // border: 0px solid $birls_darkpink;
+                border-top: 6px solid $birls_pink;
                 border-radius: 50%;
                 width: 40px;
                 height: 40px;

@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4 col-lg-4 flex-row-center" *ngFor="let document of _documents;let i = index">
-                        <card *ngIf="i < maxRelatedDocs" [document]="document" [styleNumber]="2" [imageHeight]="200"></card>
+                        <card *ngIf="i < maxRelatedDocs" [document]="document" [styleNumber]="2" [imageHeight]="200" [limit]="100"></card>
                     </div>
                 </div>
             </div>
@@ -43,15 +43,11 @@
                     <div class="col-lg-12 author flex-col-center">
                         <div class="divider" style="width: 80px;"></div>
                         <i class="fi flaticon-quill-drawing-a-line"></i>
-                        <span class="author-name">AUTHOR {{author}}</span>
+                        <span class="author-name">{{author}}</span>
                         <p class="article-date">
                             {{date | amDateFormat:'MMMM DD, YYYY'}}
                         </p>
-                        <!-- InstaWidget -->
-                        <div id="ig-section" class="fixed right">
-                            <iframe id="23a8e2a3688d9e38d51003acca0dddd0cdcce923508b03fa95c9d479bdea70e6" scrolling="no" frameborder="no" src="https://instawidget.net/embed?u=23a8e2a3688d9e38d51003acca0dddd0cdcce923508b03fa95c9d479bdea70e6"></iframe>
-                        </div>
-                        <!--<div class="divider" style="width: 80px;"></div>-->
+                       
                     </div>
                     <div *ngIf="tags.length > 0" id="tag-section" class="col-lg-12">
                         <div class="title">

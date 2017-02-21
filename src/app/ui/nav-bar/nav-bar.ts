@@ -78,21 +78,37 @@ export class NavBar {
             active: false
         }, {
             label: 'Beauty',
-            link: '',
+            link: 'beauty/all',
             links: [],
-            groups: [
-                {
-                    title: 'Category',
-                    style: 3,
+            groups: [{
+                    title: 'Mood board',
+                    style: 1,
                     items: [
                         {
-                            img: './../../../resources/img/menu/shopping.jpg',
-                            desc: 'Shopping',
-                            url: 'fashion/shopping',
+                            img: './../../../resources/img/menu/all-beauty.jpg',
+                            desc: 'All Beauty',
+                            url: 'beauty/all',
+                            active: false
+                        }
+                    ]
+                }, {
+                    title: 'By Category',
+                    style: 2,
+                    items: [
+                        {
+                            img: './../../../resources/img/menu/makeup.jpeg',
+                            desc: 'Make Up',
+                            url: 'beauty/make-up',
+                            active: false
+                        }, {
+                            img: './../../../resources/img/menu/skincare.jpeg',
+                            desc: 'Skin Care',
+                            url: 'beauty/skin-care',
                             active: false
                         }
                     ]
                 }
+                
             ],
 
             active: false
@@ -100,7 +116,24 @@ export class NavBar {
             label: 'Birls',
             link: '',
             links: [],
-            groups: [],
+            groups: [{
+                    title: '',
+                    style: 3,
+                    items: [
+                        {
+                            img: './../../../resources/img/menu/diary.jpg',
+                            desc: 'Editor\'s Diary',
+                            url: 'fashion/shopping',
+                            active: false
+                        },
+                        {
+                            img: './../../../resources/img/menu/crew.jpg',
+                            desc: 'Birls Crew',
+                            url: 'fashion/shopping',
+                            active: false
+                        }
+                    ]
+                }],
             active: false
         }, {
             label: 'Runway',
@@ -140,7 +173,7 @@ export class NavBar {
         this.lastIndex = i;
         this.tabs[i].active = true;
         //turn on backdrop only dropdown menu has links
-        if (this.tabs[i].links.length > 1) {
+        if (this.tabs[i].links.length > 0 || this.tabs[i].groups.length > 0) {
             this.backdrop = true;
         } else {
             this.backdrop = false;

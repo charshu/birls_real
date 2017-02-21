@@ -49,7 +49,7 @@ export class OtherSeasonComponent implements OnInit, AfterViewInit {
           { orderings: '[my.collection.brand desc]','fetchLinks': ['brand.name','season.name']  })).then((response) => {
               this.documents = response.results;
         
-              // console.log(this.documents);
+              console.log(this.documents);
               this.loaded = true;
           });
       });

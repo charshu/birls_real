@@ -10,7 +10,6 @@
         </div>
         <div class="row select-container">
             <span class="col-md-12 col-lg-3 shadow1 center-block" id="search-label">I'm looking for.. </span>
-           
             <div class="col-md-12 col-lg-4 center-block">
                 <div class="form-group">
                     <select class="form-control" (change)="callSeason(selectedSeason.value)" name="" #selectedSeason [disabled]="!loadedSelect">
@@ -21,7 +20,6 @@
             </select>
                 </div>
             </div>
-
             <div class="col-md-12 offset-lg-1 col-lg-4 center-block">
                 <div class="form-group">
                     <select class="form-control" (change)="callBrand(selectedBrand.value)" name="" #selectedBrand [disabled]="!loadedSelect">
@@ -36,13 +34,14 @@
         </div>
     </div>
     <div class="group-title">
-        <h2>Lastest Show</h2>
+        <h2>All Collection</h2>
     </div>
-    <div class="card-container">
-        <div *ngFor="let document of documents;let i =index">
-            <collection-card *ngIf="i < card_per_page && filter(document)" [showDate]="showDate" [document]="document" [cardSize]="1.1"
-                [textSize]="1.1"></collection-card>
-        </div>
+    <div id="collection-section" class="row">
+        <template ngFor let-document [ngForOf]="documents" let-i="index"> 
+            <div class="col-md-2" *ngIf="i < card_per_page && filter(document)">
+                <collection-card [showDate]="showDate" [document]="document" [cardSize]="1.1" [textSize]="1.1" [styleNumber]="1"></collection-card>
+            </div>
+        </template>
         <!--<div class="torn"></div>-->
     </div>
     <div class="more" (click)="more()">More..</div>

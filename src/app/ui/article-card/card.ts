@@ -21,7 +21,7 @@ export class Card implements OnInit {
   paragraph:any = '';
   desc:string = '';
   isHover:boolean = false;
-  limit = 100;
+  @Input() limit = 100;
   isMore = false;
   toggle(){
     this.isHover = !this.isHover;

@@ -89,16 +89,27 @@
      }
  }
  
- #recommend-tag {
+ #all-fashion {
      margin-top: 20px;
      margin-bottom: 20px;
      padding: 20px;
      background-color: white;
      border-bottom: 1px solid #CCC;
-     .title {
+     
+ }
+ #all-beauty {
+     margin-top: 20px;
+     margin-bottom: 20px;
+     padding: 20px;
+     background-color: white;
+     border-bottom: 1px solid #CCC;
+     
+ }
+ .title {
          text-align: center;
+         margin-bottom: 10px;
          h1 {
-             font-size: 1.5em;
+             font-size: 1.9em;
              font-weight: 700;
          }
      }
@@ -135,12 +146,7 @@
      .img-box img.big {
          height: 600px;
      }
- }
  
- #cardboard-section {
-     //  margin-left: 10%;
-     //  margin-right: 10%;
- }
  
  #popular-tags {
      margin-bottom: 20px;
@@ -150,6 +156,7 @@
          font-size: 1em;
          font-weight: 700;
          color:#333;
+         
      }
      .tag-container {
          display: flex;
@@ -180,12 +187,19 @@
          }
      }
  }
+ #cardboard-section {
+     //  margin-left: 10%;
+     //  margin-right: 10%;
+ }
  
  .card-board {
      background-color: white;
      min-height: 200px;
      @media only screen and (min-width: 992px) {
-         padding: 20px 80px 20px 80px;
+         padding-top: 20px;
+         padding-bottom: 20px;
+         padding-left: 15%;
+         padding-right: 15%;
      }
      @media only screen and (max-width:992px) {
          padding: 20px;

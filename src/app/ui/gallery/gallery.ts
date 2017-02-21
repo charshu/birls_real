@@ -1,6 +1,19 @@
-import { Component, Input, Inject, OnInit, AfterViewInit, OnDestroy, OpaqueToken } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { PrismicService } from '../../prismic';
+import {
+  Component,
+  Input,
+  Inject,
+  OnInit,
+  AfterViewInit,
+  OnDestroy,
+  OpaqueToken
+} from '@angular/core';
+import {
+  Router,
+  ActivatedRoute
+} from '@angular/router';
+import {
+  PrismicService
+} from '../../prismic';
 
 
 @Component({
@@ -43,13 +56,17 @@ export class Gallery implements OnInit, AfterViewInit, OnDestroy {
     private router: Router,
     private prismicService: PrismicService,
     private route: ActivatedRoute,
-    @Inject('LinkResolver') private linkResolver: { (doc: any): string }
+    @Inject('LinkResolver') private linkResolver: {
+      (doc: any): string
+    }
   ) {
     this.sub = this.route.parent.params.subscribe(params => {
       const uid = params['uid'];
       // console.log(params);
-      
-      prismicService.api().then((api) => api.getByUID('collection', uid, { 'fetchLinks': ['brand.name', 'season.name'] })).then((res) => {
+
+      prismicService.api().then((api) => api.getByUID('collection', uid, {
+        'fetchLinks': ['brand.name', 'season.name']
+      })).then((res) => {
         this.document = res;
         // console.log(res);
         this.groupImages = this.document.getGroup('collection.gallery').toArray();
@@ -66,13 +83,12 @@ export class Gallery implements OnInit, AfterViewInit, OnDestroy {
         }
         this.loaded = true;
       });
-    }
-    );
+    });
 
   }
 
   ngOnInit() {
-      document.body.scrollTop = 0;
+    document.body.scrollTop = 0;
   }
   ngAfterViewInit() {
 
