@@ -9,7 +9,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { MomentModule } from 'angular2-moment';
 import { CeiboShare } from 'ng2-social-share';
 import { Ng2ParallaxScrollModule } from 'ng2-parallax-scroll';
-
+import { MasonryModule } from 'angular2-masonry';
 
 import { PrismicService } from './prismic';
 import { Home } from './home/home';
@@ -97,7 +97,8 @@ function linkResolver(doc: any) {
     DisqusModule,
     ShareButtonsModule,
     MaterialModule.forRoot(),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    MasonryModule
   ],
   providers: [
     PrismicService,

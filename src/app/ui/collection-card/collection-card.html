@@ -1,12 +1,13 @@
 <div *ngIf="document && loaded && styleNumber === 1">
     <article class="mycard" [routerLink]="[linkResolver(document)]" (mouseenter)="isHover=true" (mouseleave)="isHover=false" [ngClass]="{'hover':isHover}">
-        <!--pre-loading icon-->
+       
+        <img [src]="imageUrl[0]" [ngStyle]="{'display':loadingImage && imageUrl[0]!==''?'none':'block','height':card_h+'px'}"
+            (load)="loadingImage=false">
+             <!--pre-loading icon-->
         <div class="center" *ngIf="loadingImage">
             <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
         </div>
         <!---->
-        <img [src]="imageUrl[0]" [ngStyle]="{'display':loadingImage && imageUrl[0]!==''?'none':'block','height':card_h+'px'}"
-            (load)="loadingImage=false">
         <div *ngIf="!loadingImage" [ngClass]="{'card-overlay':!loadingImage}" [ngStyle]="{'height':card_h+'px'}">
             <div *ngIf="showDate" class="card-date">
                 <div class="day">

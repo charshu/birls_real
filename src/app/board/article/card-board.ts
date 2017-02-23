@@ -36,6 +36,33 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
   card_per_row = 3; //1,2,3,4,6,12
   card_per_page = 9;
   tags = ['menswear', 'mensfashion', 'menstyle', 'mensstyle', 'menfashion', 'trend', 'trendy', 'trends', 'trending', 'style', 'pink', 'outfit', 'fashionweek'];
+  //masonry moodboard *width 1162
+  fashion_moods = [{
+    img:'./../../../resources/img/recommend-tags/ok-fashion.jpg',
+    maxWidth:300,
+    maxHeight:250,
+    caption:'shoestastic!'
+  },{
+    img:'./../../../resources/img/recommend-tags/fashion2.jpg',
+    maxWidth:300,
+    maxHeight:290,
+    caption:'the jewels season'
+  },{
+    img:'./../../../resources/img/recommend-tags/fashion3-1.jpg',
+    maxWidth:420,
+    maxHeight:350,
+    caption:'denim days'
+  },{
+    img:'./../../../resources/img/recommend-tags/fashion4-1.jpg',
+    maxWidth:340,
+    maxHeight:250,
+    caption:'for bagaholics only'
+  },{
+    img:'./../../../resources/img/recommend-tags/fashion5-1.jpg',
+    maxWidth:300,
+    maxHeight:250,
+    caption:'make it casual chic'
+  }];
   loaded: boolean = false;
   tag: any;
   loadingImg: boolean;

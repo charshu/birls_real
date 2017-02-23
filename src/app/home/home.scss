@@ -25,6 +25,7 @@ section {
 }
 
 #slider {
+    position: relative;
     margin-bottom: 20px;
     h3 {
         text-align: center;
@@ -35,11 +36,31 @@ section {
         text-shadow: 2px 2px #555;
     }
     img {
-        height: 400px;
+        height: 500px;
         width: 100%;
         object-fit: cover;
         object-position: center;
     }
+}
+
+#slider-frame {
+    position: relative;
+    display: block;
+    margin: auto;
+    z-index: 100;
+    width: 80%;
+    height: 500px;
+    border: 15px solid $birls_darkpink;
+    outline: 40px solid white;
+}
+
+.carousel {
+    position: absolute;
+    z-index: 99;
+}
+
+#inner {
+    top: 300px;
 }
 
 #custom-homepage {
@@ -47,30 +68,28 @@ section {
 }
 
 #cardboard-section {
+    z-index: 120;
     position: relative;
-    //  margin-left: 10%;
-    //  margin-right: 10%;
-    .icon {
-        top: 15px;
-        text-align: center;
-        width: 100%;
-        z-index: 100;
-        img {
-            height: 50px;
-        }
+    border-bottom: 1px solid #CCC;
+    background-color: white;
+}
+
+.icon {
+    top: 15px;
+    text-align: center;
+    width: 100%;
+    z-index: 100;
+    img {
+        height: 50px;
     }
 }
 
 .title {
-    //  font-family: 'Dancing Script', cursive;
-    // font-family: 'Pacifico', cursive;
-    font-family: 'Courgette',cursive;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     font-size: 2em;
     text-align: center;
     padding-top: 10px;
-    // background-color: white;
-    // border-top: 3px solid #333;
-    // background-image: linear-gradient(to left, #e7adff 0%, #bad7ff 15%, #b2ffe6 30%, #edffb2 45%, #ffe6b2 60%, #ffd6e2 75%, #ffffff 95%);
 }
 
 .card-board {
@@ -79,81 +98,170 @@ section {
     // border:1px solid #CCC;
     padding: 10px;
     // border-bottom: 3px solid #333;
-    
 }
-#video{
-    padding: 20px;
-   .video-container{
-       display: flex;
-       flex-direction: row;
-       justify-content: center;
-       padding: 20px;
-       background-color: white;
-   }
 
+#video {
+    height: auto;
+    background-color: white;
 }
-#fashion-section{
+
+.side-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    &.dark {
+        border: 1px solid #eee;
+        background-color: #f9f9f9;
+    }
+    &.light {
+        border: 1px solid #eee;
+        background-color: white;
+    }
+}
+
+.divider {
+    display: block;
+    height: 1px;
+    width: 60%;
+    margin: auto;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.vid-wrapper {
+    position: relative;
+    width: 100%;
+    img {
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        object-fit: cover;
+        object-position: center;
+        z-index: 200;
+    }
+    .overlay {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        z-index: 201;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    .overlay:hover .play {
+        transform: scale(1.2);
+    }
+    .play {
+        width: 35px;
+        height: 35px;
+        transition: all .1s ease-in-out;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+#popular {
+    .title{
+        font-size: 1.5em;
+    }
+    ul {
+        font-family: 'Roboto';
+        font-size: 1em;
+        width: 100%;
+        -webkit-padding-start: 0px;
+        
+        list-style: none;
+        li {
+            padding: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            .num {
+                padding: 15px;
+                font-size: 1.4em;
+                color: $birls_darkpink;
+            }
+            a{
+                color:inherit;
+            }
+        }
+    }
+}
+
+#fashion-section {
     // border-right: 3px solid #444;
     padding-top: 10px;
     background-color: white;
     border-bottom: 1px solid #CCC;
+}
 
-}
-#beauty-section{
+#beauty-section {
     background-color: white;
-    border-bottom: 1px solid #CCC;
-    
 }
-#follow-section{
-    .title{
+
+#follow-section {
+    .title {
         font-family: 'Roboto', sans-serif;
         font-weight: 700;
         font-size: 1.5em;
         border-bottom: 1px solid #CCC;
-        padding:0 10px 10px 10px;
+        padding: 0 10px 10px 10px;
     }
     padding: 20px;
     background-color: white;
     border: 1px solid #CCC;
     margin-top: 40px;
-    
 }
-.flex-row-center{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
+
+.flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
- .ig-left-section,
- .ig-right-section {
-        display: block;
-        width: 320px;
-        // border: 1px solid #CCCCCC;
-        text-align: center;
-        background-color: white;
-        padding: 10px;
-        iframe {
-            border: 0;
-            width: 300px;
-            height: 300px;
-            margin: 0;
-            padding: 0;
-        }
+
+.ig-left-section,
+.ig-right-section {
+    display: block;
+    width: 320px;
+    // border: 1px solid #CCCCCC;
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    iframe {
+        border: 0;
+        width: 300px;
+        height: 300px;
+        margin: 0;
+        padding: 0;
     }
-#collection-review-section{
+}
+
+#collection-review-section {
     margin-top: 40px;
-     background-color: white;
+    background-color: white;
     border-bottom: 1px solid #CCC;
     padding: 20px 5%;
 }
-.view-more{
+
+.view-more {
+    text-align: right;
     cursor: pointer;
     font-weight: 700;
-    &:hover{
-        color:$birls_darkpink;
+    &:hover {
+        color: $birls_darkpink;
     }
 }
-.review-padding{
+
+.review-padding {
     @media only screen and (min-width: 992px) {
         padding:40px;
     }
@@ -161,7 +269,8 @@ align-items: center;
         padding: 20px;
     }
 }
-.card-padding{
+
+.card-padding {
     @media only screen and (min-width: 992px) {
         padding-top: 20px;
         padding-bottom: 20px;
@@ -172,6 +281,19 @@ align-items: center;
         padding: 20px;
     }
 }
+
+#fashion-section.card-padding {
+    @media only screen and (min-width: 992px) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 7%;
+        padding-right: 3%;
+    }
+    @media only screen and (max-width:992px) {
+        padding: 20px;
+    }
+}
+
 .card-wrapper {
     margin-top: 20px;
     @media only screen and (min-width: 992px) {

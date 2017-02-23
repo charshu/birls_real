@@ -10,92 +10,58 @@
     <div id="all-fashion" *ngIf="router.url==='/fashion/all'" class="container-fluid">
         <div class="row">
             <div class="col-md-12 title">
-                <h1>All fashion</h1>
+                <h1>Fashion</h1>
             </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-sm-12 offset-lg-2 col-lg-9 img-box">
-                        <img class="small" src="./../../../resources/img/recommend-tags/ok-fashion.jpg" alt="">
-                        <div class="caption">
-                            <h3>shoestastic!</h3>
-                        </div>
+            <div class="col-md-12 visible-lg-block">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <masonry [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
+                            <masonry-brick class="mood" *ngFor="let mood of fashion_moods;let i=index">
+                                <div class="img-box">
+                                    <img [ngStyle]="{'width':mood.maxWidth+'px','height':mood.maxHeight+'px'}" [src]="mood.img" alt="">
+                                    <div class="caption">
+                                        <h3>{{mood.caption}}!</h3>
+                                    </div>
+                                </div>
+                            </masonry-brick>
+
+                        </masonry>
+
+
                     </div>
-                    <div class="col-sm-12 offset-lg-2 col-lg-9 img-box">
-                        <img class="small" src="./../../../resources/img/recommend-tags/fashion2.jpg" alt="">
-                        <div class="caption">
-                            <h3>the jewels season</h3>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-            <div class="col-md-4 img-box">
-                <img class="big" src="./../../../resources/img/recommend-tags/fashion3-1.jpg" alt="">
-                <div class="caption">
-                    <h3>denim days</h3>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-sm-12 offset-lg-2 col-lg-9  img-box">
-                        <img class="small" src="./../../../resources/img/recommend-tags/fashion4-1.jpg" alt="">
-                        <div class="caption">
-                            <h3>for bagaholics only</h3>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 offset-lg-2 col-lg-9 img-box">
-                        <img class="small" src="./../../../resources/img/recommend-tags/fashion5-1.jpg" alt="">
-                        <div class="caption">
-                            <h3>make it casual chic</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     <!--all beauty-->
     <div id="all-beauty" *ngIf="router.url==='/beauty/all'" class="container-fluid">
         <div class="row">
             <div class="col-md-12 title">
-                <h1>All Beauty</h1>
+                <h1>Beauty</h1>
             </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-sm-12 offset-lg-2 col-lg-9 img-box">
-                        <img class="small" src="./../../../resources/img/recommend-tags/ok-fashion.jpg" alt="">
-                        <div class="caption">
-                            <h3>Creamy!</h3>
-                        </div>
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <masonry [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
+                            <masonry-brick class="mood" *ngFor="let mood of fashion_moods;let i=index">
+                                <div class="img-box">
+                                    <img [ngStyle]="{'width':mood.maxWidth+'px','height':mood.maxHeight+'px'}" [src]="mood.img" alt="">
+                                    <div class="caption">
+                                        <h3>{{mood.caption}}!</h3>
+                                    </div>
+                                </div>
+                            </masonry-brick>
+
+                        </masonry>
+
+
                     </div>
-                    <div class="col-sm-12 offset-lg-2 col-lg-9 img-box">
-                        <img class="small" src="./../../../resources/img/recommend-tags/fashion2.jpg" alt="">
-                        <div class="caption">
-                            <h3>the jewels season</h3>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-            <div class="col-md-4 img-box">
-                <img class="big" src="./../../../resources/img/recommend-tags/fashion3-1.jpg" alt="">
-                <div class="caption">
-                    <h3>denim days</h3>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-sm-12 offset-lg-2 col-lg-9  img-box">
-                        <img class="small" src="./../../../resources/img/recommend-tags/fashion4-1.jpg" alt="">
-                        <div class="caption">
-                            <h3>for bagaholics only</h3>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 offset-lg-2 col-lg-9 img-box">
-                        <img class="small" src="./../../../resources/img/recommend-tags/fashion5-1.jpg" alt="">
-                        <div class="caption">
-                            <h3>make it casual chic</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     <!--popular tags -->
@@ -114,9 +80,21 @@
     <!--article card container-->
     <div id="cardboard-section" class="container-fluid">
         <div class="row card-board">
-            <div class="col-sm-12 col-md-6 col-lg-4 flex-row-center card-wrapper" *ngFor="let document of documents;let i = index">
+            <masonry [options]="{ transitionDuration: '0.8s' }">
+                <masonry-brick class="brick" *ngFor="let document of documents;let i=index">
+                    <card *ngIf="i < card_per_page" [document]="document" [styleNumber]="1" [randomHeight]="true" [limit]="100"></card>
+                </masonry-brick>
+
+            </masonry>
+
+            <!--<template ngFor let-document [ngForOf]="documents" let-i="index"> 
+            <div class="col-sm-12 col-md-6 col-lg-4 flex-row-center card-wrapper">
                 <card *ngIf="i < card_per_page" [document]="document" [styleNumber]="1" [randomHeight]="true" [limit]="100"></card>
+                
             </div>
+            <div class="clearfix visible-xs-block"></div>
+            </template>-->
+
         </div>
         <div class="row">
             <div class="col-lg-12 torn">

@@ -91,72 +91,66 @@
  
  #all-fashion {
      margin-top: 20px;
-     margin-bottom: 20px;
      padding: 20px;
      background-color: white;
      border-bottom: 1px solid #CCC;
-     
  }
+ 
  #all-beauty {
      margin-top: 20px;
-     margin-bottom: 20px;
      padding: 20px;
      background-color: white;
      border-bottom: 1px solid #CCC;
-     
  }
+ 
  .title {
-         text-align: center;
-         margin-bottom: 10px;
-         h1 {
-             font-size: 1.9em;
-             font-weight: 700;
-         }
+     text-align: center;
+     margin-bottom: 10px;
+     h1 {
+         font-size: 1.9em;
+         font-weight: 700;
      }
-     .img-box {
-         position: relative;
-         padding: 10px;
-         transition: all .2s ease-in-out;
-         &:hover {
-             transform: scale(1.05);
-         }
-     }
-     .img-box .caption {
-         position: absolute;
-         width: 100%;
-         bottom: 45%;
-         left: 0px;
-         color: white;
-         text-align: center;
-         text-shadow: rgb(122, 122, 122) 2px 2px 0px;
-         h3 {
-             font-size: 1.5em;
-             font-weight: 700;
-         }
-     }
-     .img-box img {
-         object-fit: cover;
-         object-position: center;
-         width: 100%;
-         //  border: 1px solid #CCC;
-     }
-     .img-box img.small {
-         height: 300px;
-     }
-     .img-box img.big {
-         height: 600px;
-     }
+ }
  
+ .img-box {
+     position: relative;
+     transition: all .2s ease-in-out;
+     &:hover {
+         transform: scale(1.05);
+     }
+ }
  
+ .img-box .caption {
+     position: absolute;
+     width: 100%;
+     bottom: 45%;
+     left: 0px;
+     color: white;
+     text-align: center;
+     text-shadow: rgb(122, 122, 122) 2px 2px 0px;
+     h3 {
+         font-size: 1.5em;
+         font-weight: 700;
+     }
+ }
+ 
+ .img-box img {
+     object-fit: cover;
+     object-position: center;
+     //  border: 1px solid #CCC;
+ }
+ .mood{
+     margin: 10px;
+ }
  #popular-tags {
+     margin-top: 20px;
      margin-bottom: 20px;
-     .title{
+     .title {
          font-family: 'Roboto', sans-serif;
          text-align: center;
          font-size: 1em;
          font-weight: 700;
-         color:#333;
-         
+         color: #333;
      }
      .tag-container {
          display: flex;
@@ -187,12 +181,19 @@
          }
      }
  }
+ 
  #cardboard-section {
      //  margin-left: 10%;
      //  margin-right: 10%;
  }
  
+ .brick {
+     width: 33.33%;
+     padding: 20px;
+ }
+ 
  .card-board {
+     align-content: flex-start;
      background-color: white;
      min-height: 200px;
      @media only screen and (min-width: 992px) {

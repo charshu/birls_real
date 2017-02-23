@@ -63,9 +63,10 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
 
-    document.body.scrollTop = 0;
+    
     this.sub = this.route.params.subscribe(params => {
       const uid = params['uid'];
+      document.body.scrollTop = 0;
       this.page_url = window.location.href;
       this.category = params['category'];
       this.prismicService.api().then((api) => api.getByUID('article', uid)).then((res) => {

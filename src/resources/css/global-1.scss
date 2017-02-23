@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,900|Source+Sans+Pro:400,700');
-// @import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+// @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css');
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700');
@@ -24,7 +24,9 @@ body {
     color: #3f3f3f;
     min-height: 100%;
 }
-
+.carousel-control{
+    width: 8%!important;
+}
 .require {
     display: flex;
     flex-direction: column;
@@ -39,7 +41,11 @@ body {
         padding: 10px;
     }
 }
-
+.justify-content-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 .sb-container {
     display: flex;
     flex-direction: column;

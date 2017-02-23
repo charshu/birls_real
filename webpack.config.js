@@ -20,11 +20,11 @@ var webpackConfig = {
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(true),
         new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor', 'polyfills'], minChunks: Infinity }),
-        // new webpack.ProvidePlugin({
-        //     jQuery: 'jquery',
-        //     $: 'jquery',
-        //     jquery: 'jquery'
-        // })
+        new webpack.ProvidePlugin({
+            jQuery: 'jquery',
+            $: 'jquery',
+            jquery: 'jquery'
+        })
     ],
     resolve: {
         extensions: ['', '.js']

@@ -1,6 +1,6 @@
 <div *ngIf="loaded === 3">
     <div id="slider">
-        <ngb-carousel>
+        <!--<ngb-carousel>
             <template ngbSlide *ngFor="let image of images">
                 <a [attr.href]="image.getText('url')">
                     <img [src]="image.getFirstImage()?image.getFirstImage().url:''" alt="{{image.getText('slider.title')}}">
@@ -10,64 +10,167 @@
                     <p>{{image.getText('description')}}</p>
                 </div>
             </template>
-        </ngb-carousel>
+        </ngb-carousel>-->
+
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li [ngClass]="{'active':i===0}" *ngFor="let image of images;let i = index" data-target="#carousel" [attr.data-slide-to]="i"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item" [ngClass]="{'active':i==0}" *ngFor="let image of images;let i = index;">
+                    <img [src]="image.getFirstImage()?image.getFirstImage().url:''" alt="{{image.getText('slider.title')}}">
+                    <div class="carousel-caption">
+                        <h3>{{image.getText('title')}}</h3>
+                        <p>{{image.getText('description')}}</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+
+        <div id="slider-frame" class="">
+
+        </div>
+
     </div>
-    <div id="cardboard-section">
+   
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12 col-md-12">
+            <div id="cardboard-section" class="row">
+                <div class="col-sm-12 col-md-8">
+                    <!--fashion-->
                     <div class="row">
-                        <div id="fashion-section" class="col-md-12 card-padding">
+                        <div id="fashion-section" class="col-sm-12 col-md-12 card-padding">
                             <div class="row">
-                                <div class="col-md-12 icon">
+                                <div class="col-sm-12 col-md-12 icon">
                                     <img src="./../../resources/svg/dress.svg" alt="">
                                 </div>
-                                <div class="col-md-12 title">
+                                <div class="col-sm-12 col-md-12 title">
                                     Fashion articles
                                 </div>
                             </div>
                             <div class="row card-board">
-                                <div class="col-sm-6 col-md-3 flex-row-center card-wrapper" *ngFor="let document of fashion_docs;let i = index">
-                                    <card *ngIf="i < card_per_page" [document]="document" [styleNumber]="2" [imageHeight]="200" [limit]="70"></card>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 justify-content-center card-wrapper" *ngFor="let document of fashion_docs;let i = index">
+                                            <card *ngIf="i < 1" [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 justify-content-center card-wrapper" *ngFor="let document of fashion_docs;let i = index">
+                                            <card *ngIf="i < 4 && i !==0" [document]="document" [styleNumber]="3" [imageHeight]="100" [limit]="70"></card>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="row">
-                                <div class="col-md-12 flex-row-center text-center">
-                                    <span class="view-more">View more fashion articles <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                                <div class="col-sm-12 col-md-12 justify-content-center">
+                                    <span class="view-more" [routerLink]="['fashion/all']">View more fashion articles <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-12">
-                    <!--<div id="video" class="row">
-                        <div class="col-md-11 video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/LuuDo1ta2X0" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>-->
+                    <!--end fashion-->
+
+                    <!--beauty-->
                     <div class="row">
-                        <div id="beauty-section" class="col-md-12 card-padding">
+                        <div id="beauty-section" class="col-sm-12 col-md-12 card-padding">
                             <div class="row">
-                                <div class="col-md-12 icon">
+                                <div class="col-sm-12 col-md-12 icon">
                                     <img src="./../../resources/svg/perfume.svg" alt="">
                                 </div>
-                                <div class="col-md-12 title">
+                                <div class="col-sm-12 col-md-12 title">
                                     Beauty articles
                                 </div>
                             </div>
                             <div class="row card-board">
-                                <div class="col-sm-6 col-md-3 flex-row-center card-wrapper" *ngFor="let document of beauty_docs;let i = index">
-                                    <card *ngIf="i < card_per_page" [document]="document" [styleNumber]="2" [imageHeight]="200" [limit]="70"></card>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 justify-content-center card-wrapper" *ngFor="let document of beauty_docs;let i = index">
+                                            <card *ngIf="i < 1" [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 justify-content-center card-wrapper" *ngFor="let document of beauty_docs;let i = index">
+                                            <card *ngIf="i < 4 && i !==0" [document]="document" [styleNumber]="3" [imageHeight]="100" [limit]="70"></card>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="row">
-                                <div class="col-md-12 flex-row-center text-center">
-                                    <span class="view-more">View more beauty articles <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                                <div class="col-sm-12 col-md-12 flex-row-center">
+                                    <span class="view-more" [routerLink]="['beauty/all']">View more beauty articles <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
+                <div class="col-sm-12 col-md-4 ">
+                    <div id="video" class="row justify-content-center">
+                        <div class="col-sm-12 col-md-9">
+
+                            
+                            <div id="popular" class="side-container light">
+                                <div class="title">
+                                    Most Popular Articles
+                                </div>
+                                <!--<div class="small">
+                                    Subscribe our Youtube channel.
+                                </div>-->
+                                <div class="divider"></div>
+                                
+                                <ul >
+                                    <li *ngFor="let popular of populars;let i=index" class="popular"><span class="num">{{i+1}}</span><a href="">{{popular}}</a></li>
+                                </ul>
+                            </div>
+                            <div class="side-container dark" >
+                                <div class="title">
+                                    TV
+                                </div>
+                                <div class="small">
+                                    Subscribe our Youtube channel.
+                                </div>
+                                <div class="divider"></div>
+                                
+                                <div class="vid-wrapper">
+                                    <img [src]="video.ss" alt="">
+                                    <div class="overlay" (click)="goUrl(video.url)">
+                                        <img class="play"  (click)="goUrl(video.url)" src="./../../resources/svg/play.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <!--new row-->
+            <div class="row">
                 <div class="col-sm-12 col-md-12">
                     <div class="row justify-content-center">
                         <div id="follow-section" class="col-sm-12 col-md-10 col-lg-7">
@@ -75,12 +178,15 @@
                                 <div class="col-md-12 title">
                                     Follow us on Instagram
                                 </div>
-                                <div class="col-md-6 flex-row-center">
+                            </div>
+                            <div class="row justify-content-center">
+
+                                <div class="col-sm-12 col-md-6 flex-row-center">
                                     <div class="ig-left-section">
                                         <iframe id="308bf303d869ed32dd43bcf2cdf4d0de7b3ebf42ca2a91ef8b1eddbb47abddc2" scrolling="no" frameborder="no" src="https://instawidget.net/embed?u=308bf303d869ed32dd43bcf2cdf4d0de7b3ebf42ca2a91ef8b1eddbb47abddc2"></iframe>
                                     </div>
                                 </div>
-                                <div class="col-md-6 flex-row-center">
+                                <div class="col-sm-12 col-md-6 flex-row-center">
                                     <div class="ig-right-section">
                                         <iframe id="b06417068c35d60ef0b57f8a33691e8a602ed98f6f7525f9605c19d42a010aab" scrolling="no" frameborder="no" src="https://instawidget.net/embed?u=b06417068c35d60ef0b57f8a33691e8a602ed98f6f7525f9605c19d42a010aab"></iframe>
                                     </div>
@@ -89,24 +195,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-sm-12 col-md-12">
                     <div id="collection-review-section" class="row">
-                        <div class="col-md-12 icon">
+                        <div class="col-sm-12 col-md-12 icon">
                             <img src="./../../resources/svg/pen.svg" alt="">
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-sm-12 col-md-12">
                             <div class="col-md-12 title">
                                 Collection reviews
                             </div>
                             <div class="row">
-                                <div class="col-md-4 review-padding" *ngFor="let document of collection_docs;let i =index">
+                                <div class="col-sm-12 col-md-4 review-padding" *ngFor="let document of collection_docs;let i =index">
                                     <collection-card *ngIf="i < card_per_page" [showDate]="true" [document]="document" [cardSize]="1.1" [textSize]="1.3" [styleNumber]="2"
                                         [limit]="135"></collection-card>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12 flex-row-center text-center">
-                                    <span class="view-more">View more collection <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                                <div class="col-sm-12 col-md-12 flex-row-center text-center">
+                                    <span class="view-more" [routerLink]="['runway']">View more collection <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +220,7 @@
                 </div>
             </div>
         </div>
-    </div>
+  
 
 </div>
 <!--loading-->

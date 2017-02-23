@@ -15,6 +15,31 @@ export class Home implements OnInit {
   images:any;
   card_per_page = 4;
   loaded: number = 0;
+  current_slide:number = 0;
+  video = {
+    ss:'./../../resources/img/vid/vid1.jpg',
+    url:'https://www.youtube.com/watch?v=kmDMqzhvNLk'
+  }
+  populars = ['Tacchi + calzini: come abbinarli in modo cool in inverno',
+  '7 mostre di moda da non perdere assolutamente nel 2017!',
+  'Tendenza Wrap dress: l’abito a vestaglia è il più cool del momento',
+  'Come vestirsi per uscire la sera, dormire fuori ma evitare la walk of shame',
+  'Sono le celebrity le nuove stiliste cool del momento?',
+  'How to get the Calvin Klein x Raf Simons look',
+  'Beauty Brand 2 Know: Wander Beauty'];
+  goUrl(url){
+    window.location.href = url;
+  }
+  next(){
+    this.current_slide++;
+    this.current_slide%=this.images.length;
+    console.log(this.current_slide);
+  }
+  prev(){
+    this.current_slide--;
+    this.current_slide%=this.images.length;
+    console.log(this.current_slide);
+  }
   constructor(
     private prismicService: PrismicService,
     @Inject('LinkResolver') private linkResolver: {(doc: any): string}
@@ -27,6 +52,7 @@ export class Home implements OnInit {
       this.slider_docs = response.results;
       console.log(this.slider_docs);
       this.images = this.slider_docs[0].getGroup('slider.images').toArray();
+      console.log(this.images.length);
     });
 
     //fashion

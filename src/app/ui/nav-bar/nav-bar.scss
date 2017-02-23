@@ -55,7 +55,7 @@ $desc_font_size:0.9em;
 
 .tab-content {
     position: absolute;
-    top:52px;
+    top:128px;
     visibility: hidden;
     background-color: white;
     width: 100%;
@@ -84,7 +84,7 @@ $desc_font_size:0.9em;
         100% {
             // transform: scaleY(1);
             opacity: 1;
-            top: 52px;
+            top: 128px;
         }
     }
 
