@@ -36,7 +36,7 @@ section {
         text-shadow: 2px 2px #555;
     }
     img {
-        height: 500px;
+        height: 600px;
         width: 100%;
         object-fit: cover;
         object-position: center;
@@ -49,7 +49,7 @@ section {
     margin: auto;
     z-index: 100;
     width: 80%;
-    height: 500px;
+    height: 600px;
     border: 15px solid $birls_darkpink;
     outline: 40px solid white;
 }
@@ -57,6 +57,7 @@ section {
 .carousel {
     position: absolute;
     z-index: 99;
+    width: 100%;
 }
 
 #inner {
