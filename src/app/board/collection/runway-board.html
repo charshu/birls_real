@@ -1,45 +1,50 @@
 <!-- runway menu -->
 <div *ngIf="loaded ">
-    <div *ngIf="imageUrl!==''" class="cover container-fluid" ng2-parallax>
-        <img [src]="imageUrl" alt="">
-        <!--<div class="logo"></div>-->
-        <div class="row">
-            <div class="col-sm-12 center">
-                <h1 class="shadow2">Fashion Runway</h1>
+    <div id="cover-wrapper" *ngIf="imageUrl!==''" ng2-parallax>
+        <img id="cover-image" [src]="imageUrl" alt="">
+        <div class="cover">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 center">
+                    <h1 class="shadow2">Fashion Runway</h1>
+                </div>
             </div>
-        </div>
-        <div class="row select-container">
-            <span class="col-md-12 col-lg-3 shadow1 center-block" id="search-label">I'm looking for.. </span>
-            <div class="col-md-12 col-lg-4 center-block">
-                <div class="form-group">
-                    <select class="form-control" (change)="callSeason(selectedSeason.value)" name="" #selectedSeason [disabled]="!loadedSelect">
+            <div class="row justify-content-center select-container">
+                <span class="col-sm-3 col-md-2 col-lg-2 shadow1" id="search-label">I'm looking for.. </span>
+                <div class="col-sm-4 col-md-3 col-lg-3">
+                    <div class="form-group">
+                        <select class="form-control" (change)="callSeason(selectedSeason.value)" name="" #selectedSeason [disabled]="!loadedSelect">
                 <option value="all" [selected]="selected.season === 'all'">All season</option>
                  <option *ngFor="let season of seasons" [value]="season.id ? season.id : ''" [selected]="selected.season === season.id">
                      {{season.getText('season.name') ? season.getText('season.name') : ''}}
                      </option>
             </select>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-12 offset-lg-1 col-lg-4 center-block">
-                <div class="form-group">
-                    <select class="form-control" (change)="callBrand(selectedBrand.value)" name="" #selectedBrand [disabled]="!loadedSelect">
+                <div class="col-sm-4 col-md-3 col-lg-3">
+                    <div class="form-group">
+                        <select class="form-control" (change)="callBrand(selectedBrand.value)" name="" #selectedBrand [disabled]="!loadedSelect">
                     <option value="all" [selected]="selected.brand === 'all'">All brand</option>
                  <option *ngFor="let brand of brands" [value]="brand.id ? brand.id : ''" [selected]="selected.brand === brand.id">
                      {{brand.getText('brand.name') ? capitalizeFirstLetter(brand.getText('brand.name')) : ''}}
                  </option>
             </select>
+                    </div>
                 </div>
+                <!--<button type="submit" class="btn btn-default" (click)="updateFilter()">Search</button>-->
             </div>
-            <!--<button type="submit" class="btn btn-default" (click)="updateFilter()">Search</button>-->
+
+
         </div>
+
+
     </div>
     <div class="group-title">
         <h2>All Collection</h2>
     </div>
     <div id="collection-section" class="row">
-        <template ngFor let-document [ngForOf]="documents" let-i="index"> 
-            <div class="col-md-2" *ngIf="i < card_per_page && filter(document)">
-                <collection-card [showDate]="showDate" [document]="document" [cardSize]="1.1" [textSize]="1.1" [styleNumber]="1"></collection-card>
+        <template ngFor let-document [ngForOf]="documents" let-i="index">
+            <div class="col-sm-12 col-md-2" *ngIf="i < card_per_page && filter(document)">
+                <collection-card [showDate]="showDate" [document]="document" [cardSize]="1" [textSize]="1.1" [styleNumber]="1"></collection-card>
             </div>
         </template>
         <!--<div class="torn"></div>-->

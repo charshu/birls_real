@@ -2,7 +2,13 @@ import {Component, Input, Inject, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {PrismicService} from '../../prismic';
 import {Prismic} from 'prismic.io';
-@Component({selector: 'collection-card', styleUrls: ['./collection-card.scss'], templateUrl: './collection-card.html'})
+
+
+@Component({
+  selector: 'collection-card', 
+  styleUrls: ['./collection-card.scss'], 
+  templateUrl: './collection-card.html'
+})
 export class CollectionCard implements OnInit {
   @Input()document : any;
   @Input()showDate : boolean;
@@ -75,8 +81,8 @@ export class CollectionCard implements OnInit {
      }
     }
 
-      this.card_h = 4.5 * 60 * this.cardSize;
-      this.card_w = 3.0 * 60 * this.cardSize;
+      this.card_h = 6.0 * 50 * this.cardSize;
+      this.card_w = 3.0 * 50 * this.cardSize;
       this.text.brand = 1.4 * this.textSize;
       this.text.season = 0.8 * this.textSize;
       this.groupImages = this.document.getGroup('collection.gallery')?this.document.getGroup('collection.gallery').toArray():[];

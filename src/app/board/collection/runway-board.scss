@@ -32,50 +32,30 @@ h6 {
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
 }
 
+.center {
+    display: block;
+    text-align: center;
+    margin: 10px;
+    z-index: 99;
+}
+#cover-wrapper{
+    height: 350px;
+}
+#cover-image{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+    z-index: 97;
+}
 .cover {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     align-items: center;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: white;
-    padding-bottom: 100px;
+    width: 100%;
     height: 350px;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0.9) 100%);    
     z-index: 98;
-    .center {
-        display: block;
-        text-align: center;
-        margin: 10px;
-        z-index: 99;
-    }
-    .logo {
-        width: 100px;
-        height: 150px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-image: url('./../../resources/svg/model.svg');
-        z-index: 101;
-    }
-    &:before {
-        content: ' ';
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        // background-color: rgba(0, 0, 0, 0.4);
-        background-image: linear-gradient(to left, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0.9) 100%);
-        z-index: 99;
-    }
-    img {
-        height: 350px;
-        width: 100%;
-        object-fit: cover;
-        z-index: 98;
-    }
+    padding-top: 150px;
     &.noise {
         position: relative;
     }
@@ -88,12 +68,6 @@ h6 {
         position: absolute;
         background-image: url('./../../resources/img/noise.png');
     }
-    .center-block {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
     .select-container {
         z-index: 100;
         height: auto;
@@ -104,7 +78,6 @@ h6 {
         .form-group {
             // margin-right: 20px;
             select {
-               
                 width: 248px;
                 // padding: 5px;
                 font-size: 14px;
@@ -181,14 +154,14 @@ h6 {
     z-index: 100;
     // border-top: 1px solid deeppink;
 }
-    .torn {
-        width: 100%;
-        height: 40px;
-        background-image: url('./../../resources/img/torn.png');
-        background-color: #F6F6F6;
-        background-repeat: repeat-x;
-    }
 
+.torn {
+    width: 100%;
+    height: 40px;
+    background-image: url('./../../resources/img/torn.png');
+    background-color: #F6F6F6;
+    background-repeat: repeat-x;
+}
 
 .more {
     position: relative;

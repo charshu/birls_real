@@ -15,7 +15,7 @@
             <div class="col-md-12 visible-lg-block">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
-                        <masonry [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
+                        <masonry [useImagesLoaded]="true" [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
                             <masonry-brick class="mood" *ngFor="let mood of fashion_moods;let i=index">
                                 <div class="img-box">
                                     <img [ngStyle]="{'width':mood.maxWidth+'px','height':mood.maxHeight+'px'}" [src]="mood.img" alt="">
@@ -44,7 +44,36 @@
             <div class="col-md-12">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
-                        <masonry [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
+                        <masonry [useImagesLoaded]="true" [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
+                            <masonry-brick class="mood" *ngFor="let mood of fashion_moods;let i=index">
+                                <div class="img-box">
+                                    <img [ngStyle]="{'width':mood.maxWidth+'px','height':mood.maxHeight+'px'}" [src]="mood.img" alt="">
+                                    <div class="caption">
+                                        <h3>{{mood.caption}}!</h3>
+                                    </div>
+                                </div>
+                            </masonry-brick>
+
+                        </masonry>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+     <!--all birls-->
+    <div id="all-birls" *ngIf="router.url==='/birls/all'" class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 title">
+                <h1>Birls</h1>
+            </div>
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <masonry [useImagesLoaded]="true" [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
                             <masonry-brick class="mood" *ngFor="let mood of fashion_moods;let i=index">
                                 <div class="img-box">
                                     <img [ngStyle]="{'width':mood.maxWidth+'px','height':mood.maxHeight+'px'}" [src]="mood.img" alt="">

@@ -13,6 +13,8 @@ export const rootRouterConfig: Routes = [
   { path: 'fashion/:category/:uid', component: Article },
   { path: 'beauty/:category', component: CardBoardComponent },
   { path: 'beauty/:category/:uid', component: Article },
+  { path: 'birls/:category', component: CardBoardComponent },
+  { path: 'birls/:category/:uid', component: Article },
   { path: 'tags/:tagname', component: CardBoardComponent },
   { path: 'runway', component: RunwayBoardComponent },
   {

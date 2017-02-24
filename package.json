@@ -22,7 +22,7 @@
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
-    "bootstrap-loader": "^2.0.0-beta.20",
+  
     "core-js": "^2.4.1",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -74,6 +74,7 @@
     "foundation": "^4.2.1-1",
     "foundation-sites": "^6.3.0",
     "ie-shim": "^0.1.0",
+    "imagesloaded": "^4.1.1",
     "jquery": "^3.1.1",
     "ng2-awesome-disqus": "^1.0.3",
     "ng2-comment": "0.0.9",

@@ -108,6 +108,15 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
             this.queryTitle = this.category;
             this.loaded = true;
           });
+        }else if (this.router.url === '/birls/all') {
+          prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article'), Prismic.Predicates.any('my.article.link', ['WK9M_yYAAKYAkhqU ', 'WK9PqyYAANwAkiZN '])], {
+            orderings: '[my.article.date desc]',
+            'fetchLinks': 'category.name'
+          })).then((response) => {
+            this.documents = response.results;
+            this.queryTitle = this.category;
+            this.loaded = true;
+          });
         } else {
           prismicService.api().then((api) => api.getByUID('category', this.category)).then((document) => {
             this.loadingImg = false;
@@ -122,7 +131,6 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
             })).then((response) => {
               this.documents = response.results;
               this.queryTitle = this.category;
-
               this.loaded = true;
             });
           });

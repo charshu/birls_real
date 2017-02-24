@@ -114,7 +114,7 @@ export class NavBar {
             active: false
         }, {
             label: 'Birls',
-            link: '',
+            link: 'birls/all',
             links: [],
             groups: [{
                     title: '',
@@ -123,13 +123,13 @@ export class NavBar {
                         {
                             img: './../../../resources/img/menu/diary.jpg',
                             desc: 'Editor\'s Diary',
-                            url: 'fashion/shopping',
+                            url: 'birls/editor-diary',
                             active: false
                         },
                         {
                             img: './../../../resources/img/menu/crew.jpg',
                             desc: 'Birls Crew',
-                            url: 'fashion/shopping',
+                            url: 'birls/birls-crew',
                             active: false
                         }
                     ]
