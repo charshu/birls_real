@@ -42,9 +42,9 @@
         <h2>All Collection</h2>
     </div>
     <div id="collection-section" class="row">
-        <template ngFor let-document [ngForOf]="documents" let-i="index">
-            <div class="col-sm-12 col-md-2" *ngIf="i < card_per_page && filter(document)">
-                <collection-card [showDate]="showDate" [document]="document" [cardSize]="1" [textSize]="1.1" [styleNumber]="1"></collection-card>
+        <template ngFor let-document [ngForOf]="documents | myfilter : { brand:selected.brand,season:selected.season}" let-i="index">
+            <div *ngIf="i < card_per_page" class="col-sm-12 col-md-2">
+                <collection-card [showDate]="false" [document]="document" [cardSize]="1" [textSize]="1.1" [styleNumber]="1"></collection-card>
             </div>
         </template>
         <!--<div class="torn"></div>-->

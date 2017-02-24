@@ -1,14 +1,13 @@
 <div *ngIf="document && loaded && styleNumber === 1">
-    <article class="mycard" [routerLink]="[linkResolver(document)]" (mouseenter)="isHover=true" (mouseleave)="isHover=false" [ngClass]="{'hover':isHover}">
-       
-        <img [src]="imageUrl[0]" [ngStyle]="{'display':loadingImage && imageUrl[0]!==''?'none':'block','height':card_h+'px'}"
-            (load)="loadingImage=false">
-             <!--pre-loading icon-->
-        <div class="center" *ngIf="loadingImage">
+    <article class="mycard" [routerLink]="[linkResolver(document)]" (mouseenter)="isHover=true" (mouseleave)="isHover=false" [ngClass]="{'hover':isHover,'height':card_h+'px'}">
+        <!--pre-loading icon-->
+        <div class="center" *ngIf="loadingImage" [ngStyle]="{'height':card_h+'px'}">
             <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
         </div>
         <!---->
-        <div *ngIf="!loadingImage" [ngClass]="{'card-overlay':!loadingImage}" [ngStyle]="{'height':card_h+'px'}">
+        <img [src]="imageUrl[0]" [ngStyle]="{'display':loadingImage && imageUrl[0]!==''?'none':'block','height':card_h+'px'}"
+            (load)="loadingImage=false">
+        <div [hidden]="loadingImage" [ngClass]="{'card-overlay':!loadingImage}" [ngStyle]="{'height':card_h+'px'}">
             <div *ngIf="showDate" class="card-date">
                 <div class="day">
                     {{date | amDateFormat:'D'}}
@@ -22,7 +21,7 @@
         </div>
     </article>
 </div>
-
+<!--collection review in home-->
 <div *ngIf="document && styleNumber === 2">
     <article class="mycard" >
         <!--pre-loading icon-->
@@ -30,7 +29,7 @@
             <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
         </div>
         <!---->
-        <img [src]="imageUrl[0]" [ngStyle]="{'display':loadingImage && imageUrl[0]!==''?'none':'block','height':card_h+'px'}"
+        <img [hidden]="loadingImage" [src]="imageUrl[0]" [ngStyle]="{'height':card_h+'px'}"
             (load)="loadingImage=false" [routerLink]="[linkResolver(document),'review']" [ngClass]="{'hover':isHover}"  >
         <div *ngIf="!loadingImage" [routerLink]="[linkResolver(document),'review']"  [ngClass]="{'card-overlay':!loadingImage,'hover':isHover}"  
         [ngStyle]="{'height':card_h+'px'}" (mouseenter)="isHover=true" (mouseleave)="isHover=false">

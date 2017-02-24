@@ -19,13 +19,19 @@
     </article>
 </div>
 <div *ngIf="document && styleNumber === 3">
-    <article id="horizon-card" [routerLink]="[linkResolver(document)]" class="mycard justify-content-center" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
-            <img class="card-img" [src]="image?image.url:''" [ngClass]="{'hover':isHover}" [ngStyle]="{'height':imageHeight+'px','width':imageHeight+'px'}">
-            <div class="right-block">
-                <span [ngClass]="{'card-title':true,'hover':isHover}">{{title?title.getTitle().text:''}}</span>
-                <div class="card-category">{{capitalizeFirstLetter(category.getText('category.name'))}}</div>
-                <div class="card-desc">{{desc}} <span [ngClass]="{'more':true,'hover':isHover}" *ngIf="isMore">  — read more</span></div>
-            </div>
+    <article id="horizon-card" [routerLink]="[linkResolver(document)]" class="mycard justify-content-center" (mouseenter)="isHover=true"
+        (mouseleave)="isHover=false">
+        <!--image laoder-->
+        <div class="center" *ngIf="loadingImage">
+            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+        </div>
+        <!---->
+        <img [hidden]="loadingImage" (load)="loadingImage=false"  class="card-img" [src]="image?image.url:''" [ngClass]="{'hover':isHover}" [ngStyle]="{'height':imageHeight+'px','width':imageHeight+'px'}">
+        <div [hidden]="loadingImage" class="right-block">
+            <span [ngClass]="{'card-title':true,'hover':isHover}">{{title?title.getTitle().text:''}}</span>
+            <div class="card-category">{{capitalizeFirstLetter(category.getText('category.name'))}}</div>
+            <div class="card-desc">{{desc}} <span [ngClass]="{'more':true,'hover':isHover}" *ngIf="isMore">  — read more</span></div>
+        </div>
     </article>
 </div>
 <div *ngIf="loaded && !document">

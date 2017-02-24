@@ -20,6 +20,7 @@ export class Card implements OnInit {
   titleText:string='';
   paragraph:any = '';
   desc:string = '';
+  loadingImage:boolean = true;
   isHover:boolean = false;
   @Input() limit = 100;
   isMore = false;

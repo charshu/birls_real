@@ -15,7 +15,7 @@ import { PrismicService } from './prismic';
 import { Home } from './home/home';
 import { Article } from './ui/article/article';
 import { Review } from './ui/review/review';
-
+import { FilterPipe } from './board/collection/collection-filter.pipe'
 
 import { DisqusModule } from "ng2-awesome-disqus";
 import { ShareButtonsModule } from "ng2-sharebuttons";
@@ -33,6 +33,7 @@ import { ImageModal } from './../resources/lib/angular2-image-popup/directives/a
 import {Collection} from './ui/collection/collection';
 import {Gallery} from './ui/gallery/gallery';
 import { TruncatePipe } from './app.pipe';
+import { LazyLoadImageModule } from 'ng2-lazyload-image';
 // Use the endpoint of your repository
 const ENDPOINT = 'https://charshu.prismic.io/api';
 // Specify an access token if your API is set to private
@@ -85,7 +86,8 @@ function linkResolver(doc: any) {
     Collection,
     Gallery,
     Review,
-    OtherSeasonComponent
+    OtherSeasonComponent,
+    FilterPipe
     ],
   imports: [
     BrowserModule,
@@ -98,7 +100,8 @@ function linkResolver(doc: any) {
     ShareButtonsModule,
     MaterialModule.forRoot(),
     NgbModule.forRoot(),
-    MasonryModule
+    MasonryModule,
+    LazyLoadImageModule
   ],
   providers: [
     PrismicService,

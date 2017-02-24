@@ -23,7 +23,6 @@ import {
 })
 export class RunwayBoardComponent implements OnInit,
 AfterViewInit {
-  showDate: boolean = false;
   seasons: any;
   allSeasons: any;
   brands: any;
@@ -34,7 +33,7 @@ AfterViewInit {
     brand: 'all'
   };
   documents: Array < any > ;
-  list_documents: Array < any > ;
+  filter_docs: Array < any > ;
   private sub: any;
   queryTitle: string = '';
   category: string = '';
@@ -81,28 +80,28 @@ AfterViewInit {
         }
       }
       this.prismicService.api().then((api) => api.query([
-          Prismic.Predicates.at('document.type', 'collection'),
-          Prismic.Predicates.at('my.collection.season', seasonID)
-        ], {
-          orderings: '[my.collection.brand desc]',
-          'fetchLinks': 'brand.name'
-        })).then((response) => {
+        Prismic.Predicates.at('document.type', 'collection'),
+        Prismic.Predicates.at('my.collection.season', seasonID)
+      ], {
+        orderings: '[my.collection.brand desc]',
+        'fetchLinks': 'brand.name'
+      })).then((response) => {
 
-          let temp = [];
-          for (let doc of response.results) {
-            let brand = doc.getLink('collection.brand');
-            let brandName = brand.getText('brand.name');
-            console.log(brandName);
-            //dont push duplicating value
-            if (temp.indexOf(brandName) < 0 && brand.id !== this.selected.brand) {
-              temp.push(brandName);
-              this.brands.push(brand);
-            }
+        let temp = [];
+        for (let doc of response.results) {
+          let brand = doc.getLink('collection.brand');
+          let brandName = brand.getText('brand.name');
+          console.log(brandName);
+          //dont push duplicating value
+          if (temp.indexOf(brandName) < 0 && brand.id !== this.selected.brand) {
+            temp.push(brandName);
+            this.brands.push(brand);
           }
+        }
 
-          this.selected.season = seasonID;
-          this.loadedSelect = true;
-        });
+        this.selected.season = seasonID;
+        this.loadedSelect = true;
+      });
     }
   }
   callBrand(brandID) {
@@ -129,54 +128,28 @@ AfterViewInit {
         }
       }
       this.prismicService.api().then((api) => api.query([
-          Prismic.Predicates.at('document.type', 'collection'),
-          Prismic.Predicates.at('my.collection.brand', brandID)
-        ], {
-          orderings: '[my.collection.season desc]',
-          'fetchLinks': 'season.name'
-        })).then((response) => {
+        Prismic.Predicates.at('document.type', 'collection'),
+        Prismic.Predicates.at('my.collection.brand', brandID)
+      ], {
+        orderings: '[my.collection.season desc]',
+        'fetchLinks': 'season.name'
+      })).then((response) => {
 
-          let temp = [];
-          for (let doc of response.results) {
-            let season = doc.getLink('collection.season');
-            let seasonName = season.getText('season.name');
+        let temp = [];
+        for (let doc of response.results) {
+          let season = doc.getLink('collection.season');
+          let seasonName = season.getText('season.name');
 
-            if (temp.indexOf(seasonName) < 0 && season.id !== this.selected.season) {
-              temp.push(seasonName);
-              this.seasons.push(season);
-              console.log('push: ' + seasonName);
-            }
+          if (temp.indexOf(seasonName) < 0 && season.id !== this.selected.season) {
+            temp.push(seasonName);
+            this.seasons.push(season);
+            console.log('push: ' + seasonName);
           }
-          this.selected.brand = brandID;
-          this.loadedSelect = true;
-        });
+        }
+        this.selected.brand = brandID;
+        this.loadedSelect = true;
+      });
     }
-  }
-
-  filter(doc) {
-    let season = doc.getLink('collection.season');
-    let seasonName = season.getText('season.name');
-    let brand = doc.getLink('collection.brand');
-    let brandName = brand.getText('brand.name');
-    if (this.selected.brand === 'all' && this.selected.season === 'all') {
-      return true;
-    } else if (this.selected.brand === 'all') {
-      if (season.id === this.selected.season)
-        return true;
-      else
-        return false;
-    } else if (this.selected.season === 'all') {
-      if (brand.id === this.selected.brand)
-        return true;
-      else
-        return false;
-    } else {
-      if (brand.id === this.selected.brand && season.id === this.selected.season)
-        return true;
-      else
-        return false;
-    }
-
   }
 
   constructor(private route: ActivatedRoute, private router: Router, private prismicService: PrismicService, @Inject('LinkResolver') private linkResolver: {
