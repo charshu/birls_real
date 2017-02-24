@@ -70,7 +70,9 @@
        h2 {
            font-size: 0.4em;
        }
-       .right-block {}
+       .right-block {
+           cursor: pointer;
+       }
        .center {
            position: relative;
            width: 100px;
@@ -87,6 +89,7 @@
            width: 100px;
            height: 100px;
            margin-right: 10px;
+           cursor: pointer;
        }
    }
    

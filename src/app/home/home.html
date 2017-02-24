@@ -1,4 +1,4 @@
-<div *ngIf="loaded === 3">
+<div *ngIf="loaded == 5">
     <div id="slider">
         <!--<ngb-carousel>
             <template ngbSlide *ngFor="let image of images">
@@ -205,8 +205,8 @@
                                 Runway
                             </div>
                             <div class="row">
-                                <div class="col-sm-12 col-md-4 review-padding" *ngFor="let document of collection_docs;let i =index">
-                                    <collection-card *ngIf="i < card_per_page" [showDate]="true" [document]="document" [cardSize]="0.9" [textSize]="1.2" [styleNumber]="2"
+                                <div class="col-sm-12 col-md-3 review-padding" *ngFor="let document of collection_docs;let i =index">
+                                    <collection-card *ngIf="i <= 4" [showDate]="true" [document]="document" [cardSize]="0.7" [textSize]="1.2" [styleNumber]="2"
                                         [limit]="135"></collection-card>
                                 </div>
                             </div>
@@ -219,12 +219,41 @@
                     </div>
                 </div>
             </div>
+            <!--beauty-->
+                    <div class="row">
+                        <div id="birls-section" class="col-sm-12 col-md-12 card-padding">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 icon">
+                                    <img src="./../../resources/svg/perfume.svg" alt="">
+                                </div>
+                                <div class="col-sm-12 col-md-12 title">
+                                    Birls articles
+                                </div>
+                            </div>
+                            <div class="row card-board">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-3 justify-content-center card-wrapper" *ngFor="let document of birls_docs;let i = index">
+                                            <card *ngIf="i < 4" [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 flex-row-center">
+                                    <span class="view-more" [routerLink]="['birls/all']">View more birls articles <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         </div>
   
 
 </div>
 <!--loading-->
-<div class="loading" *ngIf="loaded < 3">
+<div class="loading" *ngIf="loaded < 5">
     <!--preloader-->
     <div id="pre-bootstrap-container">
         <div id="pre-bootstrap">

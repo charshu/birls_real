@@ -109,7 +109,7 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
             this.loaded = true;
           });
         }else if (this.router.url === '/birls/all') {
-          prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article'), Prismic.Predicates.any('my.article.link', ['WK9M_yYAAKYAkhqU ', 'WK9PqyYAANwAkiZN '])], {
+          prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article'), Prismic.Predicates.any('my.article.link', ['WK9M_yYAAKYAkhqU', 'WK9PqyYAANwAkiZN'])], {
             orderings: '[my.article.date desc]',
             'fetchLinks': 'category.name'
           })).then((response) => {
