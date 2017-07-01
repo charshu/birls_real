@@ -1,39 +1,42 @@
-import { NgModule, OpaqueToken } from '@angular/core'
-import { RouterModule } from "@angular/router";
-import { rootRouterConfig } from "./app.routes";
-import { AppComponent } from "./app";
-import { FormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
-import { HttpModule } from "@angular/http";
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { MomentModule } from 'angular2-moment';
-import { CeiboShare } from 'ng2-social-share';
-import { Ng2ParallaxScrollModule } from 'ng2-parallax-scroll';
-import { MasonryModule } from 'angular2-masonry';
+import {NgModule, OpaqueToken} from '@angular/core'
+import {RouterModule} from "@angular/router";
+import {JsonpModule} from '@angular/http';
+import {rootRouterConfig} from "./app.routes";
+import {AppComponent} from "./app";
+import {FormsModule} from "@angular/forms";
+import {BrowserModule} from "@angular/platform-browser";
+import {HttpModule} from "@angular/http";
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import {MomentModule} from 'angular2-moment';
+import {CeiboShare} from 'ng2-social-share';
+import {Ng2ParallaxScrollModule} from 'ng2-parallax-scroll';
+import {MasonryModule} from 'angular2-masonry';
 
-import { PrismicService } from './prismic';
-import { Home } from './home/home';
-import { Article } from './ui/article/article';
-import { Review } from './ui/review/review';
-import { FilterPipe } from './board/collection/collection-filter.pipe'
+import {PrismicService} from './prismic';
+import {Home} from './home/home';
+import {Article} from './ui/article/article';
+import {Review} from './ui/review/review';
+import {FilterPipe} from './board/collection/collection-filter.pipe'
 
-import { DisqusModule } from "ng2-awesome-disqus";
-import { ShareButtonsModule } from "ng2-sharebuttons";
-import { MaterialModule } from '@angular/material';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {DisqusModule} from "ng2-awesome-disqus";
+import {ShareButtonsModule} from "ng2-sharebuttons";
+import {MaterialModule} from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import { CardBoardComponent } from './board/article/card-board'
-import { RunwayBoardComponent } from './board/collection/runway-board';
-import { OtherSeasonComponent } from './board/otherseason/otherseason-board';
+import {CardBoardComponent} from './board/article/card-board'
+import {RunwayBoardComponent} from './board/collection/runway-board';
+import {OtherSeasonComponent} from './board/otherseason/otherseason-board';
 
-import { NavBar } from './ui/nav-bar/nav-bar';
-import { Card } from './ui/article-card/card';
-import { CollectionCard } from './ui/collection-card/collection-card';
-import { ImageModal } from './../resources/lib/angular2-image-popup/directives/angular2-image-popup/image-modal-popup';
+import {NavBar} from './ui/nav-bar/nav-bar';
+import {Card} from './ui/article-card/card';
+import {CollectionCard} from './ui/collection-card/collection-card';
+import {ImageModal} from './../resources/lib/angular2-image-popup/directives/angular2-image-popup/image-modal-popup';
 import {Collection} from './ui/collection/collection';
 import {Gallery} from './ui/gallery/gallery';
-import { TruncatePipe } from './app.pipe';
-import { LazyLoadImageModule } from 'ng2-lazyload-image';
+import {TruncatePipe} from './app.pipe';
+import {LazyLoadImageModule} from 'ng2-lazyload-image';
+
+import {InstagramService} from './shared/instagram-service';
 // Use the endpoint of your repository
 const ENDPOINT = 'https://charshu.prismic.io/api';
 // Specify an access token if your API is set to private
@@ -45,10 +48,12 @@ const APP_CONFIG_DATA = {
 }
 const APP_CONFIG_TOKEN = new OpaqueToken('config');
 
-function linkResolver(doc: any) {
+function linkResolver(doc : any) {
 
   if (doc.type === 'article') {
-    const category = doc.getLink('article.link').uid;
+    const category = doc
+      .getLink('article.link')
+      .uid;
     //menu fashion
     if (category === 'shopping' || category === 'trends' || category === 'editorial' || category === 'style-du-jours') {
       return `/fashion/` + category + `/` + encodeURIComponent(doc.uid);
@@ -88,12 +93,9 @@ function linkResolver(doc: any) {
     Review,
     OtherSeasonComponent,
     FilterPipe
-    ],
+  ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot(rootRouterConfig),
+    BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig),
     MomentModule,
     Ng2ParallaxScrollModule,
     DisqusModule,
@@ -101,18 +103,26 @@ function linkResolver(doc: any) {
     MaterialModule.forRoot(),
     NgbModule.forRoot(),
     MasonryModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    JsonpModule
   ],
   providers: [
-    PrismicService,
+    PrismicService, InstagramService,
     // {provide: LocationStrategy, useClass: HashLocationStrategy},
-    { provide: 'PrismicEndpoint', useValue: ENDPOINT },
-    { provide: 'PrismicAccessToken', useValue: ACCESS_TOKEN },
-    { provide: 'LinkResolver', useValue: linkResolver },
-    { provide: APP_CONFIG_TOKEN, useValue: APP_CONFIG_DATA }
+    {
+      provide: 'PrismicEndpoint',
+      useValue: ENDPOINT
+    }, {
+      provide: 'PrismicAccessToken',
+      useValue: ACCESS_TOKEN
+    }, {
+      provide: 'LinkResolver',
+      useValue: linkResolver
+    }, {
+      provide: APP_CONFIG_TOKEN,
+      useValue: APP_CONFIG_DATA
+    }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-
-}
+export class AppModule {}

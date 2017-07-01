@@ -14,8 +14,8 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@types/core-js": "^0.9.32",
-    "@types/node": "^6.0.42",
+    "@types/core-js": "latest",
+    "@types/node": "latest",
     "angular2-template-loader": "^0.4.0",
     "awesome-typescript-loader": "^1.1.1",
     "babel-core": "^6.22.1",

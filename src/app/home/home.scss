@@ -72,33 +72,39 @@ section {
     z-index: 120;
     position: relative;
     border-bottom: 1px solid #CCC;
-    background-color: white;
-}
-
-.icon {
-    top: 15px;
-    text-align: center;
-    width: 100%;
-    z-index: 100;
-    img {
-        height: 50px;
-    }
+    
 }
 
 .title {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 2em;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
     text-align: center;
     padding-top: 10px;
 }
 
+.svg-icon {
+    display: inline-flex;
+    align-self: center;
+    position: relative;
+    height: 1em;
+    width: 1em;
+}
+
+.svg-icon img.svg {
+    height: 1em;
+    width: 1em;
+}
+
+.svg-icon.svg-baseline img.svg {
+    bottom: -0.05em;
+    position: absolute;
+}
+
 .card-board {
     // background-color: white;
-    min-height: 200px;
-    // border:1px solid #CCC;
-    padding: 10px;
-    // border-bottom: 3px solid #333;
+    min-height: 200px; // border:1px solid #CCC;
+    padding: 10px; // border-bottom: 3px solid #333;
 }
 
 #video {
@@ -169,7 +175,7 @@ section {
 }
 
 #popular {
-    .title{
+    .title {
         font-size: 1.5em;
     }
     ul {
@@ -177,7 +183,6 @@ section {
         font-size: 1em;
         width: 100%;
         -webkit-padding-start: 0px;
-        
         list-style: none;
         li {
             padding: 5px;
@@ -190,39 +195,25 @@ section {
                 font-size: 1.4em;
                 color: $birls_darkpink;
             }
-            a{
-                color:inherit;
+            a {
+                color: inherit;
             }
         }
     }
 }
 
-#fashion-section {
-    // border-right: 3px solid #444;
+.white {
     padding-top: 10px;
     background-color: white;
     border-bottom: 1px solid #CCC;
 }
 
-#beauty-section {
-    background-color: white;
-}
-#birls-section {
-    background-color: white;
-}
-
-#follow-section {
-    .title {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 700;
-        font-size: 1.5em;
-        border-bottom: 1px solid #CCC;
-        padding: 0 10px 10px 10px;
-    }
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #CCC;
-    margin-top: 40px;
+#follow-section.title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    border-bottom: 1px solid #CCC;
+    padding: 0 10px 10px 10px;
 }
 
 .flex-row-center {
@@ -235,8 +226,7 @@ section {
 .ig-left-section,
 .ig-right-section {
     display: block;
-    width: 320px;
-    // border: 1px solid #CCCCCC;
+    width: 320px; // border: 1px solid #CCCCCC;
     text-align: center;
     background-color: white;
     padding: 10px;
@@ -286,22 +276,23 @@ section {
     }
 }
 
-#fashion-section.card-padding {
-    @media only screen and (min-width: 992px) {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        padding-left: 7%;
-        padding-right: 3%;
-    }
-    @media only screen and (max-width:992px) {
-        padding: 20px;
-    }
-}
-
 .card-wrapper {
     margin-top: 20px;
     @media only screen and (min-width: 992px) {
         padding-left: 30px;
         padding-right: 30px;
+    }
+}
+
+.ig-image-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        margin: 10px;
     }
 }
