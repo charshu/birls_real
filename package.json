@@ -7,7 +7,7 @@
     "watch": "npm run build --watch",
     "app": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 8080 --host 0.0.0.0  --content-base src",
     "start": "npm run cors-anywhere & npm run app",
-    "cors-anywhere": "node ./node_modules/cors-anywhere/server.js --port 8081"
+    "cors-anywhere": "PORT=8081 node ./node_modules/cors-anywhere/server.js"
   },
   "contributors": [
     "Rob Wormald <robwormald@gmail.com>",
