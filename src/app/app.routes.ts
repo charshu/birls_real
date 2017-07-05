@@ -15,6 +15,8 @@ export const rootRouterConfig: Routes = [
   { path: 'beauty/:category/:uid', component: Article },
   { path: 'birls/:category', component: CardBoardComponent },
   { path: 'birls/:category/:uid', component: Article },
+  { path: 'life-style/:category', component: CardBoardComponent },
+  { path: 'life-style/:category/:uid', component: Article },
   { path: 'tags/:tagname', component: CardBoardComponent },
   { path: 'runway', component: RunwayBoardComponent },
   {

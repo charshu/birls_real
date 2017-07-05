@@ -11,6 +11,10 @@ export class Home implements OnInit {
   slider_docs : Array < any >;
   fashion_docs : any;
   beauty_docs : any;
+  makeUpDocs : any;
+  skinCareDocs : any;
+  beautyTipsDocs : any;
+  hairAndNailDocs : any;
   birls_docs : any;
   collection_docs : any;
   images : any;
@@ -32,7 +36,7 @@ export class Home implements OnInit {
     'Beauty Brand 2 Know: Wander Beauty'
   ];
   goUrl(url) {
-    window.location.href = url;
+    window.open(url, "_blank");
   }
   next() {
     this.current_slide++;
@@ -54,8 +58,8 @@ export class Home implements OnInit {
       .instagramService
       .getPictures()
       .subscribe((IGimages) => {
-        this.IGimages = IGimages.slice(0, 9);
-        console.log(this.IGimages);
+        this.IGimages = IGimages.slice(0, 14);
+        // console.log(this.IGimages);
       });
 
     //slider
@@ -98,27 +102,97 @@ export class Home implements OnInit {
         this.loaded++;
       });
 
-    //beauty
+    //beauty and sub categories
     this
       .prismicService
       .api()
-      .then((api) => api.query([
-        Prismic
-          .Predicates
-          .at('document.type', 'article'),
-        Prismic
-          .Predicates
-          .any('my.article.link', ['WKqliyYAAKRkYjfX', 'WKqmfSYAAHdmYjwG'])
-      ], {
-        orderings: '[my.article.date desc]',
-        'fetchLinks': 'category.name',
-        pageSize: 4
-      }))
-      .then((response) => {
-        this.beauty_docs = response.results;
-        // console.log(this.beauty_docs);
+      .then((api) => {
+        api.query([
+          Prismic
+            .Predicates
+            .at('document.type', 'article'),
+          Prismic
+            .Predicates
+            .any('my.article.link', ['WKqliyYAAKRkYjfX', 'WKqmfSYAAHdmYjwG', 'WV0QLyUAAJ4H3eyj', 'WV0QEyUAAFYG3ewg'])
+        ], {
+          orderings: '[my.article.date desc]',
+          'fetchLinks': 'category.name',
+          pageSize: 5
+        }).then((response) => {
+          this.beauty_docs = response.results;
+          // console.log(this.beauty_docs);
+
+        })
+        // make-up
+        api.query([
+          Prismic
+            .Predicates
+            .at('document.type', 'article'),
+          Prismic
+            .Predicates
+            .any('my.article.link', ['WKqliyYAAKRkYjfX'])
+        ], {
+          orderings: '[my.article.date desc]',
+          'fetchLinks': 'category.name',
+          pageSize: 5
+        }).then((response) => {
+          this.makeUpDocs = response.results;
+          // console.log(this.beauty_docs);
+        })
+        // skincare
+        api.query([
+          Prismic
+            .Predicates
+            .at('document.type', 'article'),
+          Prismic
+            .Predicates
+            .any('my.article.link', ['WKqmfSYAAHdmYjwG'])
+        ], {
+          orderings: '[my.article.date desc]',
+          'fetchLinks': 'category.name',
+          pageSize: 5
+        }).then((response) => {
+          this.skinCareDocs = response.results;
+          // console.log(this.beauty_docs);
+
+        })
+        // beauty-tips
+        api.query([
+          Prismic
+            .Predicates
+            .at('document.type', 'article'),
+          Prismic
+            .Predicates
+            .any('my.article.link', ['WV0QLyUAAJ4H3eyj'])
+        ], {
+          orderings: '[my.article.date desc]',
+          'fetchLinks': 'category.name',
+          pageSize: 5
+        }).then((response) => {
+          this.beautyTipsDocs = response.results;
+          // console.log(this.beauty_docs);
+
+        })
+        // hair-and-nail
+        api.query([
+          Prismic
+            .Predicates
+            .at('document.type', 'article'),
+          Prismic
+            .Predicates
+            .any('my.article.link', ['WV0QEyUAAFYG3ewg'])
+        ], {
+          orderings: '[my.article.date desc]',
+          'fetchLinks': 'category.name',
+          pageSize: 5
+        }).then((response) => {
+          this.hairAndNailDocs = response.results;
+          // console.log(this.beauty_docs);
+
+        })
         this.loaded++;
       });
+
     //birls
     this
       .prismicService

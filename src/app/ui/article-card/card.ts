@@ -13,6 +13,7 @@ export class Card implements OnInit {
   @Input() width:number;
   @Input() imageHeight:number;
   @Input() styleNumber:number;
+  @Input() backgroundColor:string;
   image:any;
   date:any;
   category:any;
@@ -22,6 +23,7 @@ export class Card implements OnInit {
   desc:string = '';
   loadingImage:boolean = true;
   isHover:boolean = false;
+  author:string = 'Crew';
   @Input() limit = 100;
   isMore = false;
   toggle(){
@@ -52,11 +54,17 @@ export class Card implements OnInit {
     this.date = this.document.getDate('article.date');
     this.category = this.document.getLink('article.link');
     this.title = this.document.getStructuredText('article.title');
+    this.author = this.document.getText('article.author');
     this.paragraph = this.document.getFirstParagraph();
     this.desc = this.paragraph !==null?this.paragraph.text:'';
     if(this.desc.length >= this.limit){
       this.desc = this.desc.substring(0,this.limit);
-      this.desc = this.desc.substring(0,Math.min(this.desc.length,this.desc.lastIndexOf(' ')))+'...';
+      this.desc = this.desc.substring(0,this.desc.lastIndexOf(' '));
+      let regexp = /[a-zA-Z]/;
+      while(!regexp.test(this.desc[this.desc.length-1])){
+          this.desc = this.desc.substring(0,this.desc.length-1);
+      }
+
       this.isMore = true;
     }
   }

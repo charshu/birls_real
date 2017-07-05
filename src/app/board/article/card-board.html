@@ -8,46 +8,45 @@
     </div>
     <!--all fashion-->
     <div id="all-fashion" *ngIf="router.url==='/fashion/all'" class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 title">
-                <h1>Fashion</h1>
-            </div>
-            <div class="col-md-12 visible-lg-block">
-                <div class="row justify-content-center">
-                    <div class="col-md-10">
-                        <masonry [useImagesLoaded]="true" [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
-                            <masonry-brick class="mood" *ngFor="let mood of fashion_moods;let i=index">
-                                <div class="img-box">
-                                    <img [ngStyle]="{'width':mood.maxWidth+'px','height':mood.maxHeight+'px'}" [src]="mood.img" alt="">
-                                    <div class="caption">
-                                        <h3>{{mood.caption}}!</h3>
-                                    </div>
-                                </div>
-                            </masonry-brick>
-
-                        </masonry>
-
-
-                    </div>
-
+        <div class="row visible-lg-block" style="border-bottom: 5px solid black;margin-bottom:10px;">
+            <div class="col-md-10 card-centered">
+                <div class="title">
+                    FASHION
                 </div>
-            </div>
+                <masonry [useImagesLoaded]="true" [options]="{transitionDuration: '0.8s',gutter:30}">
+                    <masonry-brick class="mood-brick" *ngFor="let mood of fashion_moods;let i=index">
+                        <div class="img-box">
+                            <img [src]="mood.img" alt="">
+                            <div class="caption">
+                                <h3>{{mood.caption}}!</h3>
+                            </div>
+                        </div>
+                    </masonry-brick>
 
+                </masonry>
+            </div>
         </div>
+
+        <div class="custom-category1" style="text-align: center;"><a [routerLink]="['/fashion','shopping']">SHOPPING</a> / <a [routerLink]="['/fashion','trends']">TRENDS</a> /
+            <a
+                [routerLink]="['/fashion','style-du-jours']">HOW TO</a> / <a [routerLink]="['/fashion','editorial']">EDITORIAL</a> </div>
     </div>
     <!--all beauty-->
     <div id="all-beauty" *ngIf="router.url==='/beauty/all'" class="container-fluid">
         <div class="row">
-            <div class="col-md-12 title">
-                <h1>Beauty</h1>
-            </div>
-            <div class="col-md-12">
-                <div class="row justify-content-center">
+            <div class="col-md-10 card-centered">
+                <table style="width:100%">
+                    <tr>
+                        <td class="title">BEAUTY</td>
+                        <td class="custom-category2"><a [routerLink]="['/beauty','make-up']">MAKEUP</a> / <a [routerLink]="['/beauty','skin-care']">SKINCARE</a>                            / <a [routerLink]="['/beauty','hair-and-nail']">HAIR & NAIL</a> / <a [routerLink]="['/beauty','beauty-tips']">BEAUTY TIPS</a>                            </td>
+                    </tr>
+                </table>
+                <!-- <div class="row card-centered">
                     <div class="col-md-10">
-                        <masonry [useImagesLoaded]="true" [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
-                            <masonry-brick class="mood" *ngFor="let mood of fashion_moods;let i=index">
+                        <masonry [useImagesLoaded]="true" [options]="{ transitionDuration: '0.8s',gutter:30}">
+                            <masonry-brick class="mood-brick" *ngFor="let mood of fashion_moods;let i=index">
                                 <div class="img-box">
-                                    <img [ngStyle]="{'width':mood.maxWidth+'px','height':mood.maxHeight+'px'}" [src]="mood.img" alt="">
+                                    <img [src]="mood.img" alt="">
                                     <div class="caption">
                                         <h3>{{mood.caption}}!</h3>
                                     </div>
@@ -59,22 +58,23 @@
 
                     </div>
 
-                </div>
+                </div>-->
             </div>
 
         </div>
     </div>
-     <!--all birls-->
+
+    <!--all birls-->
     <div id="all-birls" *ngIf="router.url==='/birls/all'" class="container-fluid">
         <div class="row">
-            <div class="col-md-12 title">
-                <h1>Birls</h1>
+            <div class="col-md-10 card-centered title">
+                <h1>BIRLS</h1>
             </div>
-            <div class="col-md-12">
-                <div class="row justify-content-center">
-                    <div class="col-md-10">
+            <!--<div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10 card-centered">
                         <masonry [useImagesLoaded]="true" [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
-                            <masonry-brick class="mood" *ngFor="let mood of fashion_moods;let i=index">
+                            <masonry-brick class="mood-brick" *ngFor="let mood of fashion_moods;let i=index">
                                 <div class="img-box">
                                     <img [ngStyle]="{'width':mood.maxWidth+'px','height':mood.maxHeight+'px'}" [src]="mood.img" alt="">
                                     <div class="caption">
@@ -89,33 +89,22 @@
                     </div>
 
                 </div>
-            </div>
+            </div>-->
 
         </div>
     </div>
-    <!--popular tags -->
-    <div id="popular-tags" *ngIf="category==='all' && tags" class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="title">{{ "what's hot now"}}</div>
-                <div class="tag-container">
-                    <div class="tag-box" *ngFor="let tag of tags" [routerLink]="['/tags/' + tag]">
-                        {{'#'+tag}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!--article card container-->
     <div id="cardboard-section" class="container-fluid">
-        <div class="row card-board">
-            <masonry [options]="{ transitionDuration: '0.8s' }">
-                <masonry-brick class="brick" *ngFor="let document of documents;let i=index">
-                    <card *ngIf="i < card_per_page" [document]="document" [styleNumber]="1" [randomHeight]="true" [limit]="100"></card>
-                </masonry-brick>
+        <div class="row white">
+            <div class="col-md-10 card-centered">
+                <masonry [options]="{ transitionDuration: '0.8s',gutter:20 }">
+                    <masonry-brick class="brick" *ngFor="let document of documents.slice(0,card_per_page)">
+                        <card [document]="document" [styleNumber]="1" [randomHeight]="true" [limit]="100"></card>
+                    </masonry-brick>
 
-            </masonry>
-
+                </masonry>
+            </div>
             <!--<template ngFor let-document [ngForOf]="documents" let-i="index"> 
             <div class="col-sm-12 col-md-6 col-lg-4 flex-row-center card-wrapper">
                 <card *ngIf="i < card_per_page" [document]="document" [styleNumber]="1" [randomHeight]="true" [limit]="100"></card>
@@ -123,11 +112,24 @@
             </div>
             <div class="clearfix visible-xs-block"></div>
             </template>-->
-
         </div>
         <div class="row">
             <div class="col-lg-12 torn">
                 <div class="more" (click)="more()">More..</div>
+            </div>
+        </div>
+
+    </div>
+    <!--popular tags -->
+    <div id="popular-tags" *ngIf="category==='all' && tags" class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 card-centered">
+                <div class="title">{{ "what's hot now"}}</div>
+                <div class="tag-container">
+                    <div class="tag-box" *ngFor="let tag of tags" [routerLink]="['/tags/' + tag]">
+                        {{'#'+tag}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

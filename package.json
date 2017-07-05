@@ -5,8 +5,9 @@
   "scripts": {
     "build": "webpack --inline --colors --progress --display-error-details --display-cached",
     "watch": "npm run build --watch",
-    "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 8080 --host 0.0.0.0  --content-base src",
-    "start": "npm run server"
+    "app": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 8080 --host 0.0.0.0  --content-base src",
+    "start": "npm run cors-anywhere & npm run app",
+    "cors-anywhere": "node ./node_modules/cors-anywhere/server.js --port 8081"
   },
   "contributors": [
     "Rob Wormald <robwormald@gmail.com>",
@@ -68,6 +69,7 @@
     "angular2-moment": "^1.1.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "cors-anywhere": "^0.4.0",
     "font-awesome": "^4.7.0",
     "font-awesome-loader": "^1.0.1",
     "foundation": "^4.2.1-1",

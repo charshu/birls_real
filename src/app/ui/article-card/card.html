@@ -1,39 +1,67 @@
-<div *ngIf="document && styleNumber === 1">
-    <article id="board-card" class="mycard" [ngStyle]="{'width':width+'px'}" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
-        <a [routerLink]="[linkResolver(document)]">
-            <img [src]="image?image.url:''" [ngClass]="{'card-img':true,'hover':isHover}" [ngStyle]="{'height':imageHeight+'px'}">
-            <h1 [ngClass]="{'card-title':true,'hover':isHover}">{{title?title.getTitle().text:''}}</h1>
-            <div class="card-category">{{capitalizeFirstLetter(category.getText('category.name'))}}</div>
-            <div class="card-desc">{{desc}} <span [ngClass]="{'more':true,'hover':isHover}" *ngIf="isMore">  — read more</span></div>
-        </a>
-    </article>
-</div>
-<div *ngIf="document && styleNumber === 2">
-    <article id="related-card" class="mycard" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
-        <a [routerLink]="[linkResolver(document)]">
-            <img [src]="image?image.url:''" [ngClass]="{'card-img':true,'hover':isHover}" [ngStyle]="{'height':imageHeight+'px'}">
-            <h1 [ngClass]="{'card-title':true,'hover':isHover}">{{title?title.getTitle().text:''}}</h1>
-            <div class="card-category">{{capitalizeFirstLetter(category.getText('category.name'))}}</div>
-            <div class="card-desc">{{desc}} <span [ngClass]="{'more':true,'hover':isHover}" *ngIf="isMore">  — read more</span></div>
-        </a>
-    </article>
-</div>
-<div *ngIf="document && styleNumber === 3">
-    <article id="horizon-card" [routerLink]="[linkResolver(document)]" class="mycard justify-content-center" (mouseenter)="isHover=true"
+<template [ngIf]="document && styleNumber === 1">
+    <article id="board-card" class="mycard" [routerLink]="[linkResolver(document)]" [ngStyle]="{'width':width+'px'}" (mouseenter)="isHover=true"
         (mouseleave)="isHover=false">
+        <img [src]="image?image.url:''" class="card-main-img" [ngClass]="{'hover':isHover}" [ngStyle]="{'height':imageHeight+'px'}">
+        <h1 class="rainbow-animate-text" [ngClass]="{'hover':isHover}">{{title?title.getTitle().text:''}}</h1>
+        <div class="card-category">{{capitalizeFirstLetter(category.getText('category.name'))}}</div>
+        <div class="card-desc">{{desc}} <span class="more" [ngClass]="{'hover':isHover}" *ngIf="isMore">  — read more</span></div>
+    </article>
+</template>
+<template [ngIf]="document && styleNumber === 2">
+    <article id="related-card" class="mycard" [routerLink]="[linkResolver(document)]" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
+
+        <img [src]="image?image.url:''" class="card-main-img" [ngClass]="{'hover':isHover}" [ngStyle]="{'height':imageHeight+'px'}">
+        <h1 class="rainbow-animate-text" [ngClass]="{'hover':isHover}">{{title?title.getTitle().text:''}}</h1>
+        <div class="card-category">{{capitalizeFirstLetter(category.getText('category.name'))}}</div>
+        <div class="card-desc">{{desc}} <span class="more" [ngClass]="{'hover':isHover}" *ngIf="isMore">  — read more</span></div>
+
+    </article>
+</template>
+<template [ngIf]="document && styleNumber === 3">
+    <article id="horizon-card" [routerLink]="[linkResolver(document)]" class="mycard" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
         <!--image laoder-->
         <div class="center" *ngIf="loadingImage">
             <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
         </div>
         <!---->
-        <img [hidden]="loadingImage" (load)="loadingImage=false"  class="card-img" [src]="image?image.url:''" [ngClass]="{'hover':isHover}" [ngStyle]="{'height':imageHeight+'px','width':imageHeight+'px'}">
-        <div [hidden]="loadingImage" class="right-block">
-            <span [ngClass]="{'card-title':true,'hover':isHover}">{{title?title.getTitle().text:''}}</span>
-            <div class="card-category">{{capitalizeFirstLetter(category.getText('category.name'))}}</div>
-            <div class="card-desc">{{desc}} <span [ngClass]="{'more':true,'hover':isHover}" *ngIf="isMore">  — read more</span></div>
-        </div>
+        <table>
+            <tr>
+                <td>
+                    <img [src]="image?image.url:''" class="card-main-img" [hidden]="loadingImage" (load)="loadingImage=false" [ngClass]="{'hover':isHover}"
+                        [ngStyle]="{'height':imageHeight+'px','width':imageHeight+'px'}">
+                </td>
+                <td>
+                    <div [hidden]="loadingImage" class="right-block">
+                        <h1 class="rainbow-animate-text" [ngClass]="{'hover':isHover}">{{title?title.getTitle().text:''}}</h1>
+                        <div class="card-category">{{capitalizeFirstLetter(category.getText('category.name'))}}</div>
+                        <div class="card-desc">{{desc}} <span class="more" [ngClass]="{'hover':isHover}" *ngIf="isMore">  — read more</span></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </article>
-</div>
+</template>
+<template [ngIf]="document && styleNumber === 4">
+    <article id="highlight-card" class="mycard" [ngStyle]="{'width':width+'px'}" >
+        <table>
+            <tr>
+                <td width="35%">
+                    <img [src]="image?image.url:''" class="card-main-img" [ngClass]="{'hover':isHover}" [ngStyle]="{'height':imageHeight+'px'}">
+                </td>
+                <td class="right-column" [ngStyle]="{'height':imageHeight+'px','background-color':'#'+backgroundColor}">
+                    <div class="link-group" (mouseenter)="isHover=true" (mouseleave)="isHover=false">
+                        <h1  [routerLink]="[linkResolver(document)]" [ngClass]="{'hover':isHover}">{{title?title.getTitle().text:''}}</h1>
+                        <span class="date">{{date | amDateFormat:'DD MMMM YYYY' | uppercase}} <i class="fi flaticon-quill-drawing-a-line"></i> By {{ author }}</span>
+                        <div class="card-desc">{{desc}} <span class="more" [ngClass]="{'hover':isHover}" *ngIf="isMore">  — read more</span></div>
+                    </div>
+                        
+                    <!--<div class="card-category">{{capitalizeFirstLetter(category.getText('category.name'))}}</div>-->
+                    <!--<div class="card-desc">{{desc}} <span class="more" [ngClass]="{'hover':isHover}" *ngIf="isMore">  — read more</span></div>-->
+                </td>
+            </tr>
+        </table>
+    </article>
+</template>
 <div *ngIf="loaded && !document">
     <h2>Not found!</h2>
 </div>

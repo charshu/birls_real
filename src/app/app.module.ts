@@ -1,6 +1,6 @@
 import {NgModule, OpaqueToken} from '@angular/core'
 import {RouterModule} from "@angular/router";
-import {JsonpModule} from '@angular/http';
+
 import {rootRouterConfig} from "./app.routes";
 import {AppComponent} from "./app";
 import {FormsModule} from "@angular/forms";
@@ -103,8 +103,7 @@ function linkResolver(doc : any) {
     MaterialModule.forRoot(),
     NgbModule.forRoot(),
     MasonryModule,
-    LazyLoadImageModule,
-    JsonpModule
+    LazyLoadImageModule
   ],
   providers: [
     PrismicService, InstagramService,

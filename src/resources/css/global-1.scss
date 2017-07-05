@@ -3,10 +3,11 @@
 // @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css');
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
-@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
 @import url('https://fonts.googleapis.com/css?family=Courgette|Dancing+Script:400,700|Pacifico');
 @import url('https://fonts.googleapis.com/css?family=Oswald:600');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:700,700i,900,900i');
 @import "color";
 // font-family: 'Dancing Script', cursive;
 // font-family: 'Pacifico', cursive;
@@ -24,6 +25,11 @@ body {
     background-color: #F6F6F6;
     color: #3f3f3f;
     min-height: 100%;
+}
+
+.card-centered {
+    float: none!important;
+    margin: 0px auto;
 }
 .carousel-control{
     width: 8%!important;

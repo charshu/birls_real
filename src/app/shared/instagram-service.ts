@@ -14,11 +14,17 @@ export class InstagramService {
     }
 
     public getPictures() : Observable < IGImage[] > {
-
+        let headers = new Headers({
+            'Accept': '*/*'
+        });
+        
         try {
             return this
                 .http
-                .get('https://www.instagram.com/chizzwz/media/')
+                .request('http://127.0.0.1:8081/https://www.instagram.com/kristabirlslikesagirls/media/',{
+                    method:'GET',
+                    headers
+                })
                 .map((res) => res.json().items);
         } catch (err) {
             console.log(err);

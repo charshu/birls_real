@@ -73,7 +73,11 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
   more() {
     this.card_per_page += 3;
   }
-
+  getDataResponse(response){
+    this.documents = response.results;
+    this.queryTitle = this.category;
+    this.loaded = true;
+  }
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -95,27 +99,28 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
             orderings: '[my.article.date desc]',
             'fetchLinks': 'category.name'
           })).then((response) => {
-            this.documents = response.results;
-            this.queryTitle = this.category;
-            this.loaded = true;
+            this.getDataResponse(response);
           });
         } else if (this.router.url === '/beauty/all') {
           prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article'), Prismic.Predicates.any('my.article.link', ['WKqliyYAAKRkYjfX', 'WKqmfSYAAHdmYjwG'])], {
             orderings: '[my.article.date desc]',
             'fetchLinks': 'category.name'
           })).then((response) => {
-            this.documents = response.results;
-            this.queryTitle = this.category;
-            this.loaded = true;
+            this.getDataResponse(response);
           });
         }else if (this.router.url === '/birls/all') {
           prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article'), Prismic.Predicates.any('my.article.link', ['WK9M_yYAAKYAkhqU', 'WK9PqyYAANwAkiZN'])], {
             orderings: '[my.article.date desc]',
             'fetchLinks': 'category.name'
           })).then((response) => {
-            this.documents = response.results;
-            this.queryTitle = this.category;
-            this.loaded = true;
+            this.getDataResponse(response);
+          });
+        }else if (this.router.url === '/life-style/all') {
+          prismicService.api().then((api) => api.query([Prismic.Predicates.at('document.type', 'article'), Prismic.Predicates.any('my.article.link', ['WV0FKiUAAFUG3buM', 'WV0FXyUAAFYG3bx_','WV0FfiUAAJ4H3b0P','WV0I1SUAAFIG3cvo'])], {
+            orderings: '[my.article.date desc]',
+            'fetchLinks': 'category.name'
+          })).then((response) => {
+            this.getDataResponse(response);
           });
         } else {
           prismicService.api().then((api) => api.getByUID('category', this.category)).then((document) => {
@@ -129,9 +134,7 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
               orderings: '[my.article.date desc]',
               'fetchLinks': 'category.name'
             })).then((response) => {
-              this.documents = response.results;
-              this.queryTitle = this.category;
-              this.loaded = true;
+              this.getDataResponse(response);
             });
           });
         }
@@ -144,9 +147,7 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
           orderings: '[my.article.date desc]',
           'fetchLinks': 'category.name'
         })).then((response) => {
-          this.documents = response.results;
-          this.queryTitle = this.tag;
-          this.loaded = true;
+          this.getDataResponse(response);
         });
 
       }

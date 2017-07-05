@@ -78,9 +78,14 @@ section {
 .title {
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
-    font-size: 48px;
+    font-size: 42px;
     text-align: center;
     padding-top: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    &.small {
+        font-size: 20px;
+    }
 }
 
 .svg-icon {
@@ -205,16 +210,9 @@ section {
 .white {
     padding-top: 10px;
     background-color: white;
-    border-bottom: 1px solid #CCC;
+    
 }
 
-#follow-section.title {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 1.5em;
-    border-bottom: 1px solid #CCC;
-    padding: 0 10px 10px 10px;
-}
 
 .flex-row-center {
     display: flex;
@@ -264,35 +262,26 @@ section {
     }
 }
 
-.card-padding {
-    @media only screen and (min-width: 992px) {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        padding-left: 7%;
-        padding-right: 7%;
-    }
-    @media only screen and (max-width:992px) {
-        padding: 20px;
-    }
-}
-
-.card-wrapper {
-    margin-top: 20px;
-    @media only screen and (min-width: 992px) {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-}
-
 .ig-image-container{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
+    masonry{
+        margin: 0px auto;
+    }
     img {
         width: 100px;
         height: 100px;
         object-fit: contain;
         margin: 10px;
+        transition: all 0.1s ease-in-out;
     }
+    img:hover{
+        transform: scale(1.1);
+    }
+}
+#ig-section{
+    border-bottom: 1px solid #CCC;
+    border-top: 1px solid #CCC;
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }

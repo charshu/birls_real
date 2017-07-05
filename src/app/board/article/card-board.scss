@@ -5,7 +5,7 @@
      justify-content: center;
      align-items: center;
  }
- 
+
  .cover {
      position: relative;
      display: flex;
@@ -88,65 +88,64 @@
          }
      }
  }
- 
+
  #all-fashion {
      margin-top: 20px;
      padding: 20px;
      background-color: white;
      border-bottom: 1px solid #CCC;
  }
- 
+
  #all-beauty {
      margin-top: 20px;
      padding: 20px;
      background-color: white;
      border-bottom: 1px solid #CCC;
  }
-  #all-birls {
+
+ #all-birls {
      margin-top: 20px;
      padding: 20px;
      background-color: white;
      border-bottom: 1px solid #CCC;
  }
+
  .title {
-     text-align: center;
-     margin-bottom: 10px;
-     h1 {
-         font-size: 1.9em;
-         font-weight: 700;
-     }
+     font-family: 'Oswald', sans-serif;
+     font-weight: 600;
+     font-size: 5em;
+     text-align: left;
+     padding-left: 30px;
+     vertical-align: bottom;
  }
- 
- .img-box {
+
+ .custom-category1 {
      position: relative;
-     transition: all .2s ease-in-out;
-     &:hover {
-         transform: scale(1.05);
-     }
- }
- 
- .img-box .caption {
-     position: absolute;
-     width: 100%;
-     bottom: 45%;
-     left: 0px;
-     color: white;
+     font-family: 'Oswald', sans-serif;
+     font-weight: 600;
+     font-size: 3em;
      text-align: center;
-     text-shadow: rgb(122, 122, 122) 2px 2px 0px;
-     h3 {
-         font-size: 1.5em;
-         font-weight: 700;
+     padding: 10px;
+     vertical-align: bottom;
+     a {
+         text-decoration: none;
+         color: inherit;
      }
  }
- 
- .img-box img {
-     object-fit: cover;
-     object-position: center;
-     //  border: 1px solid #CCC;
+
+ .custom-category2 {
+     position: relative;
+     font-family: 'Oswald', sans-serif;
+     font-weight: 600;
+     font-size: 2em;
+     text-align: right;
+     vertical-align: bottom;
+     a {
+         text-decoration: none;
+         color: inherit;
+     }
  }
- .mood{
-     margin: 10px;
- }
+
  #popular-tags {
      margin-top: 20px;
      margin-bottom: 20px;
@@ -173,8 +172,7 @@
          padding: 5px;
          width: auto;
          height: 32px;
-         text-align: center;
-         //  line-height: 30px;
+         text-align: center; //  line-height: 30px;
          overflow: hidden;
          cursor: pointer;
          -webkit-transition: all .3s ease-in-out;
@@ -186,17 +184,72 @@
          }
      }
  }
- 
+
+ .mood-brick {
+     margin-bottom: 20px;
+     @media only screen and (min-width: 992px) {
+         width: calc(100% / 3 - 30px);
+     }
+     @media only screen and (max-width:992px) {
+         width: calc(100% / 3 - 30px);
+     }
+     @media only screen and (max-width:702px) {
+         width: calc(100% / 2 - 30px);
+     }
+     @media only screen and (max-width:502px) {
+         width: calc(100%);
+     }
+ }
+
+ .mood-brick .img-box {
+     position: relative;
+     transition: all .2s ease-in-out;
+     &:hover {
+         transform: scale(1.05);
+     }
+ }
+
+ .mood-brick .img-box img {
+     width: 100%;
+     object-fit: cover;
+     object-position: center; //  border: 1px solid #CCC;
+ }
+
+ .mood-brick .img-box .caption {
+     position: absolute;
+     width: 100%;
+     bottom: 45%;
+     left: 0px;
+     color: white;
+     text-align: center;
+     text-shadow: rgb(122, 122, 122) 2px 2px 0px;
+     h3 {
+         font-size: 1.5em;
+         font-weight: 700;
+     }
+ }
+
+ .brick {
+     margin-bottom: 50px;
+     @media only screen and (min-width: 992px) {
+         width: calc(100% / 4 - 20px);
+     }
+     @media only screen and (max-width:992px) {
+         width: calc(100% / 3 - 20px);
+     }
+     @media only screen and (max-width:702px) {
+         width: calc(100% / 2 - 20px);
+     }
+     @media only screen and (max-width:502px) {
+         width: calc(100%);
+     }
+ }
+
  #cardboard-section {
      //  margin-left: 10%;
      //  margin-right: 10%;
  }
- 
- .brick {
-     width: 33.33%;
-     padding: 20px;
- }
- 
+
  .card-board {
      align-content: flex-start;
      background-color: white;
@@ -211,7 +264,7 @@
          padding: 20px;
      }
  }
- 
+
  .card-wrapper {
      margin-top: 20px;
      @media only screen and (min-width: 992px) {
@@ -219,7 +272,7 @@
          padding-right: 30px;
      }
  }
- 
+
  .more {
      position: relative;
      text-align: center;
@@ -232,11 +285,16 @@
          color: #00aced;
      }
  }
- 
+
  .torn {
      width: 100%;
      padding-top: 40px;
      background-image: url('./../../resources/img/torn.png');
      background-color: #F6F6F6;
      background-repeat: repeat-x;
+ }
+
+ .white {
+     padding-top: 10px;
+     background-color: white;
  }

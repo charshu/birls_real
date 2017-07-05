@@ -105,6 +105,16 @@ export class NavBar {
                             desc: 'Skin Care',
                             url: 'beauty/skin-care',
                             active: false
+                        }, {
+                            img: './../../../resources/img/menu/skincare.jpeg',
+                            desc: 'Beauty Tips',
+                            url: 'beauty/beauty-tips',
+                            active: false
+                        }, {
+                            img: './../../../resources/img/menu/skincare.jpeg',
+                            desc: 'Hair & Nail',
+                            url: 'beauty/hair-and-nail',
+                            active: false
                         }
                     ]
                 }
@@ -130,6 +140,52 @@ export class NavBar {
                             img: './../../../resources/img/menu/crew.jpg',
                             desc: 'Birls Crew',
                             url: 'birls/birls-crew',
+                            active: false
+                        }
+                    ]
+                }],
+            active: false
+        },{
+            label: 'Life Style',
+            link: 'life-style/all',
+            links: [],
+            groups: [{
+                    title: 'Mood board',
+                    style: 1,
+                    items: [
+                        {
+                            img: './../../../resources/img/menu/all.jpg',
+                            desc: 'All Fashion',
+                            url: 'life-style/all',
+                            active: false
+                        }
+                    ]
+                },{
+                    title: 'By Category',
+                    style: 2,
+                    items: [
+                        {
+                            img: './../../../resources/img/menu/diary.jpg',
+                            desc: 'Travel',
+                            url: 'life-style/travel',
+                            active: false
+                        },
+                        {
+                            img: './../../../resources/img/menu/crew.jpg',
+                            desc: 'Do',
+                            url: 'life-style/do',
+                            active: false
+                        },
+                        {
+                            img: './../../../resources/img/menu/crew.jpg',
+                            desc: 'Listen',
+                            url: 'life-style/listen',
+                            active: false
+                        },
+                        {
+                            img: './../../../resources/img/menu/crew.jpg',
+                            desc: 'See',
+                            url: 'life-style/see',
                             active: false
                         }
                     ]
