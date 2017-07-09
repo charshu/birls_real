@@ -35,6 +35,7 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
   current_size = 0;
   card_per_row = 3; //1,2,3,4,6,12
   card_per_page = 9;
+  currentUrl = '';
   tags = ['menswear', 'mensfashion', 'menstyle', 'mensstyle', 'menfashion', 'trend', 'trendy', 'trends', 'trending', 'style', 'pink', 'outfit', 'fashionweek'];
   //masonry moodboard *width 1162
   fashion_moods = [{
@@ -91,7 +92,7 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loaded = false;
       this.image = null;
       document.body.scrollTop = 0;
-      console.log(router.url);
+      this.currentUrl = router.url;
       if (params['category'] !== undefined) {
         this.category = params['category'];
         if (this.router.url === '/fashion/all') {

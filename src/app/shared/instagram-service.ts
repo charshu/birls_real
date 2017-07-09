@@ -21,7 +21,7 @@ export class InstagramService {
         try {
             return this
                 .http
-                .request('http://127.0.0.1:8081/https://www.instagram.com/kristabirlslikesagirls/media/',{
+                .request('http://0.0.0.0:8081/https://www.instagram.com/kristabirlslikesagirls/media/',{
                     method:'GET',
                     headers
                 })

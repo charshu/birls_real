@@ -9,8 +9,7 @@ var webpackConfig = {
     entry: {
         'polyfills': './src/polyfills.browser.ts',
         'vendor': './src/vendor.browser.ts',
-        'main': './src/main.browser.ts',
-        'global': './src/global.js'
+        'main': './src/main.browser.ts'
     },
 
     output: {
@@ -41,7 +40,7 @@ var webpackConfig = {
             { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
             { test: /\.css$/, loaders: ['to-string-loader', 'css-loader','postcss-loader'] },
             { test: /\.html$/, loader: 'raw-loader' },
-            { test: /\.scss$/, exclude: /node_modules/, loaders: ["raw-loader", "sass-loader", "postcss-loader"] },
+            { test: /\.scss$/, exclude: /node_modules/, loaders: ["raw-loader", "postcss-loader" ,"sass-loader" ] },
             // { test: /\.scss$/, exclude:/node_modules/, loaders: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")},
             //{test: /\.svg/, loader: 'svg-url-loader'},
             {
@@ -62,12 +61,6 @@ var webpackConfig = {
                 ]
             }
         ]
-    },
-    postcss: () => {
-        return [
-            // require('precss'),
-            require('autoprefixer')
-        ];
     },
     imageWebpackLoader: {
         mozjpeg: {
@@ -106,7 +99,7 @@ var defaultConfig = {
     },
 
     resolve: {
-        modulesDirectories: ['node_modules'],
+        modulesDirectories: ['node_modules','src/resources'],
         root: [path.join(__dirname, 'src')],
         extensions: ['', '.ts', '.js', '.json', '.scss']
     },

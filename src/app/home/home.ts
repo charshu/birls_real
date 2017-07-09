@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit,HostListener} from '@angular/core';
 import {PrismicService} from '../prismic';
 import {ActivatedRoute} from '@angular/router';
 import {Prismic} from 'prismic.io';
@@ -11,6 +11,7 @@ export class Home implements OnInit {
   slider_docs : Array < any >;
   fashion_docs : any;
   beauty_docs : any;
+  life_styles_docs : any;
   makeUpDocs : any;
   skinCareDocs : any;
   beautyTipsDocs : any;
@@ -22,6 +23,7 @@ export class Home implements OnInit {
   loaded : number = 0;
   IGimages : IGImage[];
   current_slide : number = 0;
+  igImageLimit : number = undefined;
   video = {
     ss: './../../resources/img/vid/vid1.jpg',
     url: 'https://www.youtube.com/watch?v=kmDMqzhvNLk'
@@ -52,16 +54,28 @@ export class Home implements OnInit {
     (doc : any): string
   }) {}
 
+@HostListener('window:resize', ['$event'])
+onResize(event) {
+  this.igImageLimit = this.calculateImageLimit(event.target.innerWidth,100,20);
+}
+calculateImageLimit(windowWidth,imageWidth,gutter){
+  // row padding-left = 15, row padding-right = 15
+  let n = (windowWidth - (2 * 15) + 20)  / (imageWidth+gutter);
+  console.log(n);
+  return n;
+}
   ngOnInit() {
     // ig images
     this
       .instagramService
       .getPictures()
       .subscribe((IGimages) => {
-        this.IGimages = IGimages.slice(0, 14);
+        this.IGimages = IGimages;
+        this.igImageLimit = this.calculateImageLimit(window.innerWidth,100,20);
         // console.log(this.IGimages);
       });
-
+      
+    
     //slider
     this
       .prismicService
@@ -214,7 +228,26 @@ export class Home implements OnInit {
         console.log(this.birls_docs);
         this.loaded++;
       });
-
+      //life styles
+    this
+      .prismicService
+      .api()
+      .then((api) => api.query([
+        Prismic
+          .Predicates
+          .at('document.type', 'article'),
+        Prismic
+          .Predicates
+          .any('my.article.link', ['WV0FKiUAAFUG3buM', 'WV0FXyUAAFYG3bx_','WV0FfiUAAJ4H3b0P','WV0I1SUAAFIG3cvo'])
+      ], {
+        orderings: '[my.article.date desc]',
+        'fetchLinks': 'category.name',
+        pageSize: 4
+      }))
+      .then((response) => {
+        this.life_styles_docs = response.results;
+        this.loaded++;
+      });
     //collection
     this
       .prismicService

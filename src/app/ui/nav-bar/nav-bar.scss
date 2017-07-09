@@ -1,8 +1,5 @@
-@import "./../../../resources/css/color";
-$mycolor: #000000;
-$nav_font_size: 0.9em;
-$nav_sub_font_size: 1.00em;
-$desc_font_size:0.9em;
+@import "~styles/color";
+@import "~styles/font";
 .tab-group {
     position: relative;
     background-color: white;

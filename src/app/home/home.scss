@@ -1,4 +1,5 @@
-@import "./../../resources/css/color";
+@import "~styles/color";
+@import "~styles/media-query";
 #logo-container {
     position: relative;
     display: flex;
@@ -72,7 +73,6 @@ section {
     z-index: 120;
     position: relative;
     border-bottom: 1px solid #CCC;
-    
 }
 
 .title {
@@ -210,9 +210,7 @@ section {
 .white {
     padding-top: 10px;
     background-color: white;
-    
 }
-
 
 .flex-row-center {
     display: flex;
@@ -254,30 +252,40 @@ section {
 }
 
 .review-padding {
-    @media only screen and (min-width: 992px) {
-        padding:40px;
-    }
-    @media only screen and (max-width:992px) {
+    /* Small devices (tablets, 768px and up) */
+    @media #{$xs-only} {
         padding: 20px;
+    }
+    /* Medium devices (desktops, 992px and up) */
+    @media #{$md-up} {
+        padding: 40px;
+    }
+    /* Large devices (large desktops, 1200px and up) */
+    @media #{$lg-up} {
+        
     }
 }
 
-.ig-image-container{
-    masonry{
-        margin: 0px auto;
-    }
+.ig-image-container {
     img {
         width: 100px;
         height: 100px;
         object-fit: contain;
-        margin: 10px;
         transition: all 0.1s ease-in-out;
     }
-    img:hover{
+    img:hover {
         transform: scale(1.1);
     }
+    masonry-brick {
+        margin-bottom: 20px;
+    }
+    masonry {
+        margin : 0 auto;
+    }
+   
 }
-#ig-section{
+
+#ig-section {
     border-bottom: 1px solid #CCC;
     border-top: 1px solid #CCC;
     background-image: url();
