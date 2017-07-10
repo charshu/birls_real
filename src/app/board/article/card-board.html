@@ -1,7 +1,7 @@
 <!--fashion menu-->
-<div *ngIf="loaded ">
+<div *ngIf="pageloaded ">
     <!--cover image for category-->
-    <div *ngIf="image?true:false" class="cover noise" ng2-parallax>
+    <div *ngIf="image" class="cover noise" ng2-parallax>
         <img [src]="image?image.url : ''" (load)="loadingImg=false" alt="">
         <h1>{{capitalizeFirstLetter(queryTitle)}}</h1>
         <h6>{{description}}</h6>
@@ -27,11 +27,12 @@
             </div>
         </div>
 
-        <div class="custom-category1" style="text-align: center;">
-            <a [routerLink]="['/fashion','shopping']">SHOPPING</a>&nbsp;
-            <a [routerLink]="['/fashion','trends']">TRENDS</a>&nbsp;
-            <a [routerLink]="['/fashion','style-du-jours']">HOW TO</a>&nbsp;
-            <a [routerLink]="['/fashion','editorial']">EDITORIAL</a>&nbsp;
+        <div class="custom-category center">
+            <a [ngClass]="filterCategory === 'all'?'active':''" (click)="changeFilterCategory('all')">ALL</a>&nbsp;&nbsp;
+            <a [ngClass]="filterCategory === 'shopping'?'active':''" (click)="changeFilterCategory('shopping')">SHOPPING</a>&nbsp;&nbsp;
+            <a [ngClass]="filterCategory === 'trends'?'active':''" (click)="changeFilterCategory('trends')">TRENDS</a>&nbsp;&nbsp;
+            <a [ngClass]="filterCategory === 'how-to'?'active':''" (click)="changeFilterCategory('how-to')">HOW TO</a>&nbsp;&nbsp;
+            <a [ngClass]="filterCategory === 'editorial'?'active':''" (click)="changeFilterCategory('editorial')">EDITORIAL</a>&nbsp;
         </div>
     </div>
     <!--all beauty-->
@@ -41,17 +42,18 @@
                 <table style="width:100%">
                     <tr>
                         <td class="title">BEAUTY</td>
-                        <td class="custom-category2">
-                            <a [routerLink]="['/beauty','make-up']">MAKEUP</a>&nbsp;
-                            <a [routerLink]="['/beauty','skin-care']">SKINCARE</a>&nbsp;
-                            <a [routerLink]="['/beauty','hair-and-nail']">HAIR & NAIL</a>&nbsp;
-                            <a [routerLink]="['/beauty','beauty-tips']">BEAUTY TIPS</a>&nbsp;
+                        <td class="custom-category right">
+                            <a [ngClass]="filterCategory === 'all'?'active':''" (click)="changeFilterCategory('all')">ALL</a>&nbsp;&nbsp;
+                            <a [ngClass]="filterCategory === 'make-up'?'active':''" (click)="changeFilterCategory('make-up')">MAKEUP</a>&nbsp;&nbsp;
+                            <a [ngClass]="filterCategory === 'skin-care'?'active':''" (click)="changeFilterCategory('skin-care')">SKINCARE</a>&nbsp;&nbsp;
+                            <a [ngClass]="filterCategory === 'hair-and-nail'?'active':''" (click)="changeFilterCategory('hair-and-nail')">HAIR & NAIL</a>&nbsp;&nbsp;
+                            <a [ngClass]="filterCategory === 'beauty-tips'?'active':''" (click)="changeFilterCategory('beauty-tips')">BEAUTY TIPS</a>&nbsp;
                         </td>
                     </tr>
                 </table>
                 <!-- <div class="row card-centered">
                     <div class="col-md-10">
-                        <masonry [useImagesLoaded]="true" [options]="{ transitionDuration: '0.8s',gutter:30}">
+                        <masonry [useImagespageloaded]="true" [options]="{ transitionDuration: '0.8s',gutter:30}">
                             <masonry-brick class="mood-brick" *ngFor="let mood of fashion_moods;let i=index">
                                 <div class="img-box">
                                     <img [src]="mood.img" alt="">
@@ -102,7 +104,7 @@
             <!--<div class="col-md-12">
                 <div class="row">
                     <div class="col-md-10 card-centered">
-                        <masonry [useImagesLoaded]="true" [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
+                        <masonry [useImagespageloaded]="true" [options]="{ columnWidth: 100,transitionDuration: '0.8s',gutter:20}">
                             <masonry-brick class="mood-brick" *ngFor="let mood of fashion_moods;let i=index">
                                 <div class="img-box">
                                     <img [ngStyle]="{'width':mood.maxWidth+'px','height':mood.maxHeight+'px'}" [src]="mood.img" alt="">
@@ -123,37 +125,56 @@
         </div>
     </div>
 
-    <!--article card container-->
-    <div id="cardboard-section" class="container-fluid">
-        <div class="row white">
-            <div class="col-md-10 card-centered">
+    <!--all article in category with menu-->
+    <div *ngIf="isAll" class="container-fluid">
+        <div class="row white" style="min-height:500px;">
+            <div *ngIf="categoryLoaded" class="col-md-10 card-centered">
                 <masonry [useImagesLoaded]="true" [options]="{columnWidth:'.brick', transitionDuration: '0.8s',gutter:40, stamp:'.stamp',percentPosition: true }">
                     <div [style.display]="currentUrl ==='/life-style/all'?'inherit':'none'" class="stamp stamp1 title super-big">
                         LIFE STYLE
                     </div>
-                    <masonry-brick class="brick" *ngFor="let document of documents.slice(0,card_per_page)">
+
+                    <masonry-brick class="brick" *ngFor="let document of documents | myfilter2: {category : filterCategory}">
                         <card [document]="document" [styleNumber]="1" [randomHeight]="true" [limit]="100"></card>
                     </masonry-brick>
 
                 </masonry>
             </div>
-            <!--<template ngFor let-document [ngForOf]="documents" let-i="index"> 
-            <div class="col-sm-12 col-md-6 col-lg-4 flex-row-center card-wrapper">
-                <card *ngIf="i < card_per_page" [document]="document" [styleNumber]="1" [randomHeight]="true" [limit]="100"></card>
-                
+            <div *ngIf="!categoryLoaded" class="loader-box">
+                <div class="loader">
+
+                </div>
             </div>
-            <div class="clearfix visible-xs-block"></div>
-            </template>-->
+        </div>
+        <div class="row">
+            <div *ngIf="categoryLoaded" class="col-lg-12 torn">
+                <div class="more" (click)="more()">Read More</div>
+            </div>
+        </div>
+
+    </div>
+    <!--one category-->
+    <div *ngIf="!isAll" class="container-fluid">
+        <div class="row white" style="min-height:500px;">
+            <div class="col-md-10 card-centered">
+                <masonry [useImagesLoaded]="true" [options]="{columnWidth:'.brick', transitionDuration: '0.8s',gutter:40, stamp:'.stamp',percentPosition: true }">
+
+                    <masonry-brick class="brick" *ngFor="let document of documents">
+                        <card [document]="document" [styleNumber]="1" [randomHeight]="true" [limit]="100"></card>
+                    </masonry-brick>
+
+                </masonry>
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-12 torn">
-                <div class="more" (click)="more()">More..</div>
+                <div class="more" (click)="more()">More</div>
             </div>
         </div>
 
     </div>
     <!--popular tags -->
-    <div id="popular-tags" *ngIf="category==='all' && tags" class="container-fluid">
+    <!--<div id="popular-tags" *ngIf="category==='all' && tags" class="container-fluid">
         <div class="row">
             <div class="col-lg-8 card-centered">
                 <div class="title">{{ "what's hot now"}}</div>
@@ -164,10 +185,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 <!--loading-->
-<div class="loading && loadingImg" *ngIf="!loaded">
+<div class="loading && loadingImg" *ngIf="!pageloaded">
     <!--preloader-->
     <div id="pre-bootstrap-container">
         <div id="pre-bootstrap">

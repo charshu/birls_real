@@ -25,7 +25,7 @@
         </div>
         <!---->
         <table>
-            <tr>
+            <tr class="row-block">
                 <td>
                     <img [src]="image?image.url:''" class="card-main-img" [hidden]="loadingImage" (load)="loadingImage=false" [ngClass]="{'hover':isHover}"
                         [ngStyle]="{'height':imageHeight+'px','width':imageHeight+'px'}">

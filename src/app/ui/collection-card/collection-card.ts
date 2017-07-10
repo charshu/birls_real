@@ -24,12 +24,12 @@ import {
 export class CollectionCard implements OnInit {
   @Input() document: any;
   @Input() showDate: boolean;
-  @Input() cardSize: number;
+  @Input() cardSize: number = 1;
   @Input() textSize: number;
   @Input() styleNumber: number;
   @Input() limit = 100;
-  card_h: number;
-  card_w: number;
+  @Input() cardHeight: number;
+  @Input() cardWidth: number;
   text: {
     brand: number,
     season: number
@@ -97,8 +97,8 @@ export class CollectionCard implements OnInit {
       }
     }
 
-    this.card_h = 6.0 * 50 * this.cardSize;
-    this.card_w = 3.0 * 50 * this.cardSize;
+    if(!this.cardHeight)this.cardHeight = 6.0 * 50 * this.cardSize;
+    if(!this.cardWidth)this.cardWidth = 3.0 * 50 * this.cardSize;
     this.text.brand = 1.4 * this.textSize;
     this.text.season = 0.8 * this.textSize;
     this.groupImages = this.document.getGroup('collection.gallery') ? this.document.getGroup('collection.gallery').toArray() : [];

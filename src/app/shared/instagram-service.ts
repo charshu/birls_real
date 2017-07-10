@@ -17,11 +17,20 @@ export class InstagramService {
         let headers = new Headers({
             'Accept': '*/*'
         });
-        
+        let CORS_HOST = 'http://54.255.241.147:8081';
+        let IG_API = '/https://www.instagram.com/kristabirlslikesagirls/media/';
+        // if(process.env.NODE_ENV === 'production'){
+        //     CORS_HOST = 'http://birlsmagazine.com/https://www.instagram.com/kristabirlslikesagirls/media/';
+        // }
+        // else if(process.env.NODE_ENV === 'uat'){
+        //     CORS_HOST = 'http://birlsmagazine.com:'+ process.env.CORS_PORT +'/https://www.instagram.com/kristabirlslikesagirls/media/';
+        // } else {
+        //     CORS_HOST = 'http://0.0.0.0:'+ process.env.CORS_PORT +'/https://www.instagram.com/kristabirlslikesagirls/media/';
+        // }
         try {
             return this
                 .http
-                .request('http://0.0.0.0:8081/https://www.instagram.com/kristabirlslikesagirls/media/',{
+                .request(CORS_HOST + IG_API,{
                     method:'GET',
                     headers
                 })

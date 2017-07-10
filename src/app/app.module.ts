@@ -17,6 +17,8 @@ import {Home} from './home/home';
 import {Article} from './ui/article/article';
 import {Review} from './ui/review/review';
 import {FilterPipe} from './board/collection/collection-filter.pipe'
+import {CardboardFilterPipe} from './board/article/card-board-filter.pipe'
+
 
 import {DisqusModule} from "ng2-awesome-disqus";
 import {ShareButtonsModule} from "ng2-sharebuttons";
@@ -55,7 +57,7 @@ function linkResolver(doc : any) {
       .getLink('article.link')
       .uid;
     //menu fashion
-    if (category === 'shopping' || category === 'trends' || category === 'editorial' || category === 'style-du-jours') {
+    if (category === 'shopping' || category === 'trends' || category === 'editorial' || category === 'how-to') {
       return `/fashion/` + category + `/` + encodeURIComponent(doc.uid);
     } else if (category === 'make-up' || category === 'skin-care') {
       return `/beauty/` + category + `/` + encodeURIComponent(doc.uid);
@@ -92,7 +94,8 @@ function linkResolver(doc : any) {
     Gallery,
     Review,
     OtherSeasonComponent,
-    FilterPipe
+    FilterPipe,
+    CardboardFilterPipe
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig),

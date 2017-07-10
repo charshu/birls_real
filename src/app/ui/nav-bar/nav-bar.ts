@@ -17,129 +17,110 @@ export class NavBar {
         {
             label: 'Fashion',
             link: 'fashion/all',
-            links: [
-                {
-                    label: 'Shopping',
-                    url: 'fashion/shopping'
-                }, {
-                    label: 'Trends',
-                    url: 'fashion/trends'
-                }, {
-                    label: 'Style du Jours',
-                    url: 'fashion/style-du-jours'
-                }, {
-                    label: 'Editorial',
-                    url: 'fashion/editorial'
-                }, {
-                    label: 'Fashion mood board',
-                    url: 'fashion/mood-board'
-                }
-            ],
             groups: [
-                {
-                    title: 'Mood board',
-                    style: 1,
-                    items: [
-                        {
-                            img: './../../../resources/img/menu/all.jpg',
-                            desc: 'All Fashion',
-                            url: 'fashion/all',
-                            active: false
-                        }
-                    ]
-                }, {
-                    title: 'By Category',
-                    style: 2,
-                    items: [
-                        {
-                            img: './../../../resources/img/menu/shopping.jpg',
-                            desc: 'Shopping',
-                            url: 'fashion/shopping',
-                            active: false
-                        }, {
-                            img: './../../../resources/img/menu/trends.jpg',
-                            desc: 'Trends',
-                            url: 'fashion/trends',
-                            active: false
-                        }, {
-                            img: './../../../resources/img/menu/style.jpg',
-                            desc: 'Style du Jours',
-                            url: 'fashion/style-du-jours',
-                            active: false
-                        }, {
-                            img: './../../../resources/img/menu/editorial.jpg',
-                            desc: 'Editorial',
-                            url: 'fashion/editorial',
-                            active: false
-                        }
-                    ]
-                }
+                // {
+                //     title: 'Mood board',
+                //     style: 1,
+                //     items: [
+                //         {
+                //             img: './../../../resources/img/menu/all.jpg',
+                //             desc: 'All Fashion',
+                //             url: 'fashion/all',
+                //             active: false
+                //         }
+                //     ]
+                // }, {
+                //     title: 'By Category',
+                //     style: 2,
+                //     items: [
+                //         {
+                //             img: './../../../resources/img/menu/shopping.jpg',
+                //             desc: 'Shopping',
+                //             url: 'fashion/shopping',
+                //             active: false
+                //         }, {
+                //             img: './../../../resources/img/menu/trends.jpg',
+                //             desc: 'Trends',
+                //             url: 'fashion/trends',
+                //             active: false
+                //         }, {
+                //             img: './../../../resources/img/menu/style.jpg',
+                //             desc: 'How to',
+                //             url: 'fashion/how-to',
+                //             active: false
+                //         }, {
+                //             img: './../../../resources/img/menu/editorial.jpg',
+                //             desc: 'Editorial',
+                //             url: 'fashion/editorial',
+                //             active: false
+                //         }
+                //     ]
+                // }
             ],
             active: false
         }, {
             label: 'Beauty',
             link: 'beauty/all',
-            links: [],
-            groups: [{
-                    title: 'Mood board',
-                    style: 1,
-                    items: [
-                        {
-                            img: './../../../resources/img/menu/all-beauty.jpg',
-                            desc: 'All Beauty',
-                            url: 'beauty/all',
-                            active: false
-                        }
-                    ]
-                }, {
-                    title: 'By Category',
-                    style: 2,
-                    items: [
-                        {
-                            img: './../../../resources/img/menu/makeup.jpeg',
-                            desc: 'Make Up',
-                            url: 'beauty/make-up',
-                            active: false
-                        }, {
-                            img: './../../../resources/img/menu/skincare.jpeg',
-                            desc: 'Skin Care',
-                            url: 'beauty/skin-care',
-                            active: false
-                        }, {
-                            img: './../../../resources/img/menu/skincare.jpeg',
-                            desc: 'Beauty Tips',
-                            url: 'beauty/beauty-tips',
-                            active: false
-                        }, {
-                            img: './../../../resources/img/menu/skincare.jpeg',
-                            desc: 'Hair & Nail',
-                            url: 'beauty/hair-and-nail',
-                            active: false
-                        }
-                    ]
-                }
+            groups: [
+                // {
+                //     title: 'Mood board',
+                //     style: 1,
+                //     items: [
+                //         {
+                //             img: './../../../resources/img/menu/all-beauty.jpg',
+                //             desc: 'All Beauty',
+                //             url: 'beauty/all',
+                //             active: false
+                //         }
+                //     ]
+                // }, {
+                //     title: 'By Category',
+                //     style: 2,
+                //     items: [
+                //         {
+                //             img: './../../../resources/img/menu/makeup.jpeg',
+                //             desc: 'Make Up',
+                //             url: 'beauty/make-up',
+                //             active: false
+                //         }, {
+                //             img: './../../../resources/img/menu/skincare.jpeg',
+                //             desc: 'Skin Care',
+                //             url: 'beauty/skin-care',
+                //             active: false
+                //         }, {
+                //             img: './../../../resources/img/menu/skincare.jpeg',
+                //             desc: 'Beauty Tips',
+                //             url: 'beauty/beauty-tips',
+                //             active: false
+                //         }, {
+                //             img: './../../../resources/img/menu/skincare.jpeg',
+                //             desc: 'Hair & Nail',
+                //             url: 'beauty/hair-and-nail',
+                //             active: false
+                //         }
+                //     ]
+                // }
                 
             ],
 
             active: false
         }, {
-            label: 'Birls',
-            link: 'birls/all',
-            links: [],
+            label: 'Talent',
+            link: 'talent/all',
             groups: [{
                     title: '',
                     style: 3,
                     items: [
                         {
                             img: './../../../resources/img/menu/diary.jpg',
-                            desc: 'Editor\'s Diary',
-                            url: 'birls/editor-diary',
+                            desc: '@Kristabirlslikesagirls',
+                            url: 'talent/kristabirlslikesagirls',
                             active: false
                         },
                         {
                             img: './../../../resources/img/menu/crew.jpg',
-                            desc: 'Birls Crew',
-                            url: 'birls/birls-crew',
+                            desc: 'Crew',
+                            url: 'talent/crew',
                             active: false
                         }
                     ]
@@ -148,14 +129,13 @@ export class NavBar {
         },{
             label: 'Life Style',
             link: 'life-style/all',
-            links: [],
             groups: [{
                     title: 'Mood board',
                     style: 1,
                     items: [
                         {
                             img: './../../../resources/img/menu/all.jpg',
-                            desc: 'All Fashion',
+                            desc: 'All Life Style',
                             url: 'life-style/all',
                             active: false
                         }
@@ -194,19 +174,19 @@ export class NavBar {
         }, {
             label: 'Runway',
             link: 'runway',
-            links: [],
+
             groups: [],
             active: false
         }, {
             label: 'TV',
             link: '',
-            links: [],
+ 
             groups: [],
             active: false
         }, {
             label: '<i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop',
             link: '',
-            links: [],
+      
             groups: [],
             active: false
         }
@@ -229,7 +209,7 @@ export class NavBar {
         this.lastIndex = i;
         this.tabs[i].active = true;
         //turn on backdrop only dropdown menu has links
-        if (this.tabs[i].links.length > 0 || this.tabs[i].groups.length > 0) {
+        if (this.tabs[i].groups.length > 0) {
             this.backdrop = true;
         } else {
             this.backdrop = false;

@@ -108,9 +108,14 @@
        td{
            height: 100%;
        }
+       tr {
+           outline: 1px solid #CCC;
+       }
        td.right-column{
-           background-color: #f9f9f9;
+           
+        //    border-left: 7px dashed #f1487c;
            padding: 10px 7.5%;
+           
        }
        .link-group {
            text-align: center;

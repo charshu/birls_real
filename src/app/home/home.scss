@@ -83,6 +83,9 @@ section {
     padding-top: 10px;
     width: 100%;
     margin-bottom: 20px;
+    &.medium {
+        font-size: 33px;
+    }
     &.small {
         font-size: 20px;
     }
@@ -243,9 +246,11 @@ section {
 }
 
 .view-more {
+    margin-bottom: 20px;
     text-align: right;
     cursor: pointer;
     font-weight: 700;
+    transition: all 0.2s ease-in-out;
     &:hover {
         color: $birls_darkpink;
     }
@@ -285,11 +290,8 @@ section {
    
 }
 
-#ig-section {
+.border-zone {
     border-bottom: 1px solid #CCC;
-    border-top: 1px solid #CCC;
-    background-image: url();
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    // border-top: 1px solid #CCC;
+
 }

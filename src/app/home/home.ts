@@ -16,7 +16,7 @@ export class Home implements OnInit {
   skinCareDocs : any;
   beautyTipsDocs : any;
   hairAndNailDocs : any;
-  birls_docs : any;
+  talent_docs : any;
   collection_docs : any;
   images : any;
   card_per_page = 4;
@@ -207,7 +207,7 @@ calculateImageLimit(windowWidth,imageWidth,gutter){
         this.loaded++;
       });
 
-    //birls
+    //talent
     this
       .prismicService
       .api()
@@ -217,15 +217,15 @@ calculateImageLimit(windowWidth,imageWidth,gutter){
           .at('document.type', 'article'),
         Prismic
           .Predicates
-          .any('my.article.link', ['WK9M_yYAAKYAkhqU', 'WK9PqyYAANwAkiZN'])
+          .any('my.article.link', ['WWHwCScAAHxTSe92', 'WWNkoScAAH-YUFZ6'])
       ], {
         orderings: '[my.article.date desc]',
         'fetchLinks': 'category.name',
         pageSize: 4
       }))
       .then((response) => {
-        this.birls_docs = response.results;
-        console.log(this.birls_docs);
+        this.talent_docs = response.results;
+        console.log(this.talent_docs);
         this.loaded++;
       });
       //life styles

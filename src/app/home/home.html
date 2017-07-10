@@ -53,7 +53,7 @@
         <div id="cardboard-section" class="row">
             <div class="col-sm-12 col-md-12">
                 <!--fashion-->
-                <div class="row white">
+                <div class="row white border-zone">
                     <div id="fashion-section" class="col-sm-12 col-md-10 card-centered">
                         <div class="row">
                             <!--<div class="col-sm-12 col-md-12 icon">
@@ -68,7 +68,7 @@
                                 <card [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
                             </div>
                         </div>
-                        <div class="row">
+                        <!--<div class="row">
                             <div class="col-sm-12 col-md-6">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 " *ngFor="let document of fashion_docs.slice(0,1);let i = index">
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div>-->
                         <!--<div class="row">
                                 <div class="col-sm-12 col-md-12 justify-content-center">
                                     <span class="view-more" [routerLink]="['fashion/all']">View more fashion articles <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
@@ -95,7 +95,7 @@
                 </div>
                 <!--end fashion-->
                 <!--new row-->
-                <div id="ig-section" class="row" *ngIf="IGimages">
+                <div id="ig-section" class="row border-zone" *ngIf="IGimages">
                     <div class="col-sm-12 col-md-12 col-lg-12 title small">
                         <div class="svg-icon svg-baseline">
                             <img class="svg" src="./../../resources/svg/heart.svg" alt="">
@@ -113,8 +113,8 @@
 
                 </div>
                 <!--beauty-->
-                <div class="row white">
-                    <div id="beauty-section" class="col-sm-12 col-md-10 card-centered">
+                <div id="beauty-section" class="row white border-zone">
+                    <div  class="col-sm-12 col-md-10 card-centered">
                         <div class="title">
                             <!--<div class="svg-icon svg-baseline">
                                     <img class="svg" src="./../../resources/svg/perfume.svg" alt="">
@@ -128,25 +128,25 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-3 col-md-3 " *ngFor="let document of makeUpDocs.slice(0,1);let i = index">
-                                <div class="title">
+                                <div class="title medium">
                                     MAKE UP
                                 </div>
                                 <card [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
                             </div>
                             <div class="col-sm-3 col-md-3 " *ngFor="let document of skinCareDocs.slice(0,1);let i = index">
-                                <div class="title">
+                                <div class="title medium">
                                     SKIN CARE
                                 </div>
                                 <card [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
                             </div>
                             <div class="col-sm-3 col-md-3 " *ngFor="let document of beautyTipsDocs.slice(0,1);let i = index">
-                                <div class="title">
+                                <div class="title medium">
                                     BEAUTY TIPS
                                 </div>
                                 <card [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
                             </div>
                             <div class="col-sm-3 col-md-3 " *ngFor="let document of hairAndNailDocs.slice(0,1);let i = index">
-                                <div class="title">
+                                <div class="title medium">
                                     HAIR & NAIL
                                 </div>
                                 <card [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
@@ -160,8 +160,8 @@
                     </div>
                 </div>
                 <!--life styles-->
-                <div class="row white">
-                    <div id="life-style-section" class="col-sm-12 col-md-10 card-centered">
+                <div id="life-style-section" class="row white border-zone">
+                    <div  class="col-sm-12 col-md-10 card-centered">
                         <div class="title">
                             <!--<div class="svg-icon svg-baseline">
                                     <img class="svg" src="./../../resources/svg/perfume.svg" alt="">
@@ -187,7 +187,7 @@
                     </div>
                 </div>
                 <!--Runway -->
-                <div class="row white">
+                <div class="row white border-zone">
                     <div class="col-sm-12 col-md-10 card-centered">
                         <div class="row">
                             <div class="col-md-12 title">
@@ -199,8 +199,8 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-12 col-md-3 review-padding" *ngFor="let document of collection_docs.slice(0,3);let i =index">
-                                <collection-card [showDate]="true" [document]="document" [cardSize]="0.7" [textSize]="1.2" [styleNumber]="2" [limit]="135"></collection-card>
+                            <div class="col-sm-12 col-md-3" *ngFor="let document of collection_docs.slice(0,4);let i =index">
+                                <collection-card [showDate]="true" [document]="document" [cardHeight]="400" [textSize]="1.2" [styleNumber]="2" [limit]="135"></collection-card>
                             </div>
                         </div>
                         <div class="row">
@@ -216,17 +216,17 @@
                     <div class="col-sm-12 col-md-10 card-centered">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 title">
-                                <div class="svg-icon svg-baseline">
+                                <!--<div class="svg-icon svg-baseline">
                                     <img class="svg" src="./../../resources/svg/pen.svg" alt="">
-                                </div>
-                                BIRLS ARTICLES
+                                </div>-->
+                                @KRISTABIRLSLIKEAGIRLS
                             </div>
                         </div>
                         <div class="row card-board">
                             <div class="col-sm-12 col-md-12">
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-3 justify-content-center " *ngFor="let document of birls_docs.slice(0,3);let i = index">
-                                        <card [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
+                                    <div class="col-sm-6 col-md-6 justify-content-center " *ngFor="let document of talent_docs.slice(0,2);let i = index">
+                                        <card [document]="document" [styleNumber]="1" [imageHeight]="300" [limit]="70"></card>
                                     </div>
                                 </div>
                             </div>

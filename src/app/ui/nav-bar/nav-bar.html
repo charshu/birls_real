@@ -5,7 +5,7 @@
             </div>
         </div>
     </div>
-    <div class="row tab-content" *ngFor="let tab of tabs;let i=index" [ngClass]="{'active':tab.active && (tab.links.length > 0 || tab.groups.length > 0),'pullDown':tab.active}"
+    <div class="row tab-content" *ngFor="let tab of tabs;let i=index" [ngClass]="{'active':tab.active && tab.groups.length > 0,'pullDown':tab.active}"
         (mouseenter)="setActive(i)">
         <!--<div class="tab-link">
                 <li *ngFor="let link of tab.links;">
