@@ -39,6 +39,8 @@ import {TruncatePipe} from './app.pipe';
 import {LazyLoadImageModule} from 'ng2-lazyload-image';
 
 import {InstagramService} from './shared/instagram-service';
+
+import {SafeHtmlPipe, contentSlider, printSlide, slideAjaxDiv} from './ui/slider'
 // Use the endpoint of your repository
 const ENDPOINT = 'https://charshu.prismic.io/api';
 // Specify an access token if your API is set to private
@@ -95,7 +97,12 @@ function linkResolver(doc : any) {
     Review,
     OtherSeasonComponent,
     FilterPipe,
-    CardboardFilterPipe
+    CardboardFilterPipe,
+    SafeHtmlPipe,
+    contentSlider,
+    printSlide,
+    slideAjaxDiv
+
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig),

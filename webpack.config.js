@@ -13,16 +13,27 @@ var webpackConfig = {
     },
 
     output: {
-        path: './dist',
+        path: './dist'
     },
 
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(true),
-        new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor', 'polyfills'], minChunks: Infinity }),
-        new webpack.ProvidePlugin({
-            jQuery: 'jquery',
-            $: 'jquery',
-            jquery: 'jquery'
+        new webpack
+            .optimize
+            .OccurenceOrderPlugin(true),
+        new webpack
+            .optimize
+            .CommonsChunkPlugin({
+                name: [
+                    'main', 'vendor', 'polyfills'
+                ],
+                minChunks: Infinity
+            }),
+        new webpack.ProvidePlugin({jQuery: 'jquery', $: 'jquery', jquery: 'jquery'}),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+                'CORS_PORT': JSON.stringify(process.env.CORS_PORT || 8081)
+            }
         })
     ],
     resolve: {
@@ -30,35 +41,44 @@ var webpackConfig = {
     },
     module: {
 
-        loaders: [{
+        loaders: [
+            {
                 test: /\.js$/,
                 exclude: /node_modules\/(?!(ng2-awesome-disqus|ng2-sharebuttons)\/).*/,
                 loader: 'babel-loader'
+            }, {
+                test: /\.json$/,
+                loader: 'json'
             },
-            { test: /\.json$/, loader: 'json' },
             // .ts files for TypeScript
-            { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
-            { test: /\.css$/, loaders: ['to-string-loader', 'css-loader','postcss-loader'] },
-            { test: /\.html$/, loader: 'raw-loader' },
-            { test: /\.scss$/, exclude: /node_modules/, loaders: ["raw-loader", "postcss-loader" ,"sass-loader" ] },
-            // { test: /\.scss$/, exclude:/node_modules/, loaders: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")},
-            //{test: /\.svg/, loader: 'svg-url-loader'},
+            {
+                test: /\.ts$/,
+                loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+            }, {
+                test: /\.css$/,
+                loaders: ['to-string-loader', 'css-loader', 'postcss-loader']
+            }, {
+                test: /\.html$/,
+                loader: 'raw-loader'
+            }, {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                loaders: ["raw-loader", "postcss-loader", "sass-loader"]
+            },
+            // { test: /\.scss$/, exclude:/node_modules/, loaders:
+            // ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")}, {test:
+            // /\.svg/, loader: 'svg-url-loader'},
             {
                 test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin 
-                // loader: "url?limit=10000" 
+                // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract
+                // text plugin loader: "url?limit=10000"
                 loader: "url"
-            },
-            {
+            }, {
                 test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
                 loader: 'file'
-            },
-            {
+            }, {
                 test: /\.(jpe?g|png|gif)$/i,
-                loaders: [
-                    'file?hash=sha512&digest=hex&name=[hash].[ext]',
-                    'image-webpack'
-                ]
+                loaders: ['file?hash=sha512&digest=hex&name=[hash].[ext]', 'image-webpack']
             }
         ]
     },
@@ -71,10 +91,10 @@ var webpackConfig = {
             speed: 4
         },
         svgo: {
-            plugins: [{
-                    removeViewBox: false
-                },
+            plugins: [
                 {
+                    removeViewBox: false
+                }, {
                     removeEmptyAttrs: false
                 }
             ]
@@ -85,7 +105,6 @@ var webpackConfig = {
     }
 
 };
-
 
 // Our Webpack Defaults
 var defaultConfig = {
@@ -99,14 +118,19 @@ var defaultConfig = {
     },
 
     resolve: {
-        modulesDirectories: ['node_modules','src/resources'],
+        modulesDirectories: [
+            'node_modules', 'src/resources'
+        ],
         root: [path.join(__dirname, 'src')],
         extensions: ['', '.ts', '.js', '.json', '.scss']
     },
 
     devServer: {
         historyApiFallback: true,
-        watchOptions: { aggregateTimeout: 300, poll: 1000 }
+        watchOptions: {
+            aggregateTimeout: 300,
+            poll: 1000
+        }
     },
 
     node: {

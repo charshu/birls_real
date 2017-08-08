@@ -129,47 +129,49 @@ export class NavBar {
         },{
             label: 'Life Style',
             link: 'life-style/all',
-            groups: [{
-                    title: 'Mood board',
-                    style: 1,
-                    items: [
-                        {
-                            img: './../../../resources/img/menu/all.jpg',
-                            desc: 'All Life Style',
-                            url: 'life-style/all',
-                            active: false
-                        }
-                    ]
-                },{
-                    title: 'By Category',
-                    style: 2,
-                    items: [
-                        {
-                            img: './../../../resources/img/menu/diary.jpg',
-                            desc: 'Travel',
-                            url: 'life-style/travel',
-                            active: false
-                        },
-                        {
-                            img: './../../../resources/img/menu/crew.jpg',
-                            desc: 'Do',
-                            url: 'life-style/do',
-                            active: false
-                        },
-                        {
-                            img: './../../../resources/img/menu/crew.jpg',
-                            desc: 'Listen',
-                            url: 'life-style/listen',
-                            active: false
-                        },
-                        {
-                            img: './../../../resources/img/menu/crew.jpg',
-                            desc: 'See',
-                            url: 'life-style/see',
-                            active: false
-                        }
-                    ]
-                }],
+            groups: [
+                // {
+                //     title: 'Mood board',
+                //     style: 1,
+                //     items: [
+                //         {
+                //             img: './../../../resources/img/menu/all.jpg',
+                //             desc: 'All Life Style',
+                //             url: 'life-style/all',
+                //             active: false
+                //         }
+                //     ]
+                // },{
+                //     title: 'By Category',
+                //     style: 2,
+                //     items: [
+                //         {
+                //             img: './../../../resources/img/menu/diary.jpg',
+                //             desc: 'Travel',
+                //             url: 'life-style/travel',
+                //             active: false
+                //         },
+                //         {
+                //             img: './../../../resources/img/menu/crew.jpg',
+                //             desc: 'Do',
+                //             url: 'life-style/do',
+                //             active: false
+                //         },
+                //         {
+                //             img: './../../../resources/img/menu/crew.jpg',
+                //             desc: 'Listen',
+                //             url: 'life-style/listen',
+                //             active: false
+                //         },
+                //         {
+                //             img: './../../../resources/img/menu/crew.jpg',
+                //             desc: 'See',
+                //             url: 'life-style/see',
+                //             active: false
+                //         }
+                //     ]
+                // }
+            ],
             active: false
         }, {
             label: 'Runway',

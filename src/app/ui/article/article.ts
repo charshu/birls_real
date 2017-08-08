@@ -44,6 +44,7 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
   tumblrInner = `<div class="circle tumblr">
                     <i class="fa fa-tumblr" aria-hidden="true"></i>
                 </div>`;
+  images:Array<any> = [{"sType":"img","imgSrc":"..."},{"sType":"div","content":"...Hello It's slidable content"}];
   calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
     var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
     return { width: srcWidth * ratio, height: srcHeight * ratio };
@@ -75,6 +76,7 @@ export class Article implements OnInit, AfterViewInit, OnDestroy {
         this.author = res.getText('article.author');
         this.date = res.getDate('article.date');
         this.image = res.getImage('article.post-image');
+        this.images[0].imgSrc = this.image.url;
         this.slices = res.getSliceZone('article.body').slices
         this.tags = res.tags;
          this.prismicService.api().then((api) => api.query([Prismic.Predicates.similar(this.document.id, 3)

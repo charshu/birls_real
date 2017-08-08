@@ -3,6 +3,7 @@ import {Http, Headers} from '@angular/http';
 import {Inject} from '@angular/core';
 require("!style-loader!css-loader!sass-loader!resources/styles/index.scss");
 require("!style-loader!css-loader!sass-loader!resources/font/_flaticon.scss");
+require("!style-loader!css-loader!resources/font/bebas_neue.css");
 require("!style-loader!css-loader!font-awesome/css/font-awesome.css");
 require("!style-loader!css-loader!resources/styles/animations.css");
 require("!style-loader!css-loader!resources/lib/angular2-image-popup/directives/angular2-image-popup/css/style.css");
@@ -31,6 +32,8 @@ export class AppComponent{
  
   ngOnInit() {
     const repoEndpoint = this.endpoint.replace("/api", "");
-    this.http.post(repoEndpoint + '/app/settings/onboarding/run', {}, new Headers({"Content-Type": "application/x-www-form-urlencoded", 'Access-Control-Allow-Origin': '*'})).subscribe(res=>null,error => null)
+    let headers = new Headers({"Content-Type": "application/x-www-form-urlencoded", 'Access-Control-Allow-Origin': '*'});
+    
+    this.http.post(repoEndpoint + '/app/settings/onboarding/run', {},{ headers } ).subscribe(res=>null,error => null)
   }
 }

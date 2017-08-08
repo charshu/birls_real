@@ -5,7 +5,7 @@
         <div class="cover">
             <div class="row justify-content-center">
                 <div class="col-sm-12 center">
-                    <h1 class="shadow2">Fashion Runway</h1>
+                    <h1 class="shadow2 title">Runway</h1>
                 </div>
             </div>
             <div class="row justify-content-center select-container">
@@ -42,14 +42,15 @@
         <h2>All Collection</h2>
     </div>
     <div id="collection-section" class="row">
-        <template ngFor let-document [ngForOf]="documents | myfilter : { brand:selected.brand,season:selected.season}" let-i="index">
-            <div *ngIf="i < card_per_page" class="col-sm-12 col-md-2">
-                <collection-card [showDate]="false" [document]="document" [cardSize]="1" [textSize]="1.1" [styleNumber]="1"></collection-card>
-            </div>
-        </template>
-        <!--<div class="torn"></div>-->
+        <div class="col-md-10 card-centered">
+            <template ngFor let-document [ngForOf]="documents | myfilter : { brand:selected.brand,season:selected.season}" let-i="index">
+                <div *ngIf="i < card_per_page" class="col-sm-12 col-md-2">
+                    <collection-card [showDate]="false" [document]="document" [cardSize]="1" [textSize]="0.9" [styleNumber]="1"></collection-card>
+                </div>
+            </template>
+        </div>
     </div>
-    <div class="more" (click)="more()">More..</div>
+    <div class="more" (click)="more()">More</div>
 </div>
 <!--loading-->
 <div class="loading" *ngIf="!loaded">

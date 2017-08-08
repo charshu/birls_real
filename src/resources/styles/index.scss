@@ -1,5 +1,6 @@
 @import "~styles/color";
 @import "~styles/media-query";
+@import "~styles/font";
 
 html {
     margin: 0px;
@@ -10,9 +11,7 @@ html {
 
 body {
     margin: 0px;
-    font-family: 'PT Serif', sans-serif!important;
     background-color: #F6F6F6!important;
-    color: #3f3f3f;
     min-height: 100%;
 }
 
@@ -23,20 +22,7 @@ body {
 .carousel-control{
     width: 8%!important;
 }
-.require {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    span {
-        font-size: 1em;
-        color: #555;
-        font-weight: 700;
-        border: 1px solid #CCC;
-        border-radius: 5px;
-        padding: 10px;
-    }
-}
+
 .justify-content-center{
     display: flex;
     flex-direction: row;

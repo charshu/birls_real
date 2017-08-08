@@ -91,8 +91,16 @@ export class CollectionCard implements OnInit {
       this.paragraph = this.document.getFirstParagraph();
       this.desc = this.paragraph !== null ? this.paragraph.text : '';
       if (this.desc.length >= this.limit) {
-        this.desc = this.desc.substring(0, this.limit);
-        this.desc = this.desc.substring(0, Math.min(this.desc.length, this.desc.lastIndexOf(' '))) + '...';
+        // this.desc = this.desc.substring(0, this.limit);
+        // this.desc = this.desc.substring(0, Math.min(this.desc.length, this.desc.lastIndexOf(' '))) + '...';
+        
+      this.desc = this.desc.substring(0,this.limit);
+      this.desc = this.desc.substring(0,this.desc.lastIndexOf(' '));
+      let regexp = /[a-zA-Z]/;
+      while(!regexp.test(this.desc[this.desc.length-1])){
+          this.desc = this.desc.substring(0,this.desc.length-1);
+      }
+
         this.isMore = true;
       }
     }

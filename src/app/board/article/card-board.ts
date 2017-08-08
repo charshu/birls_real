@@ -79,6 +79,7 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
   isAll : boolean;
   page: number = 1;
   pageSize: number = 10;
+  currentUrl: string;
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -132,6 +133,7 @@ export class CardBoardComponent implements OnInit, AfterViewInit, OnDestroy {
       this.pageloaded = false;
       this.image = null;
       document.body.scrollTop = 0;
+      this.currentUrl = this.router.url;
       if (params['category']) {
         this.category = params['category'];
         console.log(this.category)

@@ -2,6 +2,7 @@
        width: auto;
        height: auto;
        margin-bottom: 20px;
+       cursor: pointer;
    }
 
    h1,
@@ -49,7 +50,7 @@
    #board-card,
    #related-card {
        h1 {
-           font-size: 1.70em;
+           font-size: 1.5em;
        }
        h2 {
            font-size: 1.00em;

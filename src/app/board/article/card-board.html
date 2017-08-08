@@ -10,7 +10,7 @@
     <div id="all-fashion" *ngIf="router.url==='/fashion/all'" class="container-fluid">
         <div class="row visible-lg-block" style="border-bottom: 5px solid black;margin-bottom:10px;">
             <div class="col-md-10 card-centered">
-                <div class="title">
+                <div class="title" style="margin-bottom:20px;">
                     FASHION
                 </div>
                 <masonry [useImagesLoaded]="true" [options]="{transitionDuration: '0.8s',gutter:30}">
@@ -127,7 +127,7 @@
 
     <!--all article in category with menu-->
     <div *ngIf="isAll" class="container-fluid">
-        <div class="row white" style="min-height:500px;">
+        <div class="row white" style="min-height:500px;padding-top:50px;">
             <div *ngIf="categoryLoaded" class="col-md-10 card-centered">
                 <masonry [useImagesLoaded]="true" [options]="{columnWidth:'.brick', transitionDuration: '0.8s',gutter:40, stamp:'.stamp',percentPosition: true }">
                     <div [style.display]="currentUrl ==='/life-style/all'?'inherit':'none'" class="stamp stamp1 title super-big">

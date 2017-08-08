@@ -108,7 +108,7 @@ calculateImageLimit(windowWidth,imageWidth,gutter){
       ], {
         orderings: '[my.article.date desc]',
         'fetchLinks': 'category.name',
-        pageSize: 4
+        pageSize: 6
       }))
       .then((response) => {
         this.fashion_docs = response.results;
@@ -242,7 +242,7 @@ calculateImageLimit(windowWidth,imageWidth,gutter){
       ], {
         orderings: '[my.article.date desc]',
         'fetchLinks': 'category.name',
-        pageSize: 4
+        pageSize: 5
       }))
       .then((response) => {
         this.life_styles_docs = response.results;

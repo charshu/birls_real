@@ -1,5 +1,7 @@
 @import "~styles/color";
 @import "~styles/media-query";
+@import "~styles/font";
+
 #logo-container {
     position: relative;
     display: flex;
@@ -69,14 +71,10 @@ section {
     height: 500px;
 }
 
-#cardboard-section {
-    z-index: 120;
-    position: relative;
-    border-bottom: 1px solid #CCC;
-}
+
 
 .title {
-    font-family: 'Oswald', sans-serif;
+    
     font-weight: 600;
     font-size: 42px;
     text-align: center;

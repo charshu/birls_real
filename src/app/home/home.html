@@ -50,8 +50,6 @@
     </div>
 
     <div class="container-fluid">
-        <div id="cardboard-section" class="row">
-            <div class="col-sm-12 col-md-12">
                 <!--fashion-->
                 <div class="row white border-zone">
                     <div id="fashion-section" class="col-sm-12 col-md-10 card-centered">
@@ -64,8 +62,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4 col-md-4 " *ngFor="let document of fashion_docs.slice(1,4);let i = index">
-                                <card [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
+                            <div class="col-sm-4 col-md-4" *ngFor="let document of fashion_docs.slice(0,6);let i = index">
+                                <div class="col-sm-12 col-md-11 col-md-offset-1">
+                                    <card [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
+                                </div>
+
                             </div>
                         </div>
                         <!--<div class="row">
@@ -114,7 +115,7 @@
                 </div>
                 <!--beauty-->
                 <div id="beauty-section" class="row white border-zone">
-                    <div  class="col-sm-12 col-md-10 card-centered">
+                    <div class="col-sm-12 col-md-10 card-centered">
                         <div class="title">
                             <!--<div class="svg-icon svg-baseline">
                                     <img class="svg" src="./../../resources/svg/perfume.svg" alt="">
@@ -161,7 +162,7 @@
                 </div>
                 <!--life styles-->
                 <div id="life-style-section" class="row white border-zone">
-                    <div  class="col-sm-12 col-md-10 card-centered">
+                    <div class="col-sm-12 col-md-10 card-centered">
                         <div class="title">
                             <!--<div class="svg-icon svg-baseline">
                                     <img class="svg" src="./../../resources/svg/perfume.svg" alt="">
@@ -174,10 +175,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-3 col-md-4 " *ngFor="let document of life_styles_docs.slice(1,4);let i = index">
+                            <div class="col-sm-3 col-md-3 " *ngFor="let document of life_styles_docs.slice(1,5);let i = index">
                                 <card [document]="document" [styleNumber]="1" [imageHeight]="200" [limit]="70"></card>
                             </div>
-                           
+
                         </div>
                         <div class="row">
                             <div class="col-sm-12 col-md-12 flex-row-center">
@@ -211,8 +212,8 @@
                     </div>
 
                 </div>
-                <!--beauty-->
-                <div class="row white">
+                <!--KRISTABIRLSLIKEAGIRLS-->
+                <div class="row white border-zone">
                     <div class="col-sm-12 col-md-10 card-centered">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 title">
@@ -225,8 +226,11 @@
                         <div class="row card-board">
                             <div class="col-sm-12 col-md-12">
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-6 justify-content-center " *ngFor="let document of talent_docs.slice(0,2);let i = index">
-                                        <card [document]="document" [styleNumber]="1" [imageHeight]="300" [limit]="70"></card>
+                                    <div class="col-sm-6 col-md-4 justify-content-center " *ngFor="let document of talent_docs.slice(0,3);let i = index">
+                                        <div class="col-sm-12 col-md-11 col-md-offset-1">
+                                            <card [document]="document" [styleNumber]="1" [imageHeight]="300" [limit]="70"></card>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -240,7 +244,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <!--<div class="col-sm-12 col-md-4 ">
                     <div id="video" class="row justify-content-center">
                         <div class="col-sm-12 col-md-9">
@@ -281,8 +284,6 @@
                 </div>-->
 
 
-
-        </div>
 
 
     </div>

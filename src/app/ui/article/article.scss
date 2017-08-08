@@ -11,7 +11,7 @@
     h1 {
         font-size: 1.7em;
         font-weight: 700;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
     }
     
     h3 {
@@ -46,11 +46,11 @@
     
     .article-title h1 {
         padding: 0px 20px 0px 0px;
-        margin-bottom: 10px;
+        margin-bottom: 4px;
     }
     
     .article-category {
-        margin: 10px 0 10px 0 !important;
+        margin: 4px 0px !important;
         color: darkgrey;
     }
     
@@ -92,7 +92,7 @@
     #related-article {
         border-top: 1px solid #CCC!important;
         .title {
-            font-size: 1.2em;
+            font-size: 1.6em;
             font-weight: bold;
             padding: 10px;
         }
