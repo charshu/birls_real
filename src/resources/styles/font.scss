@@ -29,18 +29,13 @@ footer {
     color: #555;
 }
 
-// h1 {
-//     font-family: 'PT Serif', sans-serif;
-//     color: white;
-//     font-size: 4em;
-//     font-weight: 700;
-// }
+h1 {
+    font-family: 'PT Serif', sans-serif;
+}
 
-// h2 {
-//     font-family: 'Open Sans', sans-serif;
-//     font-size: 3.5em;
-//     font-weight: 700;
-// }
+h2 {
+    font-family: $my-title-font-family, sans-serif !important;
+}
 
 // h3 {
 //     font-size: 3em;

@@ -18,7 +18,7 @@ export class InstagramService {
             'Accept': '*/*'
         });
         let CORS_HOST = 'http://52.221.253.11:8081';
-        let IG_API = 'https://www.instagram.com/kristabirlslikesagirls/media/';
+        let IG_API = '/https://www.instagram.com/kristabirlslikesagirls/media/';
         // if(process.env.NODE_ENV === 'production'){
         //     CORS_HOST = 'http://birlsmagazine.com/https://www.instagram.com/kristabirlslikesagirls/media/';
         // }
